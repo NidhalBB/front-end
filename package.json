@@ -14,6 +14,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~10.1.7",
+    "@angular/compiler-cli": "~10.1.6",
     "@angular/animations": "~10.1.6",
     "@angular/cdk": "^10.2.5",
     "@angular/common": "~10.1.6",
@@ -37,8 +39,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",
-    "@angular/cli": "~10.1.7",
-    "@angular/compiler-cli": "~10.1.6",
+    
     "@angular/language-service": "~10.1.6",
     "@angular/localize": "^10.1.6",
     "@types/chartist": "^0.11.0",
