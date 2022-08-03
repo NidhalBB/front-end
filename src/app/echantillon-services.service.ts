@@ -35,12 +35,13 @@ export class EchantillonService {
 
       formData.append('file', file);
 
-      const req = new HttpRequest('POST', `${this.baseUrl}`+'addfile', formData, {
-      reportProgress: true,
-       responseType: 'json'
-    });
-      console.log(req);
+      const req = new HttpRequest('POST', `${this.baseUrl}`+'addfile', formData);
+      console.log(formData);
       return this.http.request(req);
     }
+
+    getFiles(): Observable<any> {
+    return this.http.get(`${this.baseUrl}files`);
+  }
 
 }

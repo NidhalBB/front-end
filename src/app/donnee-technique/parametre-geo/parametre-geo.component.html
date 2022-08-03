@@ -7,7 +7,7 @@
     <div class="col-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <form class="forms-sample" (ngSubmit)="onSubmit()" #parametreGeoForm="ngForm" enctype="multipart/form-data">
+          <form class="forms-sample"  #parametreGeoForm="ngForm" enctype="multipart/form-data">
             <div class="form-group">
               <label for="exampleInputName1">Substance</label>
               <input type="text" [(ngModel)]="parametreGeo.substance" class="form-control" id="substance" name="substance" >
@@ -46,9 +46,9 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Example file input</label>
-                <input type="file" [(ngModel)]="parametreGeo.carte" class="form-control-file" id="file" name="file">
+                <input type="file" (change)="selectFile($event)" />
               </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" (click)="upload()" class="btn btn-gradient-primary mr-2">Submit</button>
           </form> 
         </div>
       </div>

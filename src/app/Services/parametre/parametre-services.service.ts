@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient ,HttpHeaders  } from '@angular/common/http';
+import { HttpClient ,HttpEvent,HttpHeaders, HttpRequest  } from '@angular/common/http';
 import {  ParametreGeo } from '../../donnee-technique/parametre-geo/parametre-geo.component';
 import { Observable } from 'rxjs';
 
@@ -21,4 +21,17 @@ export class ParametreService {
   public edit(id : string) {
     return this.http.get<ParametreGeo>(`${this.baseUrl}`+`getuser/${id}`);
   }
+   upload(file: File , parametre :ParametreGeo): Observable<HttpEvent<any>> {
+      const formData: FormData = new FormData();
+
+      formData.append('file', file);
+
+      const req = new HttpRequest('POST', `${this.baseUrl}`+'addparametre', {formData ,parametre} ,{
+        reportProgress: true,
+        responseType: 'json'
+      });
+      console.log(formData);
+      console.log(parametre);
+      return this.http.request(req);
+    }
 }
