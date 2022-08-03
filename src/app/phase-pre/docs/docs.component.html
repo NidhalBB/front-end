@@ -1,0 +1,17 @@
+<form enctype="multipart/form-data">
+  <div class="row">
+      <div class="col-sm-3">
+          <div class="form-group">
+              <label for="inputLastName" class="label">Attachment</label>
+              <input type="file" name="file">
+          </div>
+      </div>
+
+      <div class="col-sm-6">
+          <div class="form-group">
+              <button type="submit" nbButton size="small" (click)="onSubmit()"
+                  status="primary">Save</button>
+          </div>
+      </div>
+  </div>
+</form>

@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Création d'Echantillon</h4>
+            <p class="card-description">
+              Basic form elements
+            </p>
+          <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onEdit(echantillon.id)">
+            <div class="form-group">
+              <label for="exampleInputName1">Num Echantillon</label>
+              <input type="text" value="{{echantillon.numEchantillon}}" 
+              class="form-control" 
+              id="numEchantillon" 
+              name="numEchantillon" 
+              disabled>   
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail3">Nom du Labo</label>
+              <input type="text" value="{{echantillon.labo.nom}}" 
+              name = "nom"
+              class="form-control" id="nomlabo" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail3">Adress Labo</label>
+                <input type="text" name = "address" value="{{echantillon.labo.address}}"  class="form-control" id="adress" disabled>
+            </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">Quantiteé</label>
+                <input type="text" name = "quantite" value="{{echantillon.quantite}}"  class="form-control" id="quantite" disabled>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail3">Taux de Si </label>
+                <input type="text" name = "si"  [(ngModel)]="echantillon.tauxSi" class="form-control" id="si" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail3">Taux Fe</label>
+                <input type="text" name = "fe" [(ngModel)]="echantillon.tauxFe" class="form-control" id="fe" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail3">Analyse Granulumetrie</label>
+                <input type="file" name = "image"  [(ngModel)]="echantillon.ag" class="form-control" id="ag" >
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

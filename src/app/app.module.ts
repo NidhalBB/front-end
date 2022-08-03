@@ -16,6 +16,12 @@ import { TodoComponent } from './apps/todo-list/todo/todo.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
+import { ParametreGeoComponent } from './donnee-technique/parametre-geo/parametre-geo.component';
+import { HttpClientModule} from '@angular/common/http';
+import { EchantillonService } from './echantillon-services.service';
+import { ParametreService } from './Services/parametre/parametre-services.service';
+import { EquipementsService } from './Services/equipements/equipements.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +33,8 @@ import { TodoListComponent } from './apps/todo-list/todo-list.component';
     TodoListComponent,
     TodoComponent,
     SpinnerComponent,
-    ContentAnimateDirective
+    ContentAnimateDirective,
+    ParametreGeoComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +43,10 @@ import { TodoListComponent } from './apps/todo-list/todo-list.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule,
   ],
-  providers: [ThemeService],
+  providers: [EchantillonService,ParametreService,EquipementsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

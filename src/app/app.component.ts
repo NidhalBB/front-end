@@ -7,7 +7,7 @@ import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConf
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit{
-  title = 'demo1';
+  
 
   showSidebar: boolean = true;
   showNavbar: boolean = true;

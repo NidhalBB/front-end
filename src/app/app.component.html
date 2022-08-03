@@ -2,14 +2,13 @@
   <app-navbar *ngIf="showNavbar"></app-navbar>
   <div class="container-fluid page-body-wrapper">
     <app-sidebar *ngIf="showSidebar"></app-sidebar>
-    <div class="main-panel" [ngClass]="{ 'main-panel-only' : !showSidebar }">
+    <div class="main-panel" >
       <div class="content-wrapper">
         <app-spinner *ngIf="isLoading"></app-spinner>
         <div contentAnimate *ngIf="!isLoading" class="h-100">
           <router-outlet></router-outlet>
         </div>
       </div>
-      <app-footer *ngIf="showFooter"></app-footer>
       <!-- partial -->
     </div>
     <!-- main-panel ends -->
