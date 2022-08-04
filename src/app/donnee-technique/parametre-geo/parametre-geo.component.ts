@@ -31,6 +31,7 @@ export class ParametreGeoComponent implements OnInit {
   currentFile: File;
   progress = 0;
   message = '';
+  i = 0;
 
   fileInfos: Observable<any>;
   constructor(private parametreService: ParametreService) {
@@ -46,23 +47,10 @@ export class ParametreGeoComponent implements OnInit {
   }
   upload() {
     this.progress = 0;
+    this.currentFile = this.selectedFiles.item(this.i);
+    this.parametreService.upload(this.currentFile, this.parametreGeo).subscribe();
     
-    this.currentFile = this.selectedFiles.item(1);
-    this.parametreService.upload(this.currentFile, this.parametreGeo).subscribe(
-      event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
-        } else if (event instanceof HttpResponse) {
-          this.message = event.body.message;
-        }
-      },
-      err => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
-      });
-
-    this.selectedFiles = undefined;
+    this.i++;
   }
   ngOnInit(): void {
   }

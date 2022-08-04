@@ -34,7 +34,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail3">Couleur</label>
-                <input type="text" [(ngModel)]="parametreGeo.couleur" class="form-control" id="formation" name="formation">
+                <input type="color" [(ngModel)]="parametreGeo.couleur" class="form-control" id="formation" name="formation">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail3">Reserve</label>
@@ -44,11 +44,13 @@
                 <label for="exampleInputEmail3">Volume</label>
                 <input type="text" class="form-control" id="volume" value="{{parametreGeo.epaisseur}}" disabled name="volume">
               </div>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Example file input</label>
+              <label class="btn btn-default">
                 <input type="file" (change)="selectFile($event)" />
-              </div>
-            <button type="submit" (click)="upload()" class="btn btn-gradient-primary mr-2">Submit</button>
+              </label>
+              
+              <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+                Upload
+              </button>
           </form> 
         </div>
       </div>
