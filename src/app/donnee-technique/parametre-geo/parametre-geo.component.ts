@@ -46,12 +46,28 @@ export class ParametreGeoComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
   upload() {
-    this.progress = 0;
-    this.currentFile = this.selectedFiles.item(this.i);
-    this.parametreService.upload(this.currentFile, this.parametreGeo).subscribe();
+    if (this.selectedFiles) {
+      let file: File | null = null;
+      const formData: FormData = new FormData();
+   
+      for (let i = 0; i < this.selectedFiles.length; i++) {
+         file = this.selectedFiles.item(i);
+         if (file) {
+            formData.append(`file`, file);
+         }
+      }
+      for ( var key in this.parametreGeo ) {
+        formData.append(key, this.parametreGeo[key]);
+    }
+      
+
+    this.parametreService.upload(formData).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.log(error),
+    });
+     this.selectedFiles = undefined;
     
-    this.i++;
-  }
+  }}
   ngOnInit(): void {
   }
 

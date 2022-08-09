@@ -29,19 +29,10 @@ export class EchantillonService {
   public find(id : string) {
     return this.http.get<Echantillon>(`${this.baseUrl}`+`getechantillon/${id}`);
   }
-
-  upload(file: File): Observable<HttpEvent<any>> {
-      const formData: FormData = new FormData();
-
-      formData.append('file', file);
-
-      const req = new HttpRequest('POST', `${this.baseUrl}`+'addfile', formData);
-      console.log(formData);
-      return this.http.request(req);
-    }
-
-    getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}files`);
+ 
+  public upload(para: FormData , id :string) {
+    console.log(para);
+    return this.http.post<Echantillon>(`${this.baseUrl}`+`editechantillon/${id}`, para);
   }
 
 }

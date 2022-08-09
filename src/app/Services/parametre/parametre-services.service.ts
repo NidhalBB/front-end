@@ -21,14 +21,8 @@ export class ParametreService {
   public edit(id : string) {
     return this.http.get<ParametreGeo>(`${this.baseUrl}`+`getuser/${id}`);
   }
-   upload(file: File , parametreGeo :ParametreGeo): Observable<HttpEvent<any>> {
-      const formData: FormData = new FormData();
-      formData.append('parametreGeo', JSON.stringify(parametreGeo));
-      formData.append('file', file);
-
-      const req = new HttpRequest('POST', `${this.baseUrl}`+'addparametre', formData);
-      console.log(formData.get('parametreGeo'));
-      
-      return this.http.request(req).pipe();
-    }
+  public upload(para: FormData) {
+    return this.http.post<ParametreGeo>(`${this.baseUrl}`+'addparametre', para);
+  }
+  
 }

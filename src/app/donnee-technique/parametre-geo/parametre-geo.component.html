@@ -44,10 +44,11 @@
                 <label for="exampleInputEmail3">Volume</label>
                 <input type="text" class="form-control" id="volume" value="{{parametreGeo.epaisseur}}" disabled name="volume">
               </div>
+              <form class="forms-sample" enctype="multipart/form-data">
               <label class="btn btn-default">
                 <input type="file" (change)="selectFile($event)" />
               </label>
-              
+              </form>
               <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
                 Upload
               </button>

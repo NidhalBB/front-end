@@ -6,7 +6,7 @@
             <p class="card-description">
               Basic form elements
             </p>
-          <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onEdit(echantillon.id)">
+          <form class="forms-sample" enctype="multipart/form-data">
             <div class="form-group">
               <label for="exampleInputName1">Num Echantillon</label>
               <input type="text" value="{{echantillon.numEchantillon}}" 
@@ -37,11 +37,12 @@
                 <label for="exampleInputEmail3">Taux Fe</label>
                 <input type="text" name = "fe" [(ngModel)]="echantillon.tauxFe" class="form-control" id="fe" >
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail3">Analyse Granulumetrie</label>
-                <input type="file" name = "image"  [(ngModel)]="echantillon.ag" class="form-control" id="ag" >
-            </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <form class="forms-sample" enctype="multipart/form-data">
+              <label class="btn btn-default">
+                <input type="file" (change)="selectFile($event)" />
+              </label>
+              </form>
+            <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onEdit(echantillon.id)">Submit</button>
           </form>
         </div>
       </div>
