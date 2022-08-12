@@ -20,17 +20,59 @@
       </a>
     </li>
     
-    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || equipements.isActive }">
+    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || equipements.isActive || prospection.isActive || exploration.isActive}">
       <a class="nav-link" (click)="donneetechnique = !donneetechnique" [attr.aria-expanded]="donneetechnique" aria-controls="donneetechnique">
-        <span class="menu-title">Donneés Techniques</span>
+        <span class="menu-title">Exploration minérale</span>
         <i class="menu-arrow"></i>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>
       <div class="collapse" id="donneetechnique" [ngbCollapse]="!donneetechnique">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="DonnéesTechniques/ParametreGeologique" routerLinkActive="active" #parametre="routerLinkActive">Les paramètres géologiques</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="DonnéesTechniques/LesEquipements" routerLinkActive="active" #equipements="routerLinkActive">Les Equipements</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/ParametreGeologique" routerLinkActive="active" #parametre="routerLinkActive">Les paramètres géologiques</a></li>
+          <li class="nav-item" [ngClass]="{'active' :echantillon.isActive || permis.isActive}">
+            <a class="nav-link" (click)="prospection = !prospection" [attr.aria-expanded]="prospection" aria-controls="prospection">
+              <span class="menu-title"> Prospection et exploration préliminaire</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="prospection" [ngbCollapse]="!prospection">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/echantillon" routerLinkActive="active" #echantillon="routerLinkActive">Création des échantillons </a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/permis" routerLinkActive="active" #permis="routerLinkActive">Permis de recherche </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/exploration" routerLinkActive="active" #exploration="routerLinkActive">Exploration avancée</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/LesEquipements" routerLinkActive="active" #equipements="routerLinkActive">Les Equipements</a></li>
           </ul>
+      </div>
+    </li>
+    <li class="nav-item" [ngClass]="{'active' : labo.isActive || magasins.isActive || famille.isActive || sousFamille.isActive}">
+      <a class="nav-link" (click)="Gestion = !Gestion" [attr.aria-expanded]="Gestion" aria-controls="Gestion">
+        <span class="menu-title"> Gestion</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="Gestion" [ngbCollapse]="!Gestion">
+        <ul class="nav flex-column sub-menu">
+           <li class="nav-item"> <a class="nav-link" routerLink="gestion/FamilleProduit" routerLinkActive="active" #famille="routerLinkActive">Famille Produit</a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="gestion/SousFamille" routerLinkActive="active" #sousFamille="routerLinkActive">Les Sous Famille</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="gestion/labo" routerLinkActive="active" #labo="routerLinkActive">Labo</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="gestion/magasins" routerLinkActive="active" #magasins="routerLinkActive">Magasins</a></li>
+         
+          <li class="nav-item" [ngClass]="{'active' :produitFini.isActive || produitSemiFini.isActive || matier.isActive}">
+            <a class="nav-link" (click)="Produit = !Produit" [attr.aria-expanded]="Produit" aria-controls="Produit">
+              <span class="menu-title"> Produit</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="Produit" [ngbCollapse]="!Produit">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" routerLink="gestion/matiereacquise" routerLinkActive="active" #matier="routerLinkActive">Matiere </a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="gestion/ProduitSemifini" routerLinkActive="active" #produitSemiFini="routerLinkActive">Produit Semi Fini</a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="gestion/Produitfini" routerLinkActive="active" #produitFini="routerLinkActive">Prdouit Fini</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </li>
     <li class="nav-item" [ngClass]="{'active' : echantillon.isActive || indice.isActive || docs.isActive }">

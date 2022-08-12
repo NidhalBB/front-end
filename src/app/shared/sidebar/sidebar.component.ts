@@ -12,6 +12,9 @@ export class SidebarComponent implements OnInit {
   public EssaiPilote=false;
   public EtudeMarche=false;
   public donneetechnique=false;
+  public Gestion=false;
+  public Produit =false;
+  public prospection=false;
   constructor() { }
 
   ngOnInit() {

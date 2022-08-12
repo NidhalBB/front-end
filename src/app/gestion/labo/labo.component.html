@@ -1,0 +1,61 @@
+<div class="page-header">
+    <h3 class="page-title">
+        Laboratoire
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création des Laboratoire</h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #laboForm="ngForm">
+            <div class="form-group">
+              <label for="exampleInputUsername1">Désignation</label>
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="labo.designation"  placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Adresse</label>
+              <input type="email" class="form-control" name ="adresse" [(ngModel)]="labo.address"placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Mobile</label>
+                  <input type="text" class="form-control" name ="tele" [(ngModel)]="labo.tele"  placeholder="Mobile number">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Prix</label>
+                  <input type="text" class="form-control" name ="prix" [(ngModel)]="labo.prix" placeholder="Mobile number">
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List des Laboratoire</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Désignation</th>
+                    <th>Adresse</th>
+                    <th>Prix</th>
+                    <th>Mobile</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let labo of labos">
+                    <td>{{labo.designation}}</td>
+                    <td>{{labo.address}}</td>
+                    <td>{{labo.prix}}</td>
+                    <td>{{labo.tele}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

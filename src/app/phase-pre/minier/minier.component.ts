@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EchantillonService } from 'src/app/echantillon-services.service';
-import { Echantillon } from '../echantillon/echantillon.component';
+import { Echantillon } from '../../donnee-technique/echantillon/echantillon.component';
 
 @Component({
   selector: 'app-minier',

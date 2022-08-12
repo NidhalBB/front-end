@@ -5,7 +5,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'DonnéesTechniques', loadChildren: () => import('./donnee-technique/donnee-technique.module').then(m => m.DonneeTechniqueModule) },
+  { path: 'Explorationminérale', loadChildren: () => import('./donnee-technique/donnee-technique.module').then(m => m.DonneeTechniqueModule) },
+  { path: 'gestion', loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule) },
+
   { path: 'Phase-Preliminaire', loadChildren: () => import('./phase-pre/phase-pre.module').then(m => m.PhasePreModule) },
   { path: 'EssaiPilote', loadChildren: () => import('./essai-pilote/essai-pilote.module').then(m => m.EssaiPiloteModule) },
   { path: 'EtudeMarche', loadChildren: () => import('./etude-marche/etude-marche.module').then(m => m.EtudeMarcheModule) },

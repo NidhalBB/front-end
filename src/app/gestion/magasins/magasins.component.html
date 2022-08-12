@@ -1,0 +1,68 @@
+<div class="page-header">
+    <h3 class="page-title">
+        Laboratoire
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création des Laboratoire</h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #magasinForm="ngForm">
+            <div class="form-group">
+              <label for="exampleInputUsername1">Désignation</label>
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="magasin.designation"  placeholder="Username">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Hauteur</label>
+              <input type="number" class="form-control" name ="hauteur" [(ngModel)]="magasin.hauteur"placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Largeur</label>
+                  <input type="number" class="form-control" name ="largeur" [(ngModel)]="magasin.largeur"  placeholder="Mobile number">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Longueur</label>
+                  <input type="number" class="form-control" name ="longueur" [(ngModel)]="magasin.longueur" placeholder="Mobile number">
+            </div>
+            <div class="form-group">
+                <label for="exampleSelectGender">Famille Produits</label>
+                <select class="form-control" name ="famille" [(ngModel)]="magasin.familleProduit">
+                    <option [ngValue]="null" disabled>Famille Produits</option>
+                    <option *ngFor="let famille of familleProduits" [(value)]="famille.id_FamilleProduit" >{{famille.designation}}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List des Laboratoire</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Désignation</th>
+                    <th>Hauteur</th>
+                    <th>Largeur</th>
+                    <th>Longueur</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let magasin of magasins">
+                    <td>{{magasin.designation}}</td>
+                    <td>{{magasin.hauteur}}</td>
+                    <td>{{magasin.largeur}}</td>
+                    <td>{{magasin.longueur}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

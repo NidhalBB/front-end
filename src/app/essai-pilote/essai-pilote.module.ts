@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 const routes: Routes = [
   { path: 'equipementUtilise', component: EquipementUtiliseeComponent },
   { path: 'resultat', component: ResultatComponent },

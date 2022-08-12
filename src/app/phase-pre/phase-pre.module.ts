@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EchantillonComponent } from './echantillon/echantillon.component';
+import { EchantillonComponent } from '../donnee-technique/echantillon/echantillon.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DocsComponent } from './docs/docs.component';
 import { IndiceMComponent } from './indice-m/indice-m.component';

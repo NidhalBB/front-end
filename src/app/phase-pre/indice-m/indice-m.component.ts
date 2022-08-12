@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EchantillonService } from 'src/app/echantillon-services.service';
-import { Echantillon ,Labo} from '../echantillon/echantillon.component';
+import { Labo } from 'src/app/gestion/labo/labo.component';
+import { Echantillon} from '../../donnee-technique/echantillon/echantillon.component';
 
 @Component({
   selector: 'app-indice-m',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient ,HttpEvent,HttpHeaders, HttpRequest  } from '@angular/common/http';
-import { Echantillon , Labo } from './phase-pre/echantillon/echantillon.component';
+import { HttpClient ,HttpHeaders} from '@angular/common/http';
+import { Echantillon} from './donnee-technique/echantillon/echantillon.component';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
@@ -16,15 +16,13 @@ export class EchantillonService {
   constructor(private http: HttpClient) {
   }
  
-  public save(echantillon: Echantillon , labo :Labo) {
-    echantillon.SetLabo(labo);
-    console.log(echantillon.labo);
-    console.log(labo);
+  public save(echantillon: Echantillon) {
+    console.log(echantillon);
     return this.http.post<Echantillon>(`${this.baseUrl}`+'createechantillon',echantillon);
  }
   public findAll(): Observable<Echantillon[]> {
     return this.http.get<Echantillon[]>(`${this.baseUrl}`+'showAll');
-  }
+  }22
  
   public find(id : string) {
     return this.http.get<Echantillon>(`${this.baseUrl}`+`getechantillon/${id}`);

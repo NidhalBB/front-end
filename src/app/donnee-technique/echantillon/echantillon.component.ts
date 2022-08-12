@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Labo } from 'src/app/gestion/labo/labo.component';
+import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { EchantillonService } from '../../echantillon-services.service';
-
-export class Labo{
-  public id_labo:string;
-    public nom:string;
-    public address:string;
-    public echantillon:Echantillon;
-}
 
 export class Echantillon {
   public id:string;
@@ -14,19 +9,11 @@ export class Echantillon {
     public tauxSi:number;
     public tauxFe:number;
     public quantite:number;
-    public date:Date;
+    public dateP:Date;
+    public dateE:Date;
     public ag:File;
-    public labo:Labo;
-
-    public SetLabo (labo :Labo):void{
-        this.labo = labo;
-      }
-      public SetAg (ag :File):void{
-        this.ag = ag;
-      }
+    public labo:Labo
 }
-
-
 
 @Component({
   selector: 'app-echantillon',
@@ -37,18 +24,19 @@ export class EchantillonComponent implements OnInit {
 
   echantillons: Echantillon[];
   echantillon : Echantillon;
-  labo:Labo;
-  constructor(private echantillonService: EchantillonService) {
+  labos:Labo[];
+  constructor(private echantillonService: EchantillonService , private gestionService:GestionService) {
     this.echantillon = new Echantillon();
-    this.labo = new Labo();
    }
-
    onSubmit() {
-    this.echantillonService.save(this.echantillon,this.labo).subscribe();
-    
+    this.echantillonService.save(this.echantillon).subscribe();
   }
-
   ngOnInit(): void {
+    this.echantillonService.findAll().subscribe(data => {
+      this.echantillons = data;
+    })
+    this.gestionService.findAll().subscribe(data => {
+      this.labos = data;
+    })
   }
-
 }

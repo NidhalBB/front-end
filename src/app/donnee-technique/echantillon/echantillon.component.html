@@ -1,0 +1,73 @@
+<div class="page-header">
+  <h3 class="page-title">
+    Echantillon
+  </h3>
+</div>
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Création d'Echantillon</h4>
+        <form class="forms-sample" (ngSubmit)="onSubmit()" #echantillonForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputUsername1">Num Echantillon</label>
+            <input type="text" class="form-control" name ="numEchantillon" [(ngModel)]="echantillon.numEchantillon"  placeholder="Numero">
+          </div>
+          <div class="form-group">
+            <label for="exampleSelectGender">Les Labo</label>
+            <select class="form-control" name ="labo" [(ngModel)]="echantillon.labo">
+                <option *ngFor="let labo of labos" [(value)]="labo.id_Labo" >{{labo.designation}}</option>
+            </select>
+        </div>
+          <div class="form-group">
+            <label for="exampleInputMobile">Quantiteé</label>
+              <input type="number" class="form-control" name ="quantite" [(ngModel)]="echnatillon.quantite" >
+        </div>
+          <div class="form-group">
+              <label for="exampleInputMobile">Date d'expédition</label>
+                <input type="date" class="form-control" name ="dateE" [(ngModel)]="echnatillon.dateE" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMobile">Date du prélemvement </label>
+              <input type="date" class="form-control" name ="dateP" [(ngModel)]="echnatillon.dateP" >
+        </div>
+          <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+          <button type ="reset" class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List des Echantillons</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Num Echnatillon</th>
+                  <th>Quantité</th>
+                  <th>Date </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let echantillon of echantillons">
+                  <td>{{echantillon.numEchantillon}}</td>
+                  <td>{{echantillon.quantite}}</td>
+                  <td>{{echantillon.dateP}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
