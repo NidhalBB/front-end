@@ -7,6 +7,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'Explorationminérale', loadChildren: () => import('./donnee-technique/donnee-technique.module').then(m => m.DonneeTechniqueModule) },
   { path: 'gestion', loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule) },
+  { path: 'commercial', loadChildren: () => import('./commercial/commercial.module').then(m => m.CommercialModule) },
+
+ { path: 'achat', loadChildren: () => import('./achat/achat.module').then(m => m.AchatModule) },
 
   { path: 'Phase-Preliminaire', loadChildren: () => import('./phase-pre/phase-pre.module').then(m => m.PhasePreModule) },
   { path: 'EssaiPilote', loadChildren: () => import('./essai-pilote/essai-pilote.module').then(m => m.EssaiPiloteModule) },

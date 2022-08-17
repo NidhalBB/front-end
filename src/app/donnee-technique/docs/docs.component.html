@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Add Documents</h4>
+            
+                <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onSubmit()">
+                    <label class="btn btn-default">
+                      <input type="file" id="file[0]" (change)="selectFile($event)" />
+                    </label>
+                    <label class="btn btn-default">
+                        <input type="file" id="file[1]" (change)="selectFile($event)" />
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="file" id="file[2]" (change)="selectFile($event)" />
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="file" id="file[3]" (change)="selectFile($event)" />
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="file" id="file[4]" (change)="selectFile($event)" />
+                      </label>
+                      
+                      <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+                        Upload
+                      </button>
+                </form>
+            
+        </div>
+      </div>
+    </div>
+</div>

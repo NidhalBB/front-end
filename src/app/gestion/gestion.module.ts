@@ -11,6 +11,7 @@ import { ProduitSemifiniComponent } from './produit/produit-semifini/produit-sem
 import { ProduitfiniComponent } from './produit/produitfini/produitfini.component';
 import { FamilleProduitComponent } from './produit/famille-produit/famille-produit.component';
 import { SousFamilleComponent } from './produit/sous-famille/sous-famille.component';
+import { CreationProduitComponent } from './produit/creation-produit/creation-produit.component';
 
 
 const routes: Routes = [
@@ -21,10 +22,11 @@ const routes: Routes = [
   { path: 'Produitfini', component: ProduitfiniComponent },
   { path: 'FamilleProduit', component: FamilleProduitComponent },
   { path: 'SousFamille', component: SousFamilleComponent },
+  { path: 'creationProduit', component: CreationProduitComponent },
 ];
 
 @NgModule({
-  declarations: [LaboComponent, MagasinsComponent, MatiereacquiseComponent, ProduitSemifiniComponent, ProduitfiniComponent, FamilleProduitComponent, SousFamilleComponent],
+  declarations: [LaboComponent, MagasinsComponent, CreationProduitComponent,MatiereacquiseComponent, ProduitSemifiniComponent, ProduitfiniComponent, FamilleProduitComponent, SousFamilleComponent, CreationProduitComponent],
   imports: [
     CommonModule,
     NgbModule,

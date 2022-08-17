@@ -36,7 +36,7 @@ export class ParametreGeoComponent implements OnInit {
   fileInfos: Observable<any>;
   constructor(private parametreService: ParametreService) {
     this.parametreGeo = new ParametreGeo();
-   }
+   } 
 
    onSubmit() {
     this.parametreService.save(this.parametreGeo, this.parametreGeo.carte).subscribe();

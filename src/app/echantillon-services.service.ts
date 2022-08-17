@@ -22,7 +22,7 @@ export class EchantillonService {
  }
   public findAll(): Observable<Echantillon[]> {
     return this.http.get<Echantillon[]>(`${this.baseUrl}`+'showAll');
-  }22
+  }
  
   public find(id : string) {
     return this.http.get<Echantillon>(`${this.baseUrl}`+`getechantillon/${id}`);

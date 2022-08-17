@@ -1,0 +1,55 @@
+<div class="page-header">
+    <h3 class="page-title">
+        Clients
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création des Clients</h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #clientForm="ngForm">
+            <div class="form-group">
+              <label for="exampleInputUsername1">Désignation</label>
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="client.designation"  placeholder="designation">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Adresse</label>
+              <input type="text" class="form-control" name ="adresse" [(ngModel)]="client.address" placeholder="address">
+            </div> 
+            <div class="form-group">
+                <label for="exampleInputMobile">Téléphone </label>
+                  <input type="text" class="form-control" name ="tele" [(ngModel)]="client.tele"  placeholder="Mobile number">
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List des Clients</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Désignation</th>
+                    <th>Adresse</th>
+                    <th>Téléphone </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let client of clients">
+                    <td>{{client.designation}}</td>
+                    <td>{{client.address}}</td>
+                    <td>{{client.tele}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

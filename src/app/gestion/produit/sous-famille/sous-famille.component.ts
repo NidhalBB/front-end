@@ -5,7 +5,7 @@ import { FamillProduit } from '../famille-produit/famille-produit.component';
 export class SousFamille{
   public id:string;
   public designation:string;
-  public famille:FamillProduit;
+  public familleProduit	:FamillProduit;
 }
 @Component({
   selector: 'app-sous-famille',

@@ -20,7 +20,7 @@
       </a>
     </li>
     
-    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || equipements.isActive || prospection.isActive || exploration.isActive}">
+    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || equipements.isActive || exploration.isActive}">
       <a class="nav-link" (click)="donneetechnique = !donneetechnique" [attr.aria-expanded]="donneetechnique" aria-controls="donneetechnique">
         <span class="menu-title">Exploration minérale</span>
         <i class="menu-arrow"></i>
@@ -31,13 +31,13 @@
           <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/ParametreGeologique" routerLinkActive="active" #parametre="routerLinkActive">Les paramètres géologiques</a></li>
           <li class="nav-item" [ngClass]="{'active' :echantillon.isActive || permis.isActive}">
             <a class="nav-link" (click)="prospection = !prospection" [attr.aria-expanded]="prospection" aria-controls="prospection">
-              <span class="menu-title"> Prospection et exploration préliminaire</span>
+              <span class="menu-title"> Prospection</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="prospection" [ngbCollapse]="!prospection">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/echantillon" routerLinkActive="active" #echantillon="routerLinkActive">Création des échantillons </a></li>
-                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/permis" routerLinkActive="active" #permis="routerLinkActive">Permis de recherche </a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/docs" routerLinkActive="active" #permis="routerLinkActive">Permis de recherche </a></li>
               </ul>
             </div>
           </li>
@@ -59,13 +59,14 @@
           <li class="nav-item"> <a class="nav-link" routerLink="gestion/labo" routerLinkActive="active" #labo="routerLinkActive">Labo</a></li>
           <li class="nav-item"> <a class="nav-link" routerLink="gestion/magasins" routerLinkActive="active" #magasins="routerLinkActive">Magasins</a></li>
          
-          <li class="nav-item" [ngClass]="{'active' :produitFini.isActive || produitSemiFini.isActive || matier.isActive}">
+          <li class="nav-item" [ngClass]="{'active' :produitFini.isActive || produitSemiFini.isActive || matier.isActive|| creation.isActive}">
             <a class="nav-link" (click)="Produit = !Produit" [attr.aria-expanded]="Produit" aria-controls="Produit">
               <span class="menu-title"> Produit</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Produit" [ngbCollapse]="!Produit">
               <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" routerLink="gestion/creationProduit" routerLinkActive="active" #creation="routerLinkActive">Création Produit </a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/matiereacquise" routerLinkActive="active" #matier="routerLinkActive">Matiere </a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/ProduitSemifini" routerLinkActive="active" #produitSemiFini="routerLinkActive">Produit Semi Fini</a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/Produitfini" routerLinkActive="active" #produitFini="routerLinkActive">Prdouit Fini</a></li>
@@ -75,42 +76,29 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : echantillon.isActive || indice.isActive || docs.isActive }">
-      <a class="nav-link" (click)="PhasePreliminaire = !PhasePreliminaire" [attr.aria-expanded]="PhasePreliminaire" aria-controls="Phase-Preliminaire">
-        <span class="menu-title"> Phase-Préliminaire</span>
+    <li class="nav-item" [ngClass]="{'active' : client.isActive || commandeClient.isActive }">
+      <a class="nav-link" (click)="commercial = !commercial" [attr.aria-expanded]="commercial" aria-controls="commercial">
+        <span class="menu-title"> Commercial</span>
         <i class="menu-arrow"></i>
         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
-      <div class="collapse" id="Phase-Preliminaire" [ngbCollapse]="!PhasePreliminaire">
+      <div class="collapse" id="commercial" [ngbCollapse]="!commercial">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="Phase-Preliminaire/echantillon" routerLinkActive="active" #echantillon="routerLinkActive">Creation Echantillon</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="Phase-Preliminaire/indice" routerLinkActive="active" #indice="routerLinkActive">Indice Miniere</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="Phase-Preliminaire/docs" routerLinkActive="active" #docs="routerLinkActive">Documents</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="commercial/client" routerLinkActive="active" #client="routerLinkActive">Client</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="commercial/commandeClient" routerLinkActive="active" #commandeClient="routerLinkActive">Commande Client</a></li>
           </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : equipementUtilise.isActive || resultat.isActive }">
-      <a class="nav-link" (click)="EssaiPilote = !EssaiPilote" [attr.aria-expanded]="EssaiPilote" aria-controls="EssaiPilote">
-        <span class="menu-title"> Essai Pilote</span>
+    <li class="nav-item" [ngClass]="{'active' : fournisseur.isActive || commandeFournisseur.isActive }">
+      <a class="nav-link" (click)="achat = !achat" [attr.aria-expanded]="achat" aria-controls="achat">
+        <span class="menu-title"> Achat</span>
         <i class="menu-arrow"></i>
         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
-      <div class="collapse" id="EssaiPilote" [ngbCollapse]="!EssaiPilote">
+      <div class="collapse" id="achat" [ngbCollapse]="!achat">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="EssaiPilote/equipementUtilise" routerLinkActive="active" #equipementUtilise="routerLinkActive">Les Equipements Utiliseés</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="EssaiPilote/resultat" routerLinkActive="active" #resultat="routerLinkActive">Les Resultats</a></li>
-          </ul>
-      </div>
-    </li>
-    <li class="nav-item" [ngClass]="{'active' : preuves.isActive }">
-      <a class="nav-link" (click)="EtudeMarche = !EtudeMarche" [attr.aria-expanded]="EtudeMarche" aria-controls="EtudeMarche">
-        <span class="menu-title"> Etude Marcheé</span>
-        <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-      </a>
-      <div class="collapse" id="EtudeMarche" [ngbCollapse]="!EtudeMarche">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="EtudeMarche/LesPruves" routerLinkActive="active" #preuves="routerLinkActive">Les Preuves</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="achat/fournisseur" routerLinkActive="active" #fournisseur="routerLinkActive">Fournisseur</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="achat/commandeFournisseur" routerLinkActive="active" #commandeFournisseur="routerLinkActive">Commande Fournisseur</a></li>
           </ul>
       </div>
     </li>

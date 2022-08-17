@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Labo } from 'src/app/gestion/labo/labo.component';
 import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { EchantillonService } from '../../echantillon-services.service';
@@ -12,7 +13,7 @@ export class Echantillon {
     public dateP:Date;
     public dateE:Date;
     public ag:File;
-    public labo:Labo
+    public designationlabo:string
 }
 
 @Component({
@@ -24,13 +25,66 @@ export class EchantillonComponent implements OnInit {
 
   echantillons: Echantillon[];
   echantillon : Echantillon;
+  Editechantillon : Echantillon;
   labos:Labo[];
   constructor(private echantillonService: EchantillonService , private gestionService:GestionService) {
     this.echantillon = new Echantillon();
+    this.Editechantillon = new Echantillon();
+   }
+   selectedFiles: FileList;
+   currentFile: File;
+   progress = 0;
+   message = '';
+   i = 0;
+ 
+   fileInfos: Observable<any>;
+   selectFile(event) {
+     this.selectedFiles = event.target.files;
+   }
+   show(param_div_id , id : string) {
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+    this.onShow(id);
+  }
+   onEdit(id : string ){
+
+    if (this.selectedFiles) {
+      let file: File | null = null;
+      const formData: FormData = new FormData();
+   
+      for (let i = 0; i < this.selectedFiles.length; i++) {
+         file = this.selectedFiles.item(i);
+         if (file) {
+            formData.append(`file`, file);
+         }
+      }
+      for ( var key in this.echantillon ) {
+        formData.append(key, this.echantillon[key]);
+    }
+      
+
+    this.echantillonService.upload(formData, id).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.log(error),
+    });
+     this.selectedFiles = undefined;
+    
+  }
    }
    onSubmit() {
-    this.echantillonService.save(this.echantillon).subscribe();
+    this.echantillonService.save(this.echantillon).subscribe(data => {
+        
+      console.log(data);
+      this.ngOnInit();
+    });
   }
+  onShow(id:string){
+    this.echantillonService.find(id).subscribe(data => {
+      this.echantillon = data;
+      console.log(this.echantillon);
+    });
+    
+  }
+  
   ngOnInit(): void {
     this.echantillonService.findAll().subscribe(data => {
       this.echantillons = data;

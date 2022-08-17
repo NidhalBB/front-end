@@ -1,0 +1,39 @@
+<div class="page-header">
+    <h3 class="page-title">
+        Bon Commande Fournisseur
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création des Bon Commande</h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #boncommandeForm="ngForm">
+            <div class="form-group">
+              <label for="exampleInputUsername1">Fournisseur</label>
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="boncommande.nomFournisseur"  placeholder="designation">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Date de commande</label>
+              <input type="date" class="form-control" name ="adresse" [(ngModel)]="boncommande.dateC" placeholder="address">
+            </div> 
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date de livraison  </label>
+                <input type="date" class="form-control" name ="adresse" [(ngModel)]="boncommande.dateL" placeholder="address">
+              </div> 
+            <div class="form-group">
+                <label for="exampleInputMobile">Désignation Produit </label>
+                  <input type="text" class="form-control" name ="tele" [(ngModel)]="boncommande.designation_produit"  placeholder="Designation_produit">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Quantite Des Articles </label>
+                  <input type="number" class="form-control" name ="tele" [(ngModel)]="boncommande.quantite_article" >
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+ 
+</div>

@@ -7,7 +7,7 @@ export class Labo{
     public address:string;
     public prix:number;
     public tele:number;
-}
+} 
 
 @Component({
   selector: 'app-labo',

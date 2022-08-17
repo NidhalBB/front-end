@@ -1,0 +1,66 @@
+<div class="page-header">
+    <h3 class="page-title">
+        Produits
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création des Produit</h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #produitForm="ngForm">
+            <div class="form-group">
+              <label for="exampleInputUsername1">Désignation</label>
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="produit.designation"  placeholder="designation">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Quantité </label>
+                  <input type="number" class="form-control" name ="tele" [(ngModel)]="produit.quantite"  placeholder="quantite">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Prix</label>
+              <input type="number" class="form-control" name ="adresse" [(ngModel)]="produit.prix" placeholder="prix">
+            </div> 
+            
+            <div class="form-group">
+                <label for="exampleSelectGender">Etat</label>
+                <select class="form-control" name ="famille" [(ngModel)]="produit.etat">
+                    <option  value="Produit Fini" >Produit Fini</option>
+                    <option  value="Produit Semi-Fini">Produit Semi-Fini</option>
+                    <option  value="Matiere Premiere">Matiere Premiere</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List des Fournisseurs</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Désignation</th>
+                    <th>Quantité</th>
+                    <th>Prix </th>
+                    <th>Etat </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let produit of produits">
+                    <td>{{produit.designation}}</td>
+                    <td>{{produit.quantite}}</td>
+                    <td>{{produit.prix}}</td>
+                    <td> <label class="badge badge-gradient-success" >{{produit.etat}} </label></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

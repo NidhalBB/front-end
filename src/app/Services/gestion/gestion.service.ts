@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Labo } from 'src/app/gestion/labo/labo.component';
 import { Magasins } from 'src/app/gestion/magasins/magasins.component';
+import { Produit } from 'src/app/gestion/produit/creation-produit/creation-produit.component';
 import { FamillProduit } from 'src/app/gestion/produit/famille-produit/famille-produit.component';
 import { MatiereAcquise } from 'src/app/gestion/produit/matiereacquise/matiereacquise.component';
 import { ProduitSemiFini } from 'src/app/gestion/produit/produit-semifini/produit-semifini.component';
@@ -16,7 +17,7 @@ export class GestionService {
 
   private baseUrl = 'http://localhost:8085/'; 
   constructor(private http: HttpClient) {
-  }
+  } 
   public save(labo :Labo) {
     console.log(labo);
     return this.http.post<Labo>(`${this.baseUrl}`+'createlabo',labo);
@@ -69,6 +70,13 @@ public saveMatiere(matiereAcquise :MatiereAcquise) {
 }
 public findAllMatiere(): Observable<MatiereAcquise[]> {
 return this.http.get<MatiereAcquise[]>(`${this.baseUrl}`+'showAllmatiereAcquise');
+}
+public saveProduit(produit :Produit) {
+  console.log(produit);
+  return this.http.post<Produit>(`${this.baseUrl}`+'createProduit',produit);
+}
+public findAllProduit(): Observable<Produit[]> {
+return this.http.get<Produit[]>(`${this.baseUrl}`+'showAllProduit');
 }
 
 
