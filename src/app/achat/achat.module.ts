@@ -5,15 +5,17 @@ import { CommandeFournisseurComponent } from './commande-fournisseur/commande-fo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DemandeAchatComponent } from './demande-achat/demande-achat.component';
 
 
 const routes: Routes = [
   { path: 'fournisseur', component: FournisseurComponent },
   { path: 'commandeFournisseur', component: CommandeFournisseurComponent },
+  { path: 'demandeAchat', component: DemandeAchatComponent },
 ];
 
 @NgModule({
-  declarations: [FournisseurComponent, CommandeFournisseurComponent],
+  declarations: [FournisseurComponent, CommandeFournisseurComponent, DemandeAchatComponent],
   imports: [
     CommonModule,
     NgbModule,

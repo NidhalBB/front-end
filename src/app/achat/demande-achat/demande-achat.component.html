@@ -1,0 +1,99 @@
+<div class="page-header">
+    <h3 class="page-title">
+        Bon d'Achat
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création des Bon d'Achat</h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #bonachatForm="ngForm">
+            <div class="form-group">
+                <label for="exampleInput">Date de la demande</label>
+                <input type="date" class="form-control" name ="dated" [(ngModel)]="bonachat.dateD" >
+              </div> 
+              <div class="form-group">
+                <label for="exampleInput">Identité du Demandeur </label>
+                  <input type="text" class="form-control" name ="demandeur" [(ngModel)]="bonachat.demandeur" >
+            </div>
+            <div class="form-group">
+                <label for="exampleSelectGender">Département</label>
+                <select class="form-control" name ="departement" [(ngModel)]="bonachat.departement">
+                    <option value="DIRECTION">DIRECTION</option>
+                    <option value="ACHAT">ACHAT</option>
+                    <option value="FINANCE ET CIMPTABILITE">FINANCE ET CIMPTABILITE</option>
+                    <option value="LOGISTIQUE">LOGISTIQUE</option>
+                    <option value="PRODUCTION">PRODUCTION</option>
+                  </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleSelectGender">Fournisseur</label>
+              <select class="form-control" name ="fournisseur" [(ngModel)]="bonachat.nomFournisseur">
+                  <option [ngValue]="null" disabled>List des Fournisseurs</option>
+                  <option *ngFor="let fournisseur of fournisseurs" [(value)]="fournisseur.designation" >{{fournisseur.designation}}</option>
+              </select>
+          </div>
+           <div class="form-group">
+              <label for="exampleSelectGender">Produit</label>
+              <select class="form-control" name ="produit" [(ngModel)]="bonachat.designation_produit">
+                  <option [ngValue]="null" disabled>List des Produit</option>
+                  <option *ngFor="let produit of produits" [(value)]="produit.designation" >{{produit.designation}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Quantite Des Articles </label>
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="bonachat.quantite_article" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Prix Unitaire HT</label>
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="bonachat.prix" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Montant  HT</label>
+                  <input type="number" class="form-control" name ="montantht"  [(value)] ="bonachat.prix * bonachat.quantite_article" disabled/>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">TVA</label>
+                  <input type="number" class="form-control" name ="tva" value="20" disabled/>
+            </div>
+            <div class="form-group">  
+                <label for="exampleInputMobile">Montant TTC</label>
+                  <input type="number" class="form-control" name ="montant" [(value)] ="bonachat.prix * bonachat.quantite_article * bonachat.tva + bonachat.prix * bonachat.quantite_article  " disabled/>
+            </div>
+           
+            
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+          <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Upload</button> 
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List des Clients</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Identité du Demandeur</th>
+                  <th>Département</th>
+                  <th>Nom de Fournisseur </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bonachat of bonAchats">
+                  <td>{{bonachat.demandeur}}</td>
+                  <td>{{bonachat.departement}}</td>
+                  <td>{{bonachat.nomFournisseur}}</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

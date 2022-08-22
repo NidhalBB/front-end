@@ -3,9 +3,9 @@ import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { FamillProduit } from '../famille-produit/famille-produit.component';
 
 export class SousFamille{
-  public id:string;
+  public id_SousFamille:string;
   public designation:string;
-  public familleProduit	:FamillProduit;
+  public familleProduit	:string;
 }
 @Component({
   selector: 'app-sous-famille',

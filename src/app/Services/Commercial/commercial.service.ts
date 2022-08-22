@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BonCommande } from 'src/app/achat/commande-fournisseur/commande-fournisseur.component';
+import { BonAchat } from 'src/app/achat/demande-achat/demande-achat.component';
 import { Fournisseur } from 'src/app/achat/fournisseur/fournisseur.component';
 import { Client } from 'src/app/commercial/client/client.component';
 
@@ -33,5 +34,12 @@ public saveBonCommande(bonCommande :BonCommande) {
 }
 public findAllBonCommande(): Observable<BonCommande[]> {
 return this.http.get<BonCommande[]>(`${this.baseUrl}`+'showAllBonCommand');
+}
+public saveBonAchat(bonAchat:BonAchat) {
+  console.log(bonAchat);
+  return this.http.post<BonAchat>(`${this.baseUrl}`+'createBonAchat',bonAchat);
+}
+public findAllBonAchat(): Observable<BonAchat[]> {
+return this.http.get<BonAchat[]>(`${this.baseUrl}`+'showAllBonAchat');
 }
 }

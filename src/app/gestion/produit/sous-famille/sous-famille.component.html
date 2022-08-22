@@ -1,13 +1,13 @@
 <div class="page-header">
     <h3 class="page-title">
-        Laboratoire
+        Les Sous Famille
     </h3>
   </div>
   <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Création des Laboratoire</h4>
+          <h4 class="card-title">Création des Sous Famille</h4>
           <form class="forms-sample" (ngSubmit)="onSubmit()" #sousFamilleForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
@@ -17,7 +17,7 @@
                 <label for="exampleSelectGender">Famille Produits</label>
                 <select class="form-control" name ="famille" [(ngModel)]="sousFamille.familleProduit	">
                     <option [ngValue]="null" disabled>Famille Produits</option>
-                    <option *ngFor="let fam of famille" [(value)]="fam.id_FamilleProduit" >{{fam.designation}}</option>
+                    <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
@@ -35,14 +35,15 @@
                   <tr>
                     <th>ID</th>
                     <th>Désignation</th>
+                    <th>Famille</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let sousFamille of sousFamilles">
-                    <td>{{sousFamille.id}}</td>
+                    <td>{{sousFamille.id_SousFamille}}</td>
                     <td>{{sousFamille.designation}}</td>
-                    <td>{{sousFamille.familleProduit	}}</td>
-                    
+                    <td>{{sousFamille.familleProduit}}</td>
+
                   </tr>
                 </tbody>
               </table>

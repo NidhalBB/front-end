@@ -42,8 +42,13 @@ export class EchantillonComponent implements OnInit {
      this.selectedFiles = event.target.files;
    }
    show(param_div_id , id : string) {
+    this.Editechantillon = new Echantillon();
+    this.Editechantillon.id = id;
+    this.echantillonService.find(this.Editechantillon.id).subscribe(data => {
+      this.Editechantillon = data;
+      console.log(this.Editechantillon);
+    });
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
-    this.onShow(id);
   }
    onEdit(id : string ){
 
@@ -68,7 +73,7 @@ export class EchantillonComponent implements OnInit {
     });
      this.selectedFiles = undefined;
     
-  }
+  } 
    }
    onSubmit() {
     this.echantillonService.save(this.echantillon).subscribe(data => {
@@ -78,10 +83,7 @@ export class EchantillonComponent implements OnInit {
     });
   }
   onShow(id:string){
-    this.echantillonService.find(id).subscribe(data => {
-      this.echantillon = data;
-      console.log(this.echantillon);
-    });
+    
     
   }
   

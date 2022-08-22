@@ -1,13 +1,13 @@
 <div class="page-header">
     <h3 class="page-title">
-        Laboratoire
+      Magasins
     </h3>
   </div>
   <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Création des Laboratoire</h4>
+          <h4 class="card-title">Création des Magasins</h4>
           <form class="forms-sample" (ngSubmit)="onSubmit()" #magasinForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
@@ -29,7 +29,7 @@
                 <label for="exampleSelectGender">Famille Produits</label>
                 <select class="form-control" name ="famille" [(ngModel)]="magasin.familleProduit">
                     <option [ngValue]="null" disabled>Famille Produits</option>
-                    <option *ngFor="let famille of familleProduits" [(value)]="famille.id_FamilleProduit" >{{famille.designation}}</option>
+                    <option *ngFor="let famille of familleProduits" [(value)]="famille.id_famille" >{{famille.designation_famille}}</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
@@ -41,7 +41,7 @@
     <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">List des Laboratoire</h4>
+            <h4 class="card-title">List des Magasins</h4>
             <div class="table-responsive">
               <table class="table">
                 <thead>

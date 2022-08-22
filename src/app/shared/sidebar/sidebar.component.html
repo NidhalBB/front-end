@@ -59,7 +59,7 @@
           <li class="nav-item"> <a class="nav-link" routerLink="gestion/labo" routerLinkActive="active" #labo="routerLinkActive">Labo</a></li>
           <li class="nav-item"> <a class="nav-link" routerLink="gestion/magasins" routerLinkActive="active" #magasins="routerLinkActive">Magasins</a></li>
          
-          <li class="nav-item" [ngClass]="{'active' :produitFini.isActive || produitSemiFini.isActive || matier.isActive|| creation.isActive}">
+          <li class="nav-item" [ngClass]="{'active' :creation.isActive}">
             <a class="nav-link" (click)="Produit = !Produit" [attr.aria-expanded]="Produit" aria-controls="Produit">
               <span class="menu-title"> Produit</span>
               <i class="menu-arrow"></i>
@@ -67,10 +67,10 @@
             <div class="collapse" id="Produit" [ngbCollapse]="!Produit">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/creationProduit" routerLinkActive="active" #creation="routerLinkActive">Création Produit </a></li>
-                <li class="nav-item"> <a class="nav-link" routerLink="gestion/matiereacquise" routerLinkActive="active" #matier="routerLinkActive">Matiere </a></li>
+               <!-- <li class="nav-item"> <a class="nav-link" routerLink="gestion/matiereacquise" routerLinkActive="active" #matier="routerLinkActive">Matiere </a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/ProduitSemifini" routerLinkActive="active" #produitSemiFini="routerLinkActive">Produit Semi Fini</a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/Produitfini" routerLinkActive="active" #produitFini="routerLinkActive">Prdouit Fini</a></li>
-              </ul>
+             --> </ul>
             </div>
           </li>
         </ul>
@@ -89,7 +89,7 @@
           </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : fournisseur.isActive || commandeFournisseur.isActive }">
+    <li class="nav-item" [ngClass]="{'active' : fournisseur.isActive || commandeFournisseur.isActive || demandeAchat.isActive }">
       <a class="nav-link" (click)="achat = !achat" [attr.aria-expanded]="achat" aria-controls="achat">
         <span class="menu-title"> Achat</span>
         <i class="menu-arrow"></i>
@@ -98,7 +98,8 @@
       <div class="collapse" id="achat" [ngbCollapse]="!achat">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" routerLink="achat/fournisseur" routerLinkActive="active" #fournisseur="routerLinkActive">Fournisseur</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="achat/commandeFournisseur" routerLinkActive="active" #commandeFournisseur="routerLinkActive">Commande Fournisseur</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="achat/demandeAchat" routerLinkActive="active" #demandeAchat="routerLinkActive">Demmande d'Achat</a></li> 
+     <li class="nav-item"> <a class="nav-link" routerLink="achat/commandeFournisseur" routerLinkActive="active" #commandeFournisseur="routerLinkActive">Commande Fournisseur</a></li>
           </ul>
       </div>
     </li>

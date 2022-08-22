@@ -56,7 +56,7 @@ export class ParametreGeoComponent implements OnInit {
             formData.append(`file`, file);
          }
       }
-      for ( var key in this.parametreGeo ) {
+      for ( var key in this.parametreGeo ) { 
         formData.append(key, this.parametreGeo[key]);
     }
       
