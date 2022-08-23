@@ -10,32 +10,26 @@
           <h4 class="card-title">Création des Bon Commande</h4>
           <form class="forms-sample" (ngSubmit)="onSubmit()" #boncommandeForm="ngForm">
             <div class="form-group">
-              <label for="exampleSelectGender">Fournisseur</label>
-              <select class="form-control" name ="fournisseur" [(ngModel)]="boncommande.nomFournisseur">
-                  <option [ngValue]="null" disabled>List des Fournisseurs</option>
-                  <option *ngFor="let fournisseur of fournisseurs" [(value)]="fournisseur.designation" >{{fournisseur.designation}}</option>
-              </select>
+              <label for="exampleInputMobile">Destinataire </label>
+                <input type="text" class="form-control" name ="destinataire" [(ngModel)]="boncommande.destinataire" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMobile">Matricule fiscale</label>
+              <input type="number" class="form-control" name ="matricule" [(ngModel)]="boncommande.matricule" >
+        </div>
+        <div class="form-group">
+              <label for="exampleInputMobile">Adresse </label>
+                <input type="text" class="form-control" name ="adresse" [(ngModel)]="boncommande.adresse" >
           </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Date de commande</label>
-              <input type="date" class="form-control" name ="dateC" [(ngModel)]="boncommande.dateC" placeholder="address">
+              <input type="date" class="form-control" name ="dateC" [(ngModel)]="boncommande.dateC" >
             </div> 
             <div class="form-group">
                 <label for="exampleInputEmail1">Date de livraison  </label>
-                <input type="date" class="form-control" name ="dateL" [(ngModel)]="boncommande.dateL" placeholder="address">
+                <input type="date" class="form-control" name ="dateL" [(ngModel)]="boncommande.dateL" >
               </div> 
-              <div class="form-group">
-              <label for="exampleSelectGender">Produit</label>
-              <select class="form-control" name ="produit" [(ngModel)]="boncommande.designation_produit">
-                  <option [ngValue]="null" disabled>List des Produit</option>
-                  <option *ngFor="let produit of produits" [(value)]="produit.designation" >{{produit.designation}}</option>
-              </select>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputMobile">Quantite Des Articles </label>
-                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="boncommande.quantite_article" >
-            </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Submit</button>
+            <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdfFournisseur()">Submit</button>
             
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>

@@ -1,13 +1,13 @@
 <div class="page-header">
     <h3 class="page-title">
-        Laboratoire
+      Matieres Acquises
     </h3>
   </div>
   <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Création des Produit Semi-Fini</h4>
+          <h4 class="card-title">Création des Matieres Acquises</h4>
           <form class="forms-sample" (ngSubmit)="onSubmit()" #matiereAcquiseiForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
@@ -15,24 +15,30 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Quantité</label>
-                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="matiereAcquise.quantite"  placeholder="Mobile number">
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="matiereAcquise.quantite"  >
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix</label>
-                  <input type="number" class="form-control" name ="prix" [(ngModel)]="matiereAcquise.prix" placeholder="Mobile number">
+                  <input type="number" class="form-control" name ="prix" [(ngModel)]="matiereAcquise.prix" >
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
                 <select class="form-control" name ="famille" [(ngModel)]="matiereAcquise.famille">
-                    <option *ngFor="let fam of famille" [(value)]="fam.id_FamilleProduit" >{{fam.designation}}</option>
+                    <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Sous Famille</label>
-                <select class="form-control" name ="sousfamille" [(ngModel)]="matiereAcquise.souFamille">
-                    <option *ngFor="let sousfamille of sousfamilles" [(value)]="sousfamille.id_FamilleProduit" >{{sousfamille.designation}}</option>
+                <select class="form-control" name ="sousfamille" [(ngModel)]="matiereAcquise.sousfamille">
+                    <option *ngFor="let sousfamille of sousFamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
                 </select>
             </div>
+            <div class="form-group">
+              <label for="exampleSelectGender">Fournisseur</label>
+              <select class="form-control" name ="fournisseur" [(ngModel)]="matiereAcquise.fournisseur">
+                  <option *ngFor="let f of fournisseurs" [(value)]="f.designation" >{{f.designation}}</option>
+              </select>
+          </div>
             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
@@ -42,12 +48,11 @@
     <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">List des Matiere</h4>
+            <h4 class="card-title">List des Matieres</h4>
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Désignation</th>
                     <th>Quantité</th>
                     <th>Prix</th>
@@ -55,9 +60,8 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let matiereAcquise of matieresAcquise">
-                    <td>{{matiereAcquise.id}}</td>
                     <td>{{matiereAcquise.designation}}</td>
-                    <td>{{matiereAcquise.qunatite}}</td>
+                    <td>{{matiereAcquise.quantite}}</td>
                     <td>{{matiereAcquise.prix}}</td>
                   </tr>
                 </tbody>

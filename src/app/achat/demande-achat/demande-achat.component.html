@@ -5,7 +5,7 @@
   </div>
   <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
-      <div class="card">
+      <div class="card" id="main_place">
         <div class="card-body">
           <h4 class="card-title">Création des Bon d'Achat</h4>
           <form class="forms-sample" (ngSubmit)="onSubmit()" #bonachatForm="ngForm">
@@ -62,17 +62,17 @@
                   <input type="number" class="form-control" name ="montant" [(value)] ="bonachat.prix * bonachat.quantite_article * bonachat.tva + bonachat.prix * bonachat.quantite_article  " disabled/>
             </div>
            
-            
+            <button type="submit" class="btn btn-gradient-primary mr-2" >ADD</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
-          <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Upload</button> 
+           
         </div>
       </div>
     </div>
     <div class="col-lg-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">List des Clients</h4>
+          <h4 class="card-title">List des demandes</h4>
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -89,6 +89,8 @@
                   <td>{{bonachat.nomFournisseur}}</td>
                   <td></td>
                 </tr>
+                <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Upload</button>
+                <button type="submit"  class="btn btn-light" (click)="gotocommande()">Valider</button> 
               </tbody>
             </table>
             

@@ -69,6 +69,8 @@ export class ParametreGeoComponent implements OnInit {
     
   }}
   ngOnInit(): void {
+  this.parametreService.findAll().subscribe(data => {
+      this.parametreGeos = data;
+    })
   }
-
 }

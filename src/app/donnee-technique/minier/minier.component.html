@@ -3,10 +3,8 @@
       <div class="card">
         <div class="card-body">
             <h4 class="card-title">Création d'Echantillon</h4>
-            <p class="card-description">
-              Basic form elements
-            </p>
-          <form class="forms-sample" enctype="multipart/form-data">
+           
+          <form class="forms-sample" (ngSubmit)="onEdit(echantillon.id)" enctype="multipart/form-data">
             <div class="form-group">
               <label for="exampleInputName1">Num Echantillon</label>
               <input type="text" value="{{echantillon.numEchantillon}}" 
@@ -17,13 +15,9 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail3">Nom du Labo</label>
-              <input type="text" value="{{echantillon.labo.nom}}" 
+              <input type="text" value="{{echantillon.designationlabo}}" 
               name = "nom"
               class="form-control" id="nomlabo" disabled>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail3">Adress Labo</label>
-                <input type="text" name = "address" value="{{echantillon.labo.address}}"  class="form-control" id="adress" disabled>
             </div>
               <div class="form-group">
                 <label for="exampleInputEmail3">Quantiteé</label>
@@ -42,8 +36,10 @@
                 <input type="file" (change)="selectFile($event)" />
               </label>
               </form>
-            <button type="submit" class="btn btn-gradient-primary mr-2" (click)="onEdit(echantillon.id)">Submit</button>
+            <button  class="btn btn-gradient-primary mr-2" >Submit</button>
+            <button class="btn btn-gradient-primary " (click)="backClicked()">Back</button> 
           </form>
+          
         </div>
       </div>
     </div>

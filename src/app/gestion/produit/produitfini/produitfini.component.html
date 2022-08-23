@@ -1,28 +1,28 @@
 <div class="page-header">
     <h3 class="page-title">
-        Laboratoire
+      Produit Ouvrageé
     </h3>
   </div>
   <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Création des Laboratoire</h4>
+          <h4 class="card-title">Création des Produits Ouvrageé</h4>
           <form class="forms-sample" (ngSubmit)="onSubmit()" #produitfiniForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="produitFini.designation"  placeholder="Username">
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="produitFini.designation"  >
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
                 <select class="form-control" name ="famille" [(ngModel)]="produitFini.famille">
-                    <option *ngFor="let fam of famille" [(value)]="fam.id_FamilleProduit" >{{fam.designation}}</option>
+                    <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Sous Famille</label>
-                <select class="form-control" name ="sousfamille" [(ngModel)]="produitFini.souFamille">
-                    <option *ngFor="let sousfamille of sousfamilles" [(value)]="sousfamille.id_FamilleProduit" >{{sousfamille.designation}}</option>
+                <select class="form-control" name ="sousfamille" [(ngModel)]="produitFini.sousfamille">
+                    <option *ngFor="let sousfamille of sousfamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
@@ -33,19 +33,21 @@
     <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">List des Laboratoire</h4>
+            <h4 class="card-title">List des Produits Ovrageé</h4>
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Désignation</th>
+                    <th>Famille</th>
+                    <th>Sous-Famille</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let produitFini of produitsFini">
-                    <td>{{produitFini.id}}</td>
                     <td>{{produitFini.designation}}</td>
+                    <td>{{produitFini.famille}}</td>
+                    <td>{{produitFini.sousfamille}}</td>
                   </tr>
                 </tbody>
               </table>

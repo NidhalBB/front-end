@@ -17,6 +17,8 @@ export class SidebarComponent implements OnInit {
   public prospection=false;
   public commercial = false;
   public achat=false;
+  public Imo=false;
+  public machines = false;
   constructor() { }
 
   ngOnInit() {

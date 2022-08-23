@@ -4,9 +4,9 @@ import { FamillProduit } from '../famille-produit/famille-produit.component';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class ProduitFini{
-  private id:string;
-  private famille:FamillProduit;
-  private souFamille:SousFamille;
+  public id:string;
+  public famille:string;
+  public sousfamille:string;
 }
 @Component({
   selector: 'app-produitfini',

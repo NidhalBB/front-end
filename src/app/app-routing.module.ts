@@ -10,10 +10,10 @@ const routes: Routes = [
   { path: 'commercial', loadChildren: () => import('./commercial/commercial.module').then(m => m.CommercialModule) },
 
  { path: 'achat', loadChildren: () => import('./achat/achat.module').then(m => m.AchatModule) },
+ { path: 'Imo', loadChildren: () => import('./gestion-imo/gestion-imo.module').then(m => m.GestionImoModule) },
+ { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },
 
-  { path: 'Phase-Preliminaire', loadChildren: () => import('./phase-pre/phase-pre.module').then(m => m.PhasePreModule) },
-  { path: 'EssaiPilote', loadChildren: () => import('./essai-pilote/essai-pilote.module').then(m => m.EssaiPiloteModule) },
-  { path: 'EtudeMarche', loadChildren: () => import('./etude-marche/etude-marche.module').then(m => m.EtudeMarcheModule) },
+  
   { path: 'basic-ui', loadChildren: () => import('./basic-ui/basic-ui.module').then(m => m.BasicUiModule) },
   { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsDemoModule) },
   { path: 'forms', loadChildren: () => import('./forms/form.module').then(m => m.FormModule) },

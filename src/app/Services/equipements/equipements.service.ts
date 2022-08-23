@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Equipement } from 'src/app/donnee-technique/equipements/equipements.component';
+import { Equipement } from 'src/app/machines/equipements/equipements.component';
+import { FamillMachine } from 'src/app/machines/famille-machine/famille-machine.component';
 
 
 @Injectable({
@@ -18,4 +19,13 @@ export class EquipementsService {
   public save(equipements: Equipement ) {
     return this.http.post<Equipement>(`${this.baseUrl}`+'addEquipements',equipements);
  }
+ public find(id : string) {
+  return this.http.get<Equipement>(`${this.baseUrl}`+`machines/${id}`);
+}
+public findAllFamille(): Observable<FamillMachine[]> {
+  return this.http.get<FamillMachine[]>(`${this.baseUrl}`+'showAllFamilleMachine');
+}
+public saveFamille(famillMachine: FamillMachine ) {
+  return this.http.post<FamillMachine>(`${this.baseUrl}`+'addFamilleMachine',famillMachine);
+}
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EchantillonService } from 'src/app/echantillon-services.service';
-import { Echantillon } from '../../donnee-technique/echantillon/echantillon.component';
+import { Echantillon } from '../echantillon/echantillon.component';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-minier',
@@ -13,7 +14,7 @@ import { Echantillon } from '../../donnee-technique/echantillon/echantillon.comp
 export class MinierComponent implements OnInit {
   echantillons: Echantillon[];
   echantillon : Echantillon;
-  constructor(private echantillonService: EchantillonService ,private route: ActivatedRoute) {
+  constructor(private echantillonService: EchantillonService ,private route: ActivatedRoute ,private router: Router) {
    
    }
    selectedFiles: FileList;
@@ -38,19 +39,23 @@ export class MinierComponent implements OnInit {
             formData.append(`file`, file);
          }
       }
-      for ( var key in this.echantillon ) {
+      for ( let key in this.echantillon ) {
         formData.append(key, this.echantillon[key]);
     }
       
 
-    this.echantillonService.upload(formData, id).subscribe({
-      next: (response) => console.log(response),
-      error: (error) => console.log(error),
+    this.echantillonService.upload(formData, id).subscribe(data => {
+        
+      console.log(data);
+      this.ngOnInit();
     });
      this.selectedFiles = undefined;
     
   }
    }
+   backClicked() {
+    this.router.navigate(['Explorationminérale/echantillon']); 
+  }
   ngOnInit(): void {
     this.echantillon = new Echantillon();
     this.echantillon.id=this.route.snapshot.params['id'];
@@ -58,6 +63,10 @@ export class MinierComponent implements OnInit {
       this.echantillon = data;
     });
     console.log(this.echantillon);
+    this.echantillonService.findAll().subscribe(data => {
+      this.echantillons = data;
+    })
+    
   }
 
 }

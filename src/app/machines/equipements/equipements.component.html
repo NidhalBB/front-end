@@ -1,0 +1,100 @@
+<div class="page-header">
+  <h3 class="page-title">
+    Add Equipement
+  </h3>
+</div>
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Création des Equipements</h4>
+        <form class="forms-sample" (ngSubmit)="onSubmit()" #equipementForm="ngForm">
+          <div class="form-group">
+            <label for="exampleInputUsername1">Famille Machine</label>
+          <select class="form-control" name ="famille" [(ngModel)]="equipement.famille">
+              <option *ngFor="let fam of famille" [(value)]="fam.designation" >{{fam.designation}}</option>
+          </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Désignation</label>
+            <input type="text" class="form-control" name ="nom" [(ngModel)]="equipement.nom" >
+          </div> 
+          <div class="form-group">
+              <label for="exampleInputMobile">Largeur en(mm) </label>
+                <input type="number" class="form-control" name ="largeur" [(ngModel)]="equipement.largeur" >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMobile">Longueur en(mm) </label>
+              <input type="number" class="form-control" name ="longuer" [(ngModel)]="equipement.longuer">  
+        </div>
+        <div class="form-group">
+          <label for="exampleInputMobile">Hauteur Manométrique en(mm) </label>
+            <input type="number" class="form-control" name = "hauteur" [(ngModel)]="equipement.hauteur" >  
+      </div>
+      <div class="form-group">
+        <label for="exampleInputMobile">Capacite en(m au cube/h ou en T/h ou en T/min)</label>
+          <input type="number" class="form-control" name = "capacite" [(ngModel)]="equipement.capacite" >  
+    </div>
+    <div class="form-group">
+            <label for="exampleInputMobile">Puissance Electrique en(Kw.h ou / et en Cv)</label>
+              <input type="number" class="form-control" name = "puissanceElectrique" [(ngModel)]="equipement.puissanceElectrique" >  
+        </div>
+        <div class="form-group">
+            <label for="exampleInputMobile">Vitesse de rotation  (tr/mn)</label>
+              <input type="number" class="form-control" name = "vitess" [(ngModel)]="equipement.vitess" >  
+        </div>
+        <div class="form-group">
+            <label for="exampleInputMobile">Épaisseur (mm) </label>
+              <input type="number" class="form-control"  name = "epaisseur" [(ngModel)]="equipement.epaisseur">  
+        </div>
+        <div class="form-group">
+          <label for="exampleInputMobile">Débit  </label>
+            <input type="number" class="form-control" ame = "debit" [(ngModel)]="equipement.debit" >  
+      </div>
+      <div class="form-group">
+            <label for="exampleInputMobile">Pression ( bars) </label>
+              <input type="number" class="form-control" name = "pression" [(ngModel)]="equipement.pression">  
+        </div>
+        <div class="form-group">
+          <label for="exampleInputMobile"> Profondeur </label>
+            <input type="number" class="form-control" name = "profondeur" [(ngModel)]="equipement.profondeur">  
+      </div>
+      <div class="form-group">
+        <label for="exampleInputMobile">Diamétre (mm) </label>
+          <input type="number" class="form-control" name = "diametre" [(ngModel)]="equipement.diametre" >  
+    </div>
+    <div class="form-group">
+            <label for="exampleInputMobile">Granulométrie </label>
+              <input type="number" class="form-control" name = "granulometrie" [(ngModel)]="equipement.granulometrie" >  
+        </div>
+          <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+          <button type ="reset" class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List des Clients</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>famille</th>
+                  <th>Désignation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipement of equipements">
+                  <td>{{equipement.famille}}</td>
+                  <td>{{equipement.nom}}</td>
+                  <td><button class="btn btn-light">Détails</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

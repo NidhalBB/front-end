@@ -20,7 +20,7 @@
       </a>
     </li>
     
-    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || equipements.isActive || exploration.isActive}">
+    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || exploration.isActive}">
       <a class="nav-link" (click)="donneetechnique = !donneetechnique" [attr.aria-expanded]="donneetechnique" aria-controls="donneetechnique">
         <span class="menu-title">Exploration minérale</span>
         <i class="menu-arrow"></i>
@@ -42,7 +42,6 @@
             </div>
           </li>
           <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/exploration" routerLinkActive="active" #exploration="routerLinkActive">Exploration avancée</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/LesEquipements" routerLinkActive="active" #equipements="routerLinkActive">Les Equipements</a></li>
           </ul>
       </div>
     </li>
@@ -59,18 +58,17 @@
           <li class="nav-item"> <a class="nav-link" routerLink="gestion/labo" routerLinkActive="active" #labo="routerLinkActive">Labo</a></li>
           <li class="nav-item"> <a class="nav-link" routerLink="gestion/magasins" routerLinkActive="active" #magasins="routerLinkActive">Magasins</a></li>
          
-          <li class="nav-item" [ngClass]="{'active' :creation.isActive}">
+          <li class="nav-item" [ngClass]="{'active' :matier.isActive || produitSemiFini.isActive || produitFini.isActive}">
             <a class="nav-link" (click)="Produit = !Produit" [attr.aria-expanded]="Produit" aria-controls="Produit">
               <span class="menu-title"> Produit</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="Produit" [ngbCollapse]="!Produit">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" routerLink="gestion/creationProduit" routerLinkActive="active" #creation="routerLinkActive">Création Produit </a></li>
-               <!-- <li class="nav-item"> <a class="nav-link" routerLink="gestion/matiereacquise" routerLinkActive="active" #matier="routerLinkActive">Matiere </a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="gestion/matiereacquise" routerLinkActive="active" #matier="routerLinkActive">Matiere </a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/ProduitSemifini" routerLinkActive="active" #produitSemiFini="routerLinkActive">Produit Semi Fini</a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="gestion/Produitfini" routerLinkActive="active" #produitFini="routerLinkActive">Prdouit Fini</a></li>
-             --> </ul>
+             </ul>
             </div>
           </li>
         </ul>
@@ -89,7 +87,7 @@
           </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : fournisseur.isActive || commandeFournisseur.isActive || demandeAchat.isActive }">
+    <li class="nav-item" [ngClass]="{'active' : fournisseur.isActive || demandeAchat.isActive }">
       <a class="nav-link" (click)="achat = !achat" [attr.aria-expanded]="achat" aria-controls="achat">
         <span class="menu-title"> Achat</span>
         <i class="menu-arrow"></i>
@@ -99,11 +97,36 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" routerLink="achat/fournisseur" routerLinkActive="active" #fournisseur="routerLinkActive">Fournisseur</a></li>
           <li class="nav-item"> <a class="nav-link" routerLink="achat/demandeAchat" routerLinkActive="active" #demandeAchat="routerLinkActive">Demmande d'Achat</a></li> 
-     <li class="nav-item"> <a class="nav-link" routerLink="achat/commandeFournisseur" routerLinkActive="active" #commandeFournisseur="routerLinkActive">Commande Fournisseur</a></li>
+    <!-- <li class="nav-item"> <a class="nav-link" routerLink="achat/commandeFournisseur" routerLinkActive="active" #commandeFournisseur="routerLinkActive">Commande Fournisseur</a></li>
+         --> </ul>
+      </div>
+    </li>
+    <li class="nav-item" [ngClass]="{'active' : corporel.isActive }">
+      <a class="nav-link" (click)="Imo = !Imo" [attr.aria-expanded]="Imo" aria-controls="Imo">
+        <span class="menu-title"> Gestion Imo </span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="Imo" [ngbCollapse]="!Imo">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="Imo/corporel" routerLinkActive="active" #corporel="routerLinkActive">Imo Corporel</a></li>
           </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">
+    <li class="nav-item" [ngClass]="{'active' : equipement.isActive || groupe.isActive }">
+      <a class="nav-link" (click)="machines = !machines" [attr.aria-expanded]="machines" aria-controls="Imo">
+        <span class="menu-title"> Les Machines </span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="machines" [ngbCollapse]="!machines">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="machines/Famille" routerLinkActive="active" #groupe="routerLinkActive">Groupe machine</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="machines/LesEquipements" routerLinkActive="active" #equipement="routerLinkActive">Les Equipements</a></li>
+          </ul>
+      </div>
+    </li>
+   <!-- <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">
       <a class="nav-link" routerLink="forms/basic-elements" routerLinkActive #forms="routerLinkActive">
         <span class="menu-title">Form elements</span>
         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
@@ -114,6 +137,6 @@
         <span class="menu-title">Tables</span>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>
-    </li>
+    </li>-->
   </ul>
 </nav>

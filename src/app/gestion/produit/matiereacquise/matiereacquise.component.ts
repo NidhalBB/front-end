@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Fournisseur } from 'src/app/achat/fournisseur/fournisseur.component';
+import { CommercialService } from 'src/app/Services/Commercial/commercial.service';
 import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { FamillProduit } from '../famille-produit/famille-produit.component';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class MatiereAcquise{
-  private id:string;
-  private designation:string;
-  private prix:number;
-  private quantite:number;
-  private famille:FamillProduit;
-  private souFamille:SousFamille;
+  public id:string;
+  public designation:string;
+  public prix:number;
+  public quantite:number;
+  public fournisseur:string;
+  public famille:string;
+  public sousfamille:string;
 }
 @Component({
   selector: 'app-matiereacquise',
@@ -19,9 +22,10 @@ export class MatiereAcquise{
 export class MatiereacquiseComponent implements OnInit {
   matiereAcquise :MatiereAcquise;
   matieresAcquise : MatiereAcquise[];
+  fournisseurs : Fournisseur[];
   sousFamilles:SousFamille[];
   famille : FamillProduit[];
-  constructor(private gestionService :GestionService) {
+  constructor(private gestionService :GestionService , private commercialService :CommercialService) {
     this.matiereAcquise = new MatiereAcquise()
    }
    onSubmit() {
@@ -46,6 +50,9 @@ export class MatiereacquiseComponent implements OnInit {
     })
     this.gestionService.findAllFamille().subscribe(data => {
       this.famille = data;
+    })
+    this.commercialService.findAllFournisseur().subscribe(data => {
+      this.fournisseurs = data;
     })
   }
 

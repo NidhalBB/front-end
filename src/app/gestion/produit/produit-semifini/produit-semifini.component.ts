@@ -4,10 +4,10 @@ import { FamillProduit } from '../famille-produit/famille-produit.component';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class ProduitSemiFini{
-  private id:string;
-  private designation:string;
-  private famille:FamillProduit;
-  private souFamille:SousFamille;
+  public id:string;
+  public designation:string;
+  public famille:string;
+  public souFamille:string;
 }
 @Component({
   selector: 'app-produit-semifini',
@@ -19,7 +19,7 @@ export class ProduitSemifiniComponent implements OnInit {
   produitSemiFini :ProduitSemiFini;
   produitsSemiFini : ProduitSemiFini[];
   sousFamilles:SousFamille[];
-  famille : FamillProduit[];
+  familles : FamillProduit[];
   constructor(private gestionService :GestionService) {
     this.produitSemiFini = new ProduitSemiFini()
    }
@@ -38,7 +38,7 @@ export class ProduitSemifiniComponent implements OnInit {
       this.sousFamilles = data;
     })
     this.gestionService.findAllFamille().subscribe(data => {
-      this.famille = data;
+      this.familles = data;
     })
   }
 }

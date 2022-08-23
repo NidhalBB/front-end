@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Labo } from 'src/app/gestion/labo/labo.component';
 import { GestionService } from 'src/app/Services/gestion/gestion.service';
@@ -27,7 +28,7 @@ export class EchantillonComponent implements OnInit {
   echantillon : Echantillon;
   Editechantillon : Echantillon;
   labos:Labo[];
-  constructor(private echantillonService: EchantillonService , private gestionService:GestionService) {
+  constructor(private echantillonService: EchantillonService , private gestionService:GestionService ,private router: Router) {
     this.echantillon = new Echantillon();
     this.Editechantillon = new Echantillon();
    }
@@ -75,16 +76,15 @@ export class EchantillonComponent implements OnInit {
     
   } 
    }
+   go(id : string) {
+    this.router.navigate(['Explorationminérale/echantillon/'+`${id}`]); 
+  }
    onSubmit() {
     this.echantillonService.save(this.echantillon).subscribe(data => {
         
       console.log(data);
       this.ngOnInit();
     });
-  }
-  onShow(id:string){
-    
-    
   }
   
   ngOnInit(): void {

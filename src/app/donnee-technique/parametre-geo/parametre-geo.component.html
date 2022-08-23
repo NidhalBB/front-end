@@ -1,59 +1,85 @@
 <div class="page-header">
-    <h3 class="page-title">
-        Parametre géologiques
-    </h3>
-  </div>
-  <div class="row">
-    <div class="col-12 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <form class="forms-sample"  #parametreGeoForm="ngForm" enctype="multipart/form-data">
-            <div class="form-group">
-              <label for="exampleInputName1">Substance</label>
-              <input type="text" [(ngModel)]="parametreGeo.substance" class="form-control" id="substance" name="substance" >
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail3">Superficie</label>
-              <input type="text" [(ngModel)]="parametreGeo.superficie" class="form-control" id="superficie" name="superficie">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail3">Formation Exploitée</label>
-                <input type="text" [(ngModel)]="parametreGeo.formationExploite" class="form-control" id="formation" name="formation">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail3">Age</label>
-                <input type="text" [(ngModel)]="parametreGeo.age" class="form-control" id="age" name="age">
-            </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Epaisseur</label>
-                <input type="text" [(ngModel)]="parametreGeo.epaisseur" class="form-control" id="epaisseur" name="epaisseur">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Densiteé</label>
-                <input type="text" [(ngModel)]="parametreGeo.densite" class="form-control" id="densite" name="densite">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Couleur</label>
-                <input type="color" [(ngModel)]="parametreGeo.couleur" class="form-control" id="formation" name="formation">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Reserve</label>
-                <input type="text" class="form-control" id="reserve" value="{{parametreGeo.epaisseur}}" disabled name="reserve">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Volume</label>
-                <input type="text" class="form-control" id="volume" value="{{parametreGeo.epaisseur}}" disabled name="volume">
-              </div>
-              <form class="forms-sample" enctype="multipart/form-data">
-              <label class="btn btn-default">
-                <input type="file" (change)="selectFile($event)" />
-              </label>
-              </form>
-              <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
-                Upload
-              </button>
-          </form> 
+  <h3 class="page-title">
+    Parametre géologiques
+  </h3>
+</div>
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <form class="forms-sample" #parametreGeoForm="ngForm" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="exampleInputUsername1"> Substance</label>
+            <input type="text" class="form-control" [(ngModel)]="parametreGeo.substance"  name="substance">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1"> Superficie</label>
+            <input type="number" class="form-control" [(ngModel)]="parametreGeo.superficie"  name="superficie">
+          </div> 
+          <div class="form-group">
+              <label for="exampleInputMobile">Formation Exploitée </label>
+                <input type="text" class="form-control"  [(ngModel)]="parametreGeo.formationExploite"  name="formation">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMobile">Age</label>
+              <input type="text" class="form-control"  [(ngModel)]="parametreGeo.age" name="age">
         </div>
+        <div class="form-group">
+          <label for="exampleInputMobile">Epaisseur </label>
+            <input type="number" class="form-control"  [(ngModel)]="parametreGeo.epaisseur" name="epaisseur">
+      </div>
+      <div class="form-group">
+              <label for="exampleInputMobile">Densitée</label>
+                <input type="number" class="form-control"  [(ngModel)]="parametreGeo.densite" name="densite">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputMobile">Couleur</label>
+          <input type="text" class="form-control"  [(ngModel)]="parametreGeo.couleur" name="couleur">
+</div>
+<div class="form-group">
+  <label for="exampleInputMobile">Reserve</label>
+    <input type="number" class="form-control"  value="{{parametreGeo.epaisseur * parametreGeo.superficie}}" disabled name="reserve">
+</div>
+<div class="form-group">
+  <label for="exampleInputMobile">Volume</label>
+    <input type="number" class="form-control"  value="{{parametreGeo.densite * parametreGeo.reserve}}" disabled name="volume">
+</div>
+      <form class="form-group" enctype="multipart/form-data">
+        <label for="exampleInputMobile">
+          <input type="file" (change)="selectFile($event)" />
+        </label>
+        </form>
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+          Upload
+        </button>
+          <button type ="reset" class="btn btn-light">Cancel</button>
+        </form>
       </div>
     </div>
   </div>
+  <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Les Paramétres</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Substance</th>
+                  <th>Superficie</th>
+                  <th> Formation Exploiteé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let para of parametreGeos">
+                  <td>{{para.substance}}</td>
+                  <td>{{para.superficie}}</td>
+                  <td>{{para.formationExploite}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { EquipementsService } from 'src/app/Services/equipements/equipements.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FamillMachine } from '../famille-machine/famille-machine.component';
 
 export class Equipement {
   public id:string;
     public nom:string;
+    public famille:string;
     public longueur:number;
     public largeur:number;
     public hauteur:number;
@@ -30,18 +32,23 @@ export class EquipementsComponent implements OnInit {
   showMsg: boolean = false;
   equipements: Equipement[];
   equipement : Equipement;
+  famille : FamillMachine[];
   constructor(private equipementsService: EquipementsService , private router:Router) {
     this.equipement = new Equipement();
    }
 
+   find(id : string){
+    this.equipementsService.find(id).subscribe(
+      
+    )
+    console.log(id);
+   }
+
    onSubmit() {
     this.equipementsService.save(this.equipement).subscribe(data => {
-        
-        this.showMsg= true;
-        this.router.navigate(['/dashboard'])
-     .then(() => {
-    window.location.reload(); })
-     }
+        console.log(data);
+       this.ngOnInit();
+    }
     );}
 add(){
     let row = document.createElement('div');  
@@ -56,6 +63,9 @@ add(){
   ngOnInit(): void {
     this.equipementsService.findAll().subscribe(data => {
       this.equipements = data;
+    });
+    this.equipementsService.findAllFamille().subscribe(data => {
+      this.famille = data;
     });
     
   }

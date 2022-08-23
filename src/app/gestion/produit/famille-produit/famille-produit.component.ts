@@ -3,7 +3,7 @@ import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class FamillProduit{
-  public id_famille:string;
+  public id_famille:string; 
     public designation_famille:string;
     public sousfamille: Array<SousFamille>;
 }

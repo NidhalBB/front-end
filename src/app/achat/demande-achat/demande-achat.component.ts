@@ -5,6 +5,8 @@ import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { Fournisseur } from '../fournisseur/fournisseur.component';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { BonCommande } from '../commande-fournisseur/commande-fournisseur.component';
+import { Router } from '@angular/router';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export class BonAchat{
@@ -29,15 +31,25 @@ export class DemandeAchatComponent implements OnInit {
   
   bonachat : BonAchat;
   bonAchats : BonAchat[];
+  boncommande : BonCommande;
+  bonCommandes : BonCommande[];
   fournisseurs : Fournisseur[];
   produits :Produit[];
-  constructor(private commercialService :CommercialService ,private  gestionService: GestionService) {
+  constructor(private commercialService :CommercialService ,private  gestionService: GestionService , private router: Router) {
     this.bonachat = new BonAchat();
+    this.boncommande = new BonCommande();
    }
    valueUpdated(event) {
   this.bonachat.montantHT = 100 + +event.target.value;
 }
-
+ show(param_div_id) {
+    
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+  }
+  gotocommande(){
+    this.router.navigate(['/achat/commandeFournisseur']);  
+}
+    
    generatePdf() {
     const documentDefinition = this.getDocumentDefinition();
     
@@ -48,7 +60,7 @@ export class DemandeAchatComponent implements OnInit {
     return {
       content: [
         {
-          text: 'Bon De Commande',
+          text: "Bon d'Achat",
           bold: true,
           fontSize: 20,
           alignment: 'center',
@@ -102,22 +114,32 @@ export class DemandeAchatComponent implements OnInit {
             
               ],
               ...this.bonAchats.map(ed => {
-          return [ed.demandeur];
+          return [ed.designation_produit,ed.quantite_article,ed.prix,ed.montantHT,'20%',ed.montantTTC];
         })
 
             ]
           }
         },
-        
         {
-          text: this.bonachat.dateD,
-          style: 'sign'
+          text: 'Signature demandeur'
+        },{
+          text: 'Chef département',
+          alignment: 'center'
         },
-          [],
+        {
+          text: 'DAF',
+          style:{
+            margin: [0, 50, 0, 10],
+            alignment: 'right',
+            italics: true
+          },
+        },
         
       ]
     };
   }
+
+ 
   
    onSubmit() {
     this.commercialService.saveBonAchat(this.bonachat).subscribe( data => {
