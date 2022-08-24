@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
   public PhasePreliminaire=false;
   public EssaiPilote=false;
   public EtudeMarche=false;
-  public donneetechnique=false;
+  public exploration=false;
   public Gestion=false;
   public Produit =false;
   public prospection=false;
@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit {
   public achat=false;
   public Imo=false;
   public machines = false;
+  public minerale =false;
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,120 @@
+
+<div class="page-header">
+    <h3 class="page-title">
+        Caractérisation physico-chimique:
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card" id="main_place">
+        <div class="card-body">
+          <h4 class="card-title">Composition chimique :
+            </h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #chimiqueForm="ngForm">
+            <div class="form-group">
+              <label for="exampleInputUsername1">PF</label>
+              <input type="number" class="form-control" name ="pf" [(ngModel)]="chimique.ph" >
+            </div>
+           
+            <div class="form-group">
+              <label for="exampleInputMobile">SiO2(%)            </label>
+                <input type="number" class="form-control" name ="si" [(ngModel)]="chimique.si" >
+          </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Al2O3(%)                </label>
+                  <input type="number" class="form-control" name ="al" [(ngModel)]="chimique.al" >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputMobile">Fe2O3(ppm)            </label>
+                <input type="number" class="form-control" name ="fe" [(ngModel)]="chimique.fe" >
+          </div>
+           <div class="form-group">
+              <label for="exampleInputMobile">Autres           </label>
+                <input type="number" class="form-control" name ="autres" [(ngModel)]="chimique.autres" >
+          </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="card" id="operation1" style="display:none">
+      <div class="card-body">
+          <h4 class="card-title">Mineralogie</h4>
+          
+        <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onSubmit()" #miFonerrm="ngForm">
+          <form class="forms-sample" enctype="multipart/form-data">
+            <label class="btn btn-default">
+                DRX
+            </label>
+            <input type="file" (change)="selectFile($event)" />
+            </form>
+          <button type="submit" class="btn btn-gradient-primary mr-2" >Submit</button>
+        </form>
+      </div>
+    </div>
+     <div class="card" id="operation2" style="display:none">
+      <div class="card-body">
+          <h4 class="card-title">Geo-technique </h4>
+          
+        <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onSubmit()" #geoFonerrm="ngForm">
+            <div class="form-group">
+                <label for="exampleInputMobile">Equivalent de sable  </label>
+                  <input type="number" class="form-control" name ="sable" [(ngModel)]="chimique.sable" >
+            </div>
+          <form class="forms-sample" enctype="multipart/form-data">
+            <div class="form-group">
+            <label class="exampleInputMobile">
+                Analyse Granulometrie(doc)
+            </label>
+            <input type="file" (change)="selectFile($event)" />
+         </div>
+            </form>
+          <button type="submit" class="btn btn-gradient-primary mr-2" >Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List des Données</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>SiO2(%)
+                    </th>
+                    <th>Al2O3(%)
+                    </th>
+                    <th>Fe2O3(ppm)
+                    </th>
+                     <th>Equivalent de sable 
+                    </th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let chimique of chimiques">
+                    <td>{{chimique.si}}</td>
+                    <td>{{chimique.al}}</td>
+                    <td>{{chimique.fe}}</td>
+                    <td>{{chimique.sable}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button (click)="show('main_place')"  type="button"class="btn btn-warning">Edit</button>
+              <button (click)="show1('operation2')"  type="button"class="btn btn-warning">Edit</button>
+              <button (click)="show2('operation1')"  type="button"class="btn btn-warning">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  

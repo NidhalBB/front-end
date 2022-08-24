@@ -64,10 +64,16 @@ export class ParametreGeoComponent implements OnInit {
     this.parametreService.upload(formData).subscribe({
       next: (response) => console.log(response),
       error: (error) => console.log(error),
+      
     });
      this.selectedFiles = undefined;
-    
+     this.ngOnInit();
   }}
+  down(id :string){
+   this.parametreService.find(id).subscribe(res =>{
+    
+   console.log(id);})
+    }
   ngOnInit(): void {
   this.parametreService.findAll().subscribe(data => {
       this.parametreGeos = data;

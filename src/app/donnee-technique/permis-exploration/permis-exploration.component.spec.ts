@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExplorationComponent } from './exploration.component';
+import { PermisExplorationComponent } from './permis-exploration.component';
 
-describe('ExplorationComponent', () => {
-  let component: ExplorationComponent;
-  let fixture: ComponentFixture<ExplorationComponent>;
+describe('PermisExplorationComponent', () => {
+  let component: PermisExplorationComponent;
+  let fixture: ComponentFixture<PermisExplorationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExplorationComponent ]
+      declarations: [ PermisExplorationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExplorationComponent);
+    fixture = TestBed.createComponent(PermisExplorationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

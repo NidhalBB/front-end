@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProspectionComponent } from './prospection.component';
+import { EchantillonageVarcComponent } from './echantillonage-varc.component';
 
-describe('ProspectionComponent', () => {
-  let component: ProspectionComponent;
-  let fixture: ComponentFixture<ProspectionComponent>;
+describe('EchantillonageVarcComponent', () => {
+  let component: EchantillonageVarcComponent;
+  let fixture: ComponentFixture<EchantillonageVarcComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProspectionComponent ]
+      declarations: [ EchantillonageVarcComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProspectionComponent);
+    fixture = TestBed.createComponent(EchantillonageVarcComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

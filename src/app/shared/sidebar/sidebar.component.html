@@ -20,13 +20,14 @@
       </a>
     </li>
     
-    <li class="nav-item" [ngClass]="{'active' : parametre.isActive || exploration.isActive}">
-      <a class="nav-link" (click)="donneetechnique = !donneetechnique" [attr.aria-expanded]="donneetechnique" aria-controls="donneetechnique">
-        <span class="menu-title">Exploration minérale</span>
+   
+    <li class="nav-item" [ngClass]="{'active' : parametre.isActive }">
+      <a class="nav-link" (click)="minerale = !minerale" [attr.aria-expanded]="minerale" aria-controls="minerale">
+        <span class="menu-title"> Exploration minérale</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-table-large menu-icon"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
-      <div class="collapse" id="donneetechnique" [ngbCollapse]="!donneetechnique">
+      <div class="collapse" id="minerale" [ngbCollapse]="!minerale">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/ParametreGeologique" routerLinkActive="active" #parametre="routerLinkActive">Les paramètres géologiques</a></li>
           <li class="nav-item" [ngClass]="{'active' :echantillon.isActive || permis.isActive}">
@@ -41,8 +42,20 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/exploration" routerLinkActive="active" #exploration="routerLinkActive">Exploration avancée</a></li>
-          </ul>
+          <li class="nav-item" [ngClass]="{'active' :vrac.isActive || permisexpo.isActive || phychimi.isActive}">
+            <a class="nav-link" (click)="exploration = !exploration" [attr.aria-expanded]="exploration" aria-controls="exploration">
+              <span class="menu-title"> Exploration avancée </span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="exploration" [ngbCollapse]="!exploration">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/echantillonenVrac" routerLinkActive="active" #vrac="routerLinkActive">Échantillonnage en Vrac  </a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/physico-chimique" routerLinkActive="active" #phychimi="routerLinkActive">Caractérisation physico-chimique: </a></li>
+                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/permisexpo" routerLinkActive="active" #permisexpo="routerLinkActive">Permis d’exploration: </a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
     </li>
     <li class="nav-item" [ngClass]="{'active' : labo.isActive || magasins.isActive || famille.isActive || sousFamille.isActive}">
