@@ -5,6 +5,7 @@ import { BonCommande } from 'src/app/achat/commande-fournisseur/commande-fournis
 import { BonAchat } from 'src/app/achat/demande-achat/demande-achat.component';
 import { Fournisseur } from 'src/app/achat/fournisseur/fournisseur.component';
 import { Client } from 'src/app/commercial/client/client.component';
+import { CommandeClient } from 'src/app/commercial/commande-client/commande-client.component';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,12 @@ public saveBonAchat(bonAchat:BonAchat) {
 }
 public findAllBonAchat(): Observable<BonAchat[]> {
 return this.http.get<BonAchat[]>(`${this.baseUrl}`+'showAllBonAchat');
+}
+public saveCommandeClient(commandeClient:CommandeClient) {
+  console.log(commandeClient);
+  return this.http.post<BonAchat>(`${this.baseUrl}`+'createCommandeClient',commandeClient);
+}
+public findAllCommandeClient(): Observable<CommandeClient[]> {
+return this.http.get<CommandeClient[]>(`${this.baseUrl}`+'showAllCommandeClient');
 }
 }

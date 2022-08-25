@@ -37,7 +37,7 @@
            <div class="form-group">
               <label for="exampleSelectGender">Produit</label>
               <select class="form-control" name ="produit" [(ngModel)]="bonachat.designation_produit">
-                  <option [ngValue]="null" disabled>List des Produit</option>
+                  <option [ngValue]="null" disabled>List des Produit</option> 
                   <option *ngFor="let produit of produits" [(value)]="produit.designation" >{{produit.designation}}</option>
               </select>
             </div>

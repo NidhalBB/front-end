@@ -1,1 +1,93 @@
-<p>commande-client works!</p>
+<div class="page-header">
+    <h3 class="page-title">
+        Commandes client 
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card" id="main_place">
+        <div class="card-body">
+          <h4 class="card-title">Création Commandes client   </h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #commandeclientForm="ngForm">
+            <div class="form-group">
+                <label for="exampleInputMobile">Num Commande</label>
+                  <input type="number" class="form-control" name ="num" [(ngModel)]="commandeClient.numCommande" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInput">Date de commande     </label>
+                <input type="date" class="form-control" name ="dated" [(ngModel)]="commandeClient.dateD" >
+              </div> 
+              <div class="form-group">
+                <label for="exampleInput">Date de livraison     </label>
+                <input type="date" class="form-control" name ="datel" [(ngModel)]="commandeClient.dateL" >
+              </div>
+            <div class="form-group">
+              <label for="exampleSelectGender">Designation  Client</label>
+              <select class="form-control" name ="client" [(ngModel)]="commandeClient.designation_client">
+                  <option *ngFor="let client of clients" [(value)]="client.designation" >{{client.designation}}</option>
+              </select>
+          </div>
+           <div class="form-group">
+              <label for="exampleSelectGender">Produit</label>
+              <select class="form-control" name ="produit" [(ngModel)]="commandeClient.designation_produit">
+                  <option [ngValue]="null" disabled>List des Produit</option> 
+                  <option *ngFor="let produit of produits" [(value)]="produit.designation" >{{produit.designation}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Quantite Des Articles </label>
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="commandeClient.quantite_article" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Prix Unitaire HT</label>
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="commandeClient.prix" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Montant  HT</label>
+                  <input type="number" class="form-control" name ="montantht"  [(value)] ="commandeClient.prix * commandeClient.quantite_article" disabled/>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">TVA</label>
+                  <input type="number" class="form-control" name ="tva" value="20" disabled/>
+            </div>
+            <div class="form-group">  
+                <label for="exampleInputMobile">Montant TTC</label>
+                  <input type="number" class="form-control" name ="montant" [(value)] ="commandeClient.prix * commandeClient.quantite_article * commandeClient.tva + commandeClient.prix * commandeClient.quantite_article  " disabled/>
+            </div>
+           
+            <button type="submit" class="btn btn-gradient-primary mr-2" >ADD</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+           
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">List des demandes</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Designation Clientr</th>
+                  <th>Produit</th>
+                  <th>Qunatitée </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let commandeClient of commandeClients">
+                  <td>{{commandeClient.designation_client}}</td>
+                  <td>{{commandeClient.designation_produit}}</td>
+                  <td>{{commandeClient.quantite}}</td>
+                  <td></td>
+                </tr>
+                <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Upload</button>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

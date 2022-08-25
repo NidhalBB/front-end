@@ -30,84 +30,55 @@
           </div>
            <div class="form-group">
               <label for="exampleInputMobile">Autres           </label>
-                <input type="number" class="form-control" name ="autres" [(ngModel)]="chimique.autres" >
+              <input type="text" class="form-control" name ="autres" [(ngModel)]="chimique.autre" >
           </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-            <button type ="reset" class="btn btn-light">Cancel</button>
+          <div class="form-group">
+            <label for="exampleInputMobile">Quantité par unité           </label>
+            <input type="number" class="form-control" name ="quantite" [(ngModel)]="chimique.quantite" >
+        </div>
           </form>
+          
+      </div>
         </div>
       </div>
-    </div>
-    <div class="card" id="operation1" style="display:none">
-      <div class="card-body">
-          <h4 class="card-title">Mineralogie</h4>
-          
-        <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onSubmit()" #miFonerrm="ngForm">
-          <form class="forms-sample" enctype="multipart/form-data">
-            <label class="btn btn-default">
-                DRX
-            </label>
-            <input type="file" (change)="selectFile($event)" />
-            </form>
-          <button type="submit" class="btn btn-gradient-primary mr-2" >Submit</button>
-        </form>
-      </div>
-    </div>
-     <div class="card" id="operation2" style="display:none">
-      <div class="card-body">
-          <h4 class="card-title">Geo-technique </h4>
-          
-        <form class="forms-sample" enctype="multipart/form-data" (ngSubmit)="onSubmit()" #geoFonerrm="ngForm">
-            <div class="form-group">
-                <label for="exampleInputMobile">Equivalent de sable  </label>
-                  <input type="number" class="form-control" name ="sable" [(ngModel)]="chimique.sable" >
-            </div>
-          <form class="forms-sample" enctype="multipart/form-data">
-            <div class="form-group">
-            <label class="exampleInputMobile">
-                Analyse Granulometrie(doc)
-            </label>
-            <input type="file" (change)="selectFile($event)" />
-         </div>
-            </form>
-          <button type="submit" class="btn btn-gradient-primary mr-2" >Submit</button>
-        </form>
-      </div>
-    </div>
-    <div class="col-lg-6 grid-margin stretch-card">
+      <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">List des Données</h4>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>SiO2(%)
-                    </th>
-                    <th>Al2O3(%)
-                    </th>
-                    <th>Fe2O3(ppm)
-                    </th>
-                     <th>Equivalent de sable 
-                    </th> 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let chimique of chimiques">
-                    <td>{{chimique.si}}</td>
-                    <td>{{chimique.al}}</td>
-                    <td>{{chimique.fe}}</td>
-                    <td>{{chimique.sable}}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <button (click)="show('main_place')"  type="button"class="btn btn-warning">Edit</button>
-              <button (click)="show1('operation2')"  type="button"class="btn btn-warning">Edit</button>
-              <button (click)="show2('operation1')"  type="button"class="btn btn-warning">Edit</button>
-            </div>
-          </div>
+            <h4 class="card-title">Mineralogie</h4>
+            <form class="forms-sample" (ngSubmit)="onSubmit()" #chimiqueForm="ngForm" >
+          
+            <form class="forms-sample" enctype="multipart/form-data">
+              <label for="exampleInputMobile">
+                  DRX
+              </label>
+              <input type="file" class="form-control" (change)="selectFile($event)" />
+              </form>
+            </form>
+            <br/>
+            <br/>
+            <br/>
+              <h4 class="card-title">Geo-technique </h4>
+              
+            <form class="forms-sample" enctype="multipart/form-data"  #geoFonerrm="ngForm">
+                <div class="form-group">
+                    <label for="exampleInputMobile">Equivalent de sable  </label>
+                      <input type="number" class="form-control" name ="sable" [(ngModel)]="chimique.sable" >
+                </div>
+              <form class="forms-sample" enctype="multipart/form-data">
+                <div class="form-group">
+                <label class="exampleInputMobile">
+                    Analyse Granulometrie(doc)
+                </label>
+                <input type="file"  class="form-control" (change)="selectFile2($event)"/>
+             </div>
+                </form>
+                <button class="btn btn-success"(click)="upload()" >
+                  Upload
+                </button>
+            </form>
         </div>
-      </div>
+        </div>
+    </div>
   </div>
   
   

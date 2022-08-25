@@ -3,6 +3,7 @@ import { HttpClient ,HttpEvent,HttpHeaders, HttpRequest  } from '@angular/common
 import {  ParametreGeo } from '../../donnee-technique/parametre-geo/parametre-geo.component';
 import { Observable } from 'rxjs';
 import { Echnatillonage } from 'src/app/donnee-technique/echantillonage-varc/echantillonage-varc.component';
+import { Chimique } from 'src/app/donnee-technique/physo-chimique/physo-chimique.component';
 
 let  headers= new HttpHeaders({
   'Content-Type':  'application/pdf',
@@ -36,6 +37,9 @@ export class ParametreService {
   }
   public find(id : string) {
     return this.http.get<Blob>(`${this.baseUrl}`+`getfile/${id}`);
+  }
+  public uploadchimique(para: FormData) {
+    return this.http.post<Chimique>(`${this.baseUrl}`+'addChimique', para);
   }
   
 }

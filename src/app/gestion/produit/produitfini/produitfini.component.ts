@@ -5,8 +5,11 @@ import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class ProduitFini{
   public id:string;
+  public designation : string;
   public famille:string;
   public sousfamille:string;
+  public quantite :number;
+  public prix : number;
 }
 @Component({
   selector: 'app-produitfini',

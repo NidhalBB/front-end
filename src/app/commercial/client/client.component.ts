@@ -6,6 +6,14 @@ export class Client{
     public designation:string;
     public address:string;
     public tele:number;
+    public compte:number;
+    public conditionPaiement:string;
+    public siege :string;
+    public societe :string;
+    public codepostale : number ;
+    public pays : string;
+    public telesocite :number;
+    public ville:string;
 }
 @Component({
   selector: 'app-client',

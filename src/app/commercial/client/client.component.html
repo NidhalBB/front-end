@@ -14,12 +14,51 @@
               <input type="text" class="form-control" name ="designation" [(ngModel)]="client.designation"  placeholder="designation">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Adresse</label>
-              <input type="text" class="form-control" name ="adresse" [(ngModel)]="client.address" placeholder="address">
+              <label for="exampleInputEmail1">E-mail</label>
+              <input type="email" class="form-control" name ="adresse" [(ngModel)]="client.address" placeholder="nom@eg.com">
             </div> 
             <div class="form-group">
                 <label for="exampleInputMobile">Téléphone </label>
-                  <input type="text" class="form-control" name ="tele" [(ngModel)]="client.tele"  placeholder="Mobile number">
+                  <input type="number" class="form-control" name ="tele" [(ngModel)]="client.tele"  placeholder="Mobile number">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputUsername1">Compte bancair </label>
+              <input type="number" class="form-control" name ="compte" [(ngModel)]="client.compte"  >
+            </div>
+            <div class="form-group">
+                <label for="exampleSelectGender">Conditionnement de paiement </label>
+                <select class="form-control" name ="departement" [(ngModel)]="client.conditionPaiement">
+                    <option value="DIRECTION">Virment Bancaire</option>
+                    <option value="ACHAT">Paypal</option>
+                    <option value="FINANCE ET CIMPTABILITE">Main à Main</option>
+                  </select>
+            </div>
+            <br/>
+            <h4 class="card-title">Adresse de facturation        </h4>
+            <div class="form-group">
+              <label for="exampleInputUsername1">Nom adresse</label>
+              <input type="text" class="form-control" name ="siege" [(ngModel)]="client.siege"  placeholder="siège">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputUsername1">Scociété</label>
+              <input type="text" class="form-control" name ="societe" [(ngModel)]="client.societe"  >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputMobile">Code postal  </label>
+                <input type="number" class="form-control" name ="code" [(ngModel)]="client.codepostale"  >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputUsername1">Ville</label>
+            <input type="text" class="form-control" name ="ville" [(ngModel)]="client.ville"  >
+          </div>
+          <div class="form-group">
+              <label for="exampleInputUsername1">Pays</label>
+              <input type="text" class="form-control" name ="pays" [(ngModel)]="client.pays"  >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Téléphone Scociété</label>
+                  <input type="number" class="form-control" name ="tele" [(ngModel)]="client.telesocite"  placeholder="Mobile number">
             </div>
             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>

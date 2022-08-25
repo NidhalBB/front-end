@@ -7,6 +7,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { BonCommande } from '../commande-fournisseur/commande-fournisseur.component';
 import { Router } from '@angular/router';
+import { ProduitFini } from 'src/app/gestion/produit/produitfini/produitfini.component';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export class BonAchat{
@@ -34,7 +35,7 @@ export class DemandeAchatComponent implements OnInit {
   boncommande : BonCommande;
   bonCommandes : BonCommande[];
   fournisseurs : Fournisseur[];
-  produits :Produit[];
+  produits :ProduitFini[];
   constructor(private commercialService :CommercialService ,private  gestionService: GestionService , private router: Router) {
     this.bonachat = new BonAchat();
     this.boncommande = new BonCommande();
@@ -159,7 +160,7 @@ export class DemandeAchatComponent implements OnInit {
       this.bonAchats = data;
       
     })
-    this.gestionService.findAllProduit().subscribe(data => {
+    this.gestionService.findAllProduitFini().subscribe(data => {
       this.produits = data;
     })
   }

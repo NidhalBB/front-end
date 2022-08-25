@@ -25,6 +25,14 @@
                     <option *ngFor="let sousfamille of sousfamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
                 </select>
             </div>
+            <div class="form-group">
+              <label for="exampleInputUsername1">Qunatitée</label>
+              <input type="number" class="form-control" name ="quantite" [(ngModel)]="produitFini.quantite"  >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputUsername1">Prix</label>
+              <input type="number" class="form-control" name ="prix" [(ngModel)]="produitFini.prix"  >
+            </div>
             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
           </form>
         </div>
