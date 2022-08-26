@@ -43,6 +43,8 @@ export class DemandeAchatComponent implements OnInit {
    valueUpdated(event) {
   this.bonachat.montantHT = 100 + +event.target.value;
 }
+onKey(event) {this.bonachat.prix = event.target.value;}
+
  show(param_div_id) {
     
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;

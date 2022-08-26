@@ -47,21 +47,27 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix Unitaire HT</label>
-                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="bonachat.prix" />
+                <div *ngFor="let produit of produits"  >
+                  <input type="number" class="form-control"  (keyup)="onKey($event)" name ="prix" *ngIf="produit.designation == bonachat.designation_produit " [(value)]="produit.prix"   disabled/>
+                </div>
             </div>
             <div class="form-group">
-                <label for="exampleInputMobile">Montant  HT</label>
-                  <input type="number" class="form-control" name ="montantht"  [(value)] ="bonachat.prix * bonachat.quantite_article" disabled/>
-            </div>
+              
+              <label for="exampleInputMobile">Montant  HT</label>
+              <div *ngFor="let produit of produits">
+                  <input type="number" class="form-control" name ="montantht"  *ngIf="produit.designation == bonachat.designation_produit "  [(value)] ="produit.prix * bonachat.quantite_article" disabled/>
+                </div>
+                </div>
             <div class="form-group">
                 <label for="exampleInputMobile">TVA</label>
                   <input type="number" class="form-control" name ="tva" value="20" disabled/>
             </div>
             <div class="form-group">  
                 <label for="exampleInputMobile">Montant TTC</label>
-                  <input type="number" class="form-control" name ="montant" [(value)] ="bonachat.prix * bonachat.quantite_article * bonachat.tva + bonachat.prix * bonachat.quantite_article  " disabled/>
+                <div *ngFor="let produit of produits">
+                  <input type="number" class="form-control" name ="montant" *ngIf="produit.designation == bonachat.designation_produit " [(value)] =" produit.prix * bonachat.quantite_article * bonachat.tva + produit.prix * bonachat.quantite_article  " disabled/>
             </div>
-           
+           </div>
             <button type="submit" class="btn btn-gradient-primary mr-2" >ADD</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
