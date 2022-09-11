@@ -13,8 +13,14 @@ const routes: Routes = [
  { path: 'achat', loadChildren: () => import('./achat/achat.module').then(m => m.AchatModule) },
  { path: 'Imo', loadChildren: () => import('./gestion-imo/gestion-imo.module').then(m => m.GestionImoModule) },
  { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },
-
+ { path: 'extraction', loadChildren: () => import('./extraction/extraction.module').then(m => m.ExtractionModule) },
+ { path: 'production', loadChildren: () => import('./prod/prod.module').then(m => m.ProdModule) },
+ { path: 'Logistique', loadChildren: () => import('./logistique/logistique.module').then(m => m.LogistiqueModule) },
+ { path: 'indicateur', loadChildren: () => import('./indicateur/indicateur.module').then(m => m.IndicateurModule) },
+ 
   
+ { path: 'Gestionpersonnelles', loadChildren: () => import('./rh/rh.module').then(m => m.RHModule) }, 
+ { path: 'distribution', loadChildren: () => import('./distribution/distribution.module').then(m => m.DistributionModule) },  
   { path: 'basic-ui', loadChildren: () => import('./basic-ui/basic-ui.module').then(m => m.BasicUiModule) },
   { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsDemoModule) },
   { path: 'forms', loadChildren: () => import('./forms/form.module').then(m => m.FormModule) },

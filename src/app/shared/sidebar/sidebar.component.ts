@@ -20,6 +20,14 @@ export class SidebarComponent implements OnInit {
   public Imo=false;
   public machines = false;
   public minerale =false;
+  public rh = false;
+  public Vente = false;
+  public distribution =false;
+  public Logistique = false;
+  public indicateur = false;
+  public ach = false;
+  public ex = false;
+  public prod = false ;
   constructor() { }
 
   ngOnInit() {

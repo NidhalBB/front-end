@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'LesEquipements', component: EquipementsComponent },
   { path: 'Famille', component: FamilleMachineComponent },
   
-];
+]; 
 
 @NgModule({
   declarations: [EquipementsComponent, FamilleMachineComponent],
