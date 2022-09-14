@@ -13,19 +13,12 @@
         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
-      <a class="nav-link" routerLink="/dashboard" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Dashboard</span>
-        <i class="mdi mdi-home menu-icon"></i>
-      </a>
-    </li>
     
    
     <li class="nav-item" [ngClass]="{'active' : parametre.isActive }">
       <a class="nav-link" (click)="minerale = !minerale" [attr.aria-expanded]="minerale" aria-controls="minerale">
         <span class="menu-title"> Exploration minérale</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
       <div class="collapse" id="minerale" [ngbCollapse]="!minerale">
         <ul class="nav flex-column sub-menu">
@@ -126,7 +119,6 @@
       <a class="nav-link" (click)="achat = !achat" [attr.aria-expanded]="achat" aria-controls="achat">
         <span class="menu-title"> Achat et extraction </span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
       <div class="collapse" id="achat" [ngbCollapse]="!achat">
         <ul class="nav flex-column sub-menu">
@@ -166,8 +158,8 @@
       </a>
       <div class="collapse" id="prod" [ngbCollapse]="!prod">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="production/Operation" routerLinkActive="active" #operation="routerLinkActive">Création opération  </a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="production/Process" routerLinkActive="active" #process="routerLinkActive">Création opération </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="production/Operation" routerLinkActive="active" #operation="routerLinkActive"> Opération  </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="production/Process" routerLinkActive="active" #process="routerLinkActive">Process </a></li>
         </ul>
       </div>
     </li>
@@ -184,7 +176,7 @@
     </li>
     <li class="nav-item" [ngClass]="{'active' : Securite.isActive ||Maintenance.isActive || Temporaire.isActive ||Spatial.isActive ||Cphysiques.isActive }">
       <a class="nav-link" (click)="indicateur = !indicateur" [attr.aria-expanded]="indicateur" aria-controls="indicateur">
-        <span class="menu-title"> Les indicateurs de performances</span>
+        <span class="menu-title"> Les Indicateurs </span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="indicateur" [ngbCollapse]="!indicateur">
@@ -213,7 +205,6 @@
       <a class="nav-link" (click)="machines = !machines" [attr.aria-expanded]="machines" aria-controls="Imo">
         <span class="menu-title"> Les Machines </span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
       <div class="collapse" id="machines" [ngbCollapse]="!machines">
         <ul class="nav flex-column sub-menu">

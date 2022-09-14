@@ -1,1 +1,99 @@
-<p>mvt works!</p>
+<div class="page-header">
+    <h3 class="page-title">
+        Clients
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création Mouvement 
+</h4>
+          <form class="forms-sample" >
+            <div class="form-group">
+              <label for="exampleInputUsername1">N°Mouvement</label>
+              <input type="number" class="form-control" name ="num"placeholder="N°Mouvement">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Date</label>
+              <input type="date" class="form-control" name ="date" >
+            </div> 
+            <div class="form-group">
+                <label for="exampleInputMobile">Code  </label>
+                  <input type="number" class="form-control" name ="code"   placeholder="Code ">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputMobile">Client   </label>
+               <select class="form-control " name ="client" >
+                <option >Cl1</option>
+                <option >Cl2</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Fournisseur   </label>
+               <select class="form-control" name ="fournisseur" >
+                <option >F1</option>
+                <option >F2</option>
+              </select>
+            </div>
+                <div class="form-group ">
+                  <label class="col-sm-3 col-form-label">Type</label>
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="entree" id="membershipRadios1" value="" checked>
+                        Entree
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="sortie" id="membershipRadios2" value="option2">
+                        Sortie
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+            <div class="form-group">
+              <label for="exampleInputMobile">Quantité   </label>
+                <input type="number" class="form-control" name ="quantite "  >
+          </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Cout unitaire </label>
+                  <input type="number" class="form-control" name ="cout" >
+            </div>
+            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">List des Mouvements</h4>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>N°Mvt</th>
+                    <th>Date</th>
+                    <th>Code </th>
+                    <th>client</th>
+                    <th>fournisseur </th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

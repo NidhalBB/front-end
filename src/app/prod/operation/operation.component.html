@@ -1,1 +1,82 @@
-<p>operation works!</p>
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Création opération</h4>
+     
+        <form class="form-simple">
+          <div>
+              <label>Désignation</label>
+            <input type="text" class="form-control " name ="designation" placeholder="Désignation">
+          </div>
+          <div class="form-group ">
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" [value]="1" [(ngModel)]="sh" name="sh" type="radio" [checked]="isChecked">
+                        Machines
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" [value]="0" [(ngModel)]="sh" name="sh" type="radio" [checked]="!isChecked">
+                        Transfert
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group ">
+                  <label class="col-sm-3 col-form-label">Type</label>
+                  <div class="col-sm-4">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" [value]="2" [(ngModel)]="sh" name="sh" type="radio" [checked]="isChecked">
+                        Manuel
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" [value]="3" [(ngModel)]="sh" name="sh2" type="radio" [checked]="!isChecked">
+                        semi Automatique
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" [value]="4"[(ngModel)]="sh" name="sh1" type="radio" [checked]="!isChecked" >
+                        Automatique
+                        <i class="input-helper"></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+        
+          <div *ngIf="sh == 1">
+            <label>Genre</label>
+            <select class="form-control" name ="Genre" >
+            <option >Masculin</option>
+            <option >Feminin</option>
+          </select> </div>
+          <div *ngIf="sh == 2">
+            <label>Genre</label>
+            <select class="form-control " name ="manuel" >
+            <option >test2</option>
+            <option >test1</option>
+          </select> </div>
+          <div  *ngIf="sh == 0"><label>Temps Alloué </label><input class="form-control "  name="sh" type="number"  /> </div>
+<br/>
+          <button type="submit" class="btn btn-gradient-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+ 

@@ -21,6 +21,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { EchantillonService } from './echantillon-services.service';
 import { ParametreService } from './Services/parametre/parametre-services.service';
 import { EquipementsService } from './Services/equipements/equipements.service';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { EquipementsService } from './Services/equipements/equipements.service';
     TodoComponent,
     SpinnerComponent,
     ContentAnimateDirective,
-    ParametreGeoComponent
+    ParametreGeoComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

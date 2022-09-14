@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Error404Component } from './error-pages/error404/error404.component';
+import { LoginComponent } from './user-pages/login/login.component';
 
 const routes: Routes = [
-  { path: '404', component: Error404Component },
-  { path: '', redirectTo: '404', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'Explorationminérale', loadChildren: () => import('./donnee-technique/donnee-technique.module').then(m => m.DonneeTechniqueModule) },
   { path: 'gestion', loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule) },
   { path: 'commercial', loadChildren: () => import('./commercial/commercial.module').then(m => m.CommercialModule) },

@@ -27,6 +27,7 @@
     "@angular/router": "~10.1.6",
     "@mdi/font": "^5.9.55",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
+    "@types/googlemaps": "^3.39.13",
     "bootstrap": "^4.6.2",
     "chart.js": "^2.9.4",
     "compass-mixins": "^0.12.12",
