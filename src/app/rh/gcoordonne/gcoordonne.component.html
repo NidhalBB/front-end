@@ -3,14 +3,14 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Gestion des Coordonnées </h4>
-     
-        <form class="form-inline">
-          <input type="number" class="form-control mb-2 mr-sm-2" name="matricule" size="5" placeholder="Matricule">
-          <input type="text" class="form-control mb-2 mr-sm-2" name ="collaborateur" size="6" placeholder="Collaborateur">          
-          <input type="number" class="form-control mb-2 mr-sm-2" name ="téléphone" size="6" placeholder="Téléphone">
-          <input type="email" class="form-control mb-2 mr-sm-2" size="10"name ="email" placeholder="Email">
-          <input type="text" class="form-control mb-2 mr-sm-2" size="10"  name = "adresse"placeholder="Adresse">
-          <input type="text" class="form-control mb-2 mr-sm-2" size="10"  name = "situation"placeholder="Situation de famille">
+      
+        <form class="form-inline" (ngSubmit)="onSubmit()" #coordonneForm="ngForm">
+          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="coordonne.matricule" name="matricule" size="5" placeholder="Matricule">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="coordonne.collaborateur" name ="collaborateur" size="6" placeholder="Collaborateur">          
+          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="coordonne.telephone" name ="telephone" size="6" placeholder="Téléphone">
+          <input type="email" class="form-control mb-2 mr-sm-2" [(ngModel)]="coordonne.email" size="10"name ="email" placeholder="Email">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="coordonne.adresse" size="10"  name = "adresse"placeholder="Adresse">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="coordonne.situation" size="10"  name = "situation"placeholder="Situation de famille">
           <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
         </form>
       </div>
@@ -33,7 +33,14 @@
                 </tr>
               </thead>
               <tbody>
-                
+                <tr *ngFor="let coordonne of coordonnes">
+                  <td>{{coordonne.matricule}}</td>
+                  <td>{{coordonne.collaborateur}}</td>
+                  <td>{{coordonne.telephone}}</td>
+                  <td>{{coordonne.email}}</td>
+                  <td>{{coordonne.adresse}}</td>
+                  <td>{{coordonne.situation}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

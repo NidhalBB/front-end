@@ -33,7 +33,7 @@ export class ClientComponent implements OnInit {
       console.log(data);
       this.ngOnInit();
     });
-    
+     
   }
   ngOnInit(): void {
     this.commercialService.findAll().subscribe(data => {

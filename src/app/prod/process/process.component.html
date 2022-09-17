@@ -5,14 +5,12 @@
         <h4 class="card-title">Création Process
         </h4>
      
-        <form class="form-inline">
-          <input type="text" class="form-control mb-2 mr-sm-2" name="designation" size="5" placeholder="Désignation">
-          <input type="text" class="form-control mb-2 mr-sm-2" size="10"  name = "prenom"placeholder="Prénom">
-          <select class="form-control mb-2 mr-sm-2" name ="operation" >
-            <option >Op1</option>
-            <option >Op2</option>
+        <form class="form-inline" (ngSubmit)="onSubmit()" #processForm="ngForm">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="process.designation"  name="designation" placeholder="Désignation">
+          <select class="form-control mb-2 mr-sm-2" name ="operation" [(ngModel)]="process.operation">
+            <option *ngFor="let op of operations" [(value)]="op.designation" >{{op.designation}}</option>
           </select>
-          <input type="number" class="form-control mb-2 mr-sm-2" name ="num" size="6" placeholder="enumerer">
+          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="process.num" name ="num" size="6" placeholder="enumerer">
           
           <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
         </form>
@@ -27,13 +25,15 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Opération </th>
-                  <th>Type </th>
-                  <th>Machine  </th>
+                  <th>Designation </th>
+                  <th>Operation </th>
                 </tr>
               </thead>
               <tbody>
-                
+                <tr *ngFor="let process of proc">
+                  <td>{{process.designation}}</td>
+                  <td>{{process.operation}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

@@ -4,11 +4,14 @@
       <div class="card-body">
         <h4 class="card-title">Gestion des Compétences </h4>
      
-        <form class="form-inline">
-          <input type="number" class="form-control mb-2 mr-sm-2" name="matricule" placeholder="Matricule">
-          <input type="text" class="form-control mb-2 mr-sm-2" name ="collaborateur" placeholder="Collaborateur"> 
-          <input type="text" class="form-control mb-2 mr-sm-2" name = "description"placeholder="Description">
-          <input type="text" class="form-control mb-2 mr-sm-2"   name = "type" placeholder="Type de compétence">
+        <form class="form-inline" (ngSubmit)="onSubmit()" #competanceForm="ngForm">
+          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="competance.matricule" name="matricule" placeholder="Matricule">
+          <select class="form-control mb-2 mr-sm-2" name ="collaborateur" [(ngModel)]="competance.collaborateur">
+            <option *ngFor="let col of collaborateurs" [(value)]="col.prenom" >{{col.prenom}}</option>
+          </select>
+          <input type="text" class="form-control mb-2 mr-sm-2"  name ="collaborateur" placeholder="Collaborateur"> 
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="competance.description" name = "description"placeholder="Description">
+          <input type="text" class="form-control mb-2 mr-sm-2"  [(ngModel)]="competance.type" name = "type" placeholder="Type de compétence">
           <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
         </form>
       </div>
@@ -29,7 +32,12 @@
                 </tr>
               </thead>
               <tbody>
-                
+                <tr *ngFor="let competance of competances">
+                  <td>{{competance.matricule}}</td>
+                  <td>{{competance.collaborateur}}</td>
+                  <td>{{competance.type}}</td>
+                  <td>{{competance.description}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

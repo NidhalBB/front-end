@@ -4,19 +4,19 @@
       <div class="card-body">
         <h4 class="card-title">Gestion des Collaborateurs</h4>
      
-        <form class="form-inline">
-          <input type="number" class="form-control mb-2 mr-sm-2" name="num" size="5" placeholder="Numéro">
-          <input type="date" class="form-control mb-2 mr-sm-2" name ="date"  >
-          <input type="text" class="form-control mb-2 mr-sm-2" name ="nom" size="6" placeholder="Nom">
-          <input type="text" class="form-control mb-2 mr-sm-2" size="10"  name = "prenom"placeholder="Prénom">
-          <select class="form-control mb-2 mr-sm-2" name ="Genre" >
+        <form class="form-inline"  (ngSubmit)="onSubmit()" #collaborateurForm="ngForm" >
+          <input type="number" class="form-control mb-2 mr-sm-2"  [(ngModel)]="collaborateur.num" name="num" size="5" placeholder="Numéro">
+          <input type="date" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.date" name ="date"  >
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.nom" name ="nom" size="6" placeholder="Nom">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.prenom" size="10"  name = "prenom"placeholder="Prénom">
+          <select class="form-control mb-2 mr-sm-2" name ="Genre" [(ngModel)]="collaborateur.genre">
             <option >Masculin</option>
             <option >Feminin</option>
           </select>
           
-          <input type="number" class="form-control mb-2 mr-sm-2" name =" cnss" size="6" placeholder="CNSS">
-          <input type="text" class="form-control mb-2 mr-sm-2" size="10"name ="lieu" placeholder="Lieu">
-          <select class="form-control mb-2 mr-sm-2" name ="active" >
+          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.cnss" name ="cnss" size="6" placeholder="CNSS">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.lieu" size="10"name ="lieu" placeholder="Lieu">
+          <select class="form-control mb-2 mr-sm-2" name ="active" [(ngModel)]="collaborateur.active" >
             <option >Oui</option>
             <option >Non</option>
           </select>
@@ -40,11 +40,20 @@
                   <th>Date de Naissance</th>
                   <th>Lieu de résidence </th>
                   <th>Matricule CNSS</th>
-                  <th>Actif </th>
+                  <th>Active </th>
                 </tr>
               </thead>
               <tbody>
-                
+                <tr *ngFor="let collaborateur of collaborateurs">
+                  <td>{{collaborateur.num}}</td>
+                  <td>{{collaborateur.nom}}</td>
+                  <td>{{collaborateur.prenom}}</td>
+                  <td>{{collaborateur.genre}}</td>
+                  <td>{{collaborateur.date}}</td>
+                  <td>{{collaborateur.lieu}}</td>
+                  <td>{{collaborateur.cnss}}</td>
+                  <td>{{collaborateur.active}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

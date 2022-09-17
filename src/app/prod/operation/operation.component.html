@@ -4,16 +4,16 @@
       <div class="card-body">
         <h4 class="card-title">Création opération</h4>
      
-        <form class="form-simple">
+        <form class="form-simple" (ngSubmit)="onSubmit()" #operationForm="ngForm">
           <div>
               <label>Désignation</label>
-            <input type="text" class="form-control " name ="designation" placeholder="Désignation">
+            <input type="text" class="form-control "[(ngModel)]="operation.designation"  name ="designation" placeholder="Désignation">
           </div>
           <div class="form-group ">
                   <div class="col-sm-4">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" [value]="1" [(ngModel)]="sh" name="sh" type="radio" [checked]="isChecked">
+                        <input type="radio" class="form-check-input" [value]="1"  [(ngModel)]="sh" name="sh1" type="radio" [checked]="isChecked">
                         Machines
                         <i class="input-helper"></i>
                       </label>
@@ -22,7 +22,7 @@
                   <div class="col-sm-5">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" [value]="0" [(ngModel)]="sh" name="sh" type="radio" [checked]="!isChecked">
+                        <input type="radio" class="form-check-input" [value]="0" [(ngModel)]="sh" name="sh1" type="radio" [checked]="!isChecked">
                         Transfert
                         <i class="input-helper"></i>
                       </label>
@@ -34,7 +34,7 @@
                   <div class="col-sm-4">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" [value]="2" [(ngModel)]="sh" name="sh" type="radio" [checked]="isChecked">
+                        <input type="radio" class="form-check-input" [value]="3" [(ngModel)]="sh1" name="sh" type="radio" [checked]="isChecked">
                         Manuel
                         <i class="input-helper"></i>
                       </label>
@@ -43,7 +43,7 @@
                   <div class="col-sm-5">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" [value]="3" [(ngModel)]="sh" name="sh2" type="radio" [checked]="!isChecked">
+                        <input type="radio" class="form-check-input" value="semiAutomatique" [(ngModel)]="operation.type" name="sh" type="radio" [checked]="!isChecked">
                         semi Automatique
                         <i class="input-helper"></i>
                       </label>
@@ -52,27 +52,25 @@
                   <div class="col-sm-5">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" [value]="4"[(ngModel)]="sh" name="sh1" type="radio" [checked]="!isChecked" >
+                        <input type="radio" class="form-check-input" value="Automatique"[(ngModel)]="operation.type" name="sh" type="radio" [checked]="!isChecked" >
                         Automatique
                         <i class="input-helper"></i>
                       </label>
                     </div>
                   </div>
-                </div>
+          </div>
         
           <div *ngIf="sh == 1">
-            <label>Genre</label>
-            <select class="form-control" name ="Genre" >
-            <option >Masculin</option>
-            <option >Feminin</option>
+            <label>Machine</label>
+            <select class="form-control" name ="machine" [(ngModel)]="operation.machine" >
+              <option *ngFor="let op of equipements" [(value)]="op.nom" >{{op.nom}}</option>
           </select> </div>
-          <div *ngIf="sh == 2">
-            <label>Genre</label>
-            <select class="form-control " name ="manuel" >
-            <option >test2</option>
-            <option >test1</option>
+          <div *ngIf="sh1 == 3">
+            <label>Poste</label>
+            <select class="form-control " name ="poste" [(ngModel)]="operation.poste" >
+              <option *ngFor="let op of postes" [(value)]="op.poste" >{{op.poste}}</option>
           </select> </div>
-          <div  *ngIf="sh == 0"><label>Temps Alloué </label><input class="form-control "  name="sh" type="number"  /> </div>
+          <div  *ngIf="sh == 0"><label>Temps Alloué </label><input class="form-control " [(ngModel)]="operation.temps" name="temps" type="number"  /> </div>
 <br/>
           <button type="submit" class="btn btn-gradient-primary">Submit</button>
         </form>

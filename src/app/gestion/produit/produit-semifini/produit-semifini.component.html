@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Sous Famille</label>
-                <select class="form-control" name ="sousfamille" [(ngModel)]="produitSemiFini.sousfamille">
+                <select class="form-control" name ="sousfamille" [(ngModel)]="produitSemiFini.souFamille">
                     <option *ngFor="let sousfamille of sousFamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
                 </select>
             </div>

@@ -4,9 +4,9 @@
       <div class="card-body">
         <h4 class="card-title">Gestion des Postes</h4>
      
-        <form class="form-inline">
-          <input type="text" class="form-control mb-2 mr-sm-2" name ="poste"  placeholder="Poste">
-          <input type="text" class="form-control mb-2 mr-sm-2"  name = "description"placeholder="Description">
+        <form class="form-inline" (ngSubmit)="onSubmit()" #posteForm="ngForm">
+          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="poste.poste" name ="poste"  placeholder="Poste">
+          <input type="text" class="form-control mb-2 mr-sm-2"  [(ngModel)]="poste.description" name = "description"placeholder="Description">
           <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
         </form>
       </div>
@@ -25,7 +25,10 @@
                 </tr>
               </thead>
               <tbody>
-                
+                <tr *ngFor="let poste of postes">
+                  <td>{{poste.poste}}</td>
+                  <td>{{poste.description}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

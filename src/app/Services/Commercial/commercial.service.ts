@@ -6,7 +6,7 @@ import { BonAchat } from 'src/app/achat/demande-achat/demande-achat.component';
 import { Fournisseur } from 'src/app/achat/fournisseur/fournisseur.component';
 import { Client } from 'src/app/commercial/client/client.component';
 import { CommandeClient } from 'src/app/commercial/commande-client/commande-client.component';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
