@@ -24,7 +24,7 @@ const routes: Routes = [
     NgbModule,
     FormsModule,
     ReactiveFormsModule ,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes), 
   ]
 })
 export class IndicateurModule { }

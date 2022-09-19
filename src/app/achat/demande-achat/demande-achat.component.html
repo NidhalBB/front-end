@@ -57,7 +57,7 @@
               <div *ngFor="let produit of produits">
                   <input type="number" class="form-control" name ="montantht"  *ngIf="produit.designation == bonachat.designation_produit "  [(value)] ="produit.prix * bonachat.quantite_article" disabled/>
                 </div>
-                </div>
+            </div>
             <div class="form-group">
                 <label for="exampleInputMobile">TVA</label>
                   <input type="number" class="form-control" name ="tva" value="20" disabled/>

@@ -8,7 +8,7 @@ export class Mouvement{
   public id_Mouvement:string;
   public num : string;
   public date : Date;
-  public Code : string;
+  public code : string;
   public client : string;
   public fournisseur : string;
   public type : string;

@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Création Base de produit</h4>
+          <div class="table-responsive">
+            <button class="btn btn-info" (click)="myFunction()">ADD</button>
+            <form>
+            <table class="table" id="myTable">
+              <thead>
+                <tr >
+                  <th >
+                    Type
+                  </th>
+                  <th>
+                    Sous type
+                  </th>
+                  <th *ngIf="stock.type == 'Entree' ">
+                    Désignation Produit
+                  </th>
+                  <th>
+                    Quantité
+                  </th>
+                  <th *ngIf="stock.produit == 'Produit Acquis' ">
+                    Prix unitaire
+                  </th>
+                  <th *ngIf="stock.produit == 'Produit Acquis' || stock.produit == 'Produit SemiFini'  ">
+                    Magasin
+                  </th>
+                  <th *ngIf="stock.produit == 'Produit Acquis' && stock.type == 'Entree' ">
+                    Fournisseur
+                  </th>
+                  <th *ngIf="(stock.produit == 'Produit Acquis' || stock.produit == 'Produit SemiFini' || stock.produit == 'Produit Ouvragé') && stock.type == 'Entree'">
+                    Date de reception
+                  </th>
+                  <th *ngIf="(stock.produit == 'Produit Acquis' || stock.produit == 'Produit SemiFini') && stock.type == 'Entree'">
+                    Bon de reception
+                  </th><th *ngIf="stock.produit == 'Produit Ouvragé' ">
+                    Sous famille
+                  </th>
+                  <th *ngIf="stock.produit == 'Produit Ouvragé' ">
+                    Bon de livraison
+                  </th>
+                  <th *ngIf="stock.produit == 'Produit Acquis' && stock.type == 'Sortie' ">
+                    Date de Sortie
+                  </th>
+                  <th *ngIf="stock.produit == 'Produit Acquis' && stock.type == 'Sortie' ">
+                    Bon de Sortie
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                    <td>
+                        <select class="form-control" name ="produit"[(ngModel)]="stock.type">
+                            <option >Entree</option> 
+                            <option >Sortie</option> 
+                        </select>
+                    </td>
+                    <td >
+                        <select class="form-control" *ngIf="stock.type == 'Sortie' "name ="sortie" [(ngModel)]="stock.produit">
+                            <option >Produit Acquis</option> 
+                            <option >Commande</option> 
+                        </select>
+                        <select class="form-control" *ngIf="stock.type == 'Entree' "name ="entree" [(ngModel)]="stock.produit">
+                            <option >Produit Acquis</option> 
+                            <option >Produit SemiFini</option> 
+                            <option >Produit Ouvragé</option> 
+                        </select>
+                    </td>
+                    <td *ngIf="stock.type == 'Entree' ">
+                      <select class="form-control" *ngIf="stock.produit == 'Produit Acquis' "name ="designation" [(ngModel)]="stock.designationProduit">
+                        <option *ngFor="let produit of matieresAcquise" [(value)]="produit.designation" >{{produit.designation}}</option>
+                    </select>
+                    <select class="form-control" *ngIf="stock.produit == 'Produit SemiFini' "name ="designation" [(ngModel)]="stock.designationProduit">
+                      <option *ngFor="let produit of produitsSemiFini" [(value)]="produit.designation" >{{produit.designation}}</option>
+                  </select>
+                  <select class="form-control" *ngIf="stock.produit == 'Produit Ouvragé' "name ="designation" [(ngModel)]="stock.designationProduit">
+                    <option *ngFor="let produit of produitsFini" [(value)]="produit.designation" >{{produit.designation}}</option>
+                </select>
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" name ="quantite"  />
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Acquis' ">
+                      <div *ngFor="let produit of matieresAcquise"  >
+                        <input type="number" class="form-control" name ="prix" *ngIf="produit.designation == stock.designationProduit " [(value)]="produit.prix"   disabled/>
+                      </div>
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Acquis' || stock.produit == 'Produit SemiFini'  ">
+                      <input type="text" class="form-control" name ="magasin"  [(ngModel)]="stock.magasin" />
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Acquis' && stock.type == 'Entree' ">
+                      <div *ngFor="let produit of matieresAcquise"  >
+                        <input type="text" class="form-control" name ="fournisseur" *ngIf="produit.designation == stock.designationProduit " [(value)]="produit.fournisseur"   disabled/>
+                      </div>
+                    </td>
+                    <td *ngIf="(stock.produit == 'Produit Acquis' || stock.produit == 'Produit SemiFini' || stock.produit == 'Produit Ouvragé') && stock.type == 'Entree'">
+                      <input type="date" class="form-control" name ="date"  />
+                    </td>
+                    <td *ngIf="(stock.produit == 'Produit Acquis' || stock.produit == 'Produit SemiFini') && stock.type == 'Entree'">
+                      <input type="file" class="form-control" name ="bonreception"  />
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Ouvragé' ">
+                      <div *ngFor="let produit of produitsFini"  >
+                        <input type="text" class="form-control" name ="sousfamille" *ngIf="produit.designation == stock.designationProduit " [(value)]="produit.sousfamilles"   disabled/>
+                      </div>
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Ouvragé' ">
+                      <input type="file" class="form-control" name ="bonlivrison" >
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Acquis' && stock.type == 'Sortie' ">
+                      <input type="date" class="form-control" name ="date"  />
+                    </td>
+                    <td *ngIf="stock.produit == 'Produit Acquis' && stock.type == 'Sortie' ">
+                      <input type="file" class="form-control" name ="bonsortie"  />
+                    </td>
+                    
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

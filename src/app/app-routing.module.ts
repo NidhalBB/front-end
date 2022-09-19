@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'Explorationminérale', loadChildren: () => import('./donnee-technique/donnee-technique.module').then(m => m.DonneeTechniqueModule) },
   { path: 'gestion', loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule) },
   { path: 'commercial', loadChildren: () => import('./commercial/commercial.module').then(m => m.CommercialModule) },
-
+  { path: 'GestionStock', loadChildren: () => import('./gestion-stock/gestion-stock.module').then(m => m.GestionStockModule) },
  { path: 'achat', loadChildren: () => import('./achat/achat.module').then(m => m.AchatModule) },
  { path: 'Imo', loadChildren: () => import('./gestion-imo/gestion-imo.module').then(m => m.GestionImoModule) },
  { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },

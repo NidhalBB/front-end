@@ -190,19 +190,21 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : corporel.isActive }">
-      <a class="nav-link" (click)="Imo = !Imo" [attr.aria-expanded]="Imo" aria-controls="Imo">
-        <span class="menu-title"> Gestion Imo </span>
+    <li class="nav-item" [ngClass]="{'active' : base.isActive || journal.isActive  || etat.isActive }">
+      <a class="nav-link" (click)="stock = !stock" [attr.aria-expanded]="stock" aria-controls="stock">
+        <span class="menu-title"> Gestion de Stock </span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="Imo" [ngbCollapse]="!Imo">
+      <div class="collapse" id="stock" [ngbCollapse]="!stock">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="Imo/corporel" routerLinkActive="active" #corporel="routerLinkActive">Imo Corporel</a></li>
-          </ul>
+          <li class="nav-item"> <a class="nav-link" routerLink="GestionStock/BaseProduit" routerLinkActive="active" #base="routerLinkActive">Base de Produit</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="GestionStock/Journal" routerLinkActive="active" #journal="routerLinkActive">Journal de Stock</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="GestionStock/EtatStock" routerLinkActive="active" #etat="routerLinkActive">Etat de Stock</a></li>
+        </ul>
       </div>
     </li>
     <li class="nav-item" [ngClass]="{'active' : equipement.isActive || groupe.isActive }">
-      <a class="nav-link" (click)="machines = !machines" [attr.aria-expanded]="machines" aria-controls="Imo">
+      <a class="nav-link" (click)="machines = !machines" [attr.aria-expanded]="machines" aria-controls="machines">
         <span class="menu-title"> Les Machines </span>
         <i class="menu-arrow"></i>
       </a>

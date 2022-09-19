@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
   public prospection=false;
   public commercial = false;
   public achat=false;
+  public stock = false;
   public Imo=false;
   public machines = false;
   public minerale =false;
