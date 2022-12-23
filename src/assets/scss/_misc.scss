@@ -5,9 +5,6 @@ html {
   padding-right: 0 !important; // resets padding right added by Bootstrap modal
 }
 
-body {
-  background: $content-bg;
-}
 
 *:-moz-full-screen,
 *:-webkit-full-screen,
@@ -46,7 +43,7 @@ body {
 }
 
 .content-wrapper {
-  background: $content-bg;
+  background: #d2e3ef;
   padding: 2.75rem 2.25rem;
   width: 100%;
   @include flex-grow(1);

@@ -2,20 +2,15 @@
   <ul class="nav">
     <li class="nav-item nav-profile">
       <a href="javascript:;" class="nav-link">
-        <div class="nav-profile-image">
-          <img src="assets/images/faces/face1.jpg" alt="profile">
-          <span class="login-status online"></span> <!--change to offline or busy as needed-->              
-        </div>
+       
         <div class="nav-profile-text">
-          <span class="font-weight-bold mb-2">David Grey. H</span>
-          <span class="text-secondary text-small">Project Manager</span>
+          <span class="font-weight-bold mb-2">Nidhal Ben Brahim</span>
+          <span class="text-secondary text-small">Stagiaire</span>
         </div>
         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
       </a>
     </li>
-    
-   
-    <li class="nav-item" [ngClass]="{'active' : parametre.isActive }">
+    <li class="nav-item" [ngClass]="{'active' : minerale.isActive }">
       <a class="nav-link" (click)="minerale = !minerale" [attr.aria-expanded]="minerale" aria-controls="minerale">
         <span class="menu-title"> Exploration minérale</span>
         <i class="menu-arrow"></i>
@@ -23,31 +18,8 @@
       <div class="collapse" id="minerale" [ngbCollapse]="!minerale">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/ParametreGeologique" routerLinkActive="active" #parametre="routerLinkActive">Les paramètres géologiques</a></li>
-          <li class="nav-item" [ngClass]="{'active' :echantillon.isActive || permis.isActive}">
-            <a class="nav-link" (click)="prospection = !prospection" [attr.aria-expanded]="prospection" aria-controls="prospection">
-              <span class="menu-title"> Prospection</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="prospection" [ngbCollapse]="!prospection">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/echantillon" routerLinkActive="active" #echantillon="routerLinkActive">Création des échantillons </a></li>
-                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/docs" routerLinkActive="active" #permis="routerLinkActive">Permis de recherche </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item" [ngClass]="{'active' :vrac.isActive || permisexpo.isActive || phychimi.isActive}">
-            <a class="nav-link" (click)="exploration = !exploration" [attr.aria-expanded]="exploration" aria-controls="exploration">
-              <span class="menu-title"> Exploration avancée </span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="exploration" [ngbCollapse]="!exploration">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/echantillonenVrac" routerLinkActive="active" #vrac="routerLinkActive">Échantillonnage en Vrac  </a></li>
-                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/physico-chimique" routerLinkActive="active" #phychimi="routerLinkActive">Caractérisation physico-chimique: </a></li>
-                <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/permisexpo" routerLinkActive="active" #permisexpo="routerLinkActive">Permis d’exploration: </a></li>
-              </ul>
-            </div>
-          </li>
+          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/echantillon" routerLinkActive="active" #echantillon="routerLinkActive">Création des échantillons </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="Explorationminérale/physico-chimique" routerLinkActive="active" #phychimi="routerLinkActive">Caractérisation physico-chimique: </a></li>
         </ul>
       </div>
     </li>

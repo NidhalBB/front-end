@@ -29,6 +29,9 @@ public saveFournisseur(fournisseur :Fournisseur) {
 public findAllFournisseur(): Observable<Fournisseur[]> {
 return this.http.get<Fournisseur[]>(`${this.baseUrl}`+'showAllFournisseur');
 }
+public deleteFournisseur(id : string) {
+  return this.http.delete<Fournisseur>(`${this.baseUrl}`+`Fournisseur/${id}`);
+}
 public saveBonCommande(bonCommande :BonCommande) {
   console.log(bonCommande);
   return this.http.post<BonCommande>(`${this.baseUrl}`+'createBonCommande',bonCommande);

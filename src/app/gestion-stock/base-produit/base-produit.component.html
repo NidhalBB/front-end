@@ -15,7 +15,7 @@
                   <th>
                     Sous type
                   </th>
-                  <th *ngIf="stock.type == 'Entree' ">
+                  <th >
                     Désignation Produit
                   </th>
                   <th>
@@ -69,7 +69,7 @@
                             <option >Produit Ouvragé</option> 
                         </select>
                     </td>
-                    <td *ngIf="stock.type == 'Entree' ">
+                    <td >
                       <select class="form-control" *ngIf="stock.produit == 'Produit Acquis' "name ="designation" [(ngModel)]="stock.designationProduit">
                         <option *ngFor="let produit of matieresAcquise" [(value)]="produit.designation" >{{produit.designation}}</option>
                     </select>
@@ -104,7 +104,7 @@
                     </td>
                     <td *ngIf="stock.produit == 'Produit Ouvragé' ">
                       <div *ngFor="let produit of produitsFini"  >
-                        <input type="text" class="form-control" name ="sousfamille" *ngIf="produit.designation == stock.designationProduit " [(value)]="produit.sousfamilles"   disabled/>
+                        <input type="text" class="form-control" name ="sousfamille" *ngIf="produit.designation == stock.designationProduit " [(value)]="produit.sousfamille"   disabled/>
                       </div>
                     </td>
                     <td *ngIf="stock.produit == 'Produit Ouvragé' ">

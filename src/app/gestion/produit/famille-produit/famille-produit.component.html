@@ -11,9 +11,9 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #familleForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="famille.designation_famille"  placeholder="Username">
+              <input type="text" class="form-control" name ="designation" required [(ngModel)]="famille.designation_famille"  placeholder="Username">
             </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!familleForm.form.valid" class="btn btn-info mr-2">Submit</button>
           </form>
         </div>
       </div>
@@ -26,13 +26,11 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Désignation</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let famille of familles">
-                    <td>{{famille.id_famille}}</td>
                     <td>{{famille.designation_famille}}</td>
                   </tr>
                 </tbody>

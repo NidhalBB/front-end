@@ -110,7 +110,7 @@
       &.active {
         .nav-link {
           .menu-title {
-            color: $sidebar-menu-active-color;
+            color: #d2e3ef;
             font-family: $type1-medium;            
           }
           i {
@@ -214,7 +214,7 @@
             font-size: .75rem;
           }
           &.active {
-            color: $sidebar-menu-active-color;
+            color: #d2e3ef;
             background: transparent;
           }
           &:hover {

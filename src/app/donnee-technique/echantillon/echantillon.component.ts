@@ -86,7 +86,13 @@ export class EchantillonComponent implements OnInit {
       this.ngOnInit();
     });
   }
-  
+  onDelete(id : string) {
+    console.log(id);
+    this.echantillonService.delete(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    });}
   ngOnInit(): void {
     this.echantillonService.findAll().subscribe(data => {
       this.echantillons = data;

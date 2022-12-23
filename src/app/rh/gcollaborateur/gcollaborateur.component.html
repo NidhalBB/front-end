@@ -1,5 +1,4 @@
-
-<div class="col-12 grid-margin stretch-card">
+<div class="col-12 grid-margin stretch-card" id="main">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Gestion des Collaborateurs</h4>
@@ -22,6 +21,22 @@
           </select>
           <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
         </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 grid-margin stretch-card" id="operation1" style="display:none">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Gestion des Collaborateurs</h4>
+     
+        <table class="table">
+          
+          <tbody>
+            <tr >
+              <td>{{cola| json}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -53,6 +68,8 @@
                   <td>{{collaborateur.lieu}}</td>
                   <td>{{collaborateur.cnss}}</td>
                   <td>{{collaborateur.active}}</td>
+                  <td><button type="button" (click)="go(collaborateur.id_collaborateur)" class="btn btn-warning">Edit</button></td>
+                  <td><button (click)="onDelete(collaborateur.id_collaborateur)" type="button"  class="btn btn-danger" >Delete</button></td>
                 </tr>
               </tbody>
             </table>

@@ -15,11 +15,11 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Quantité</label>
-                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="matiereAcquise.quantite"  >
+                  <input type="number" required class="form-control" name ="quantite" [(ngModel)]="matiereAcquise.quantite"  >
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix</label>
-                  <input type="number" class="form-control" name ="prix" [(ngModel)]="matiereAcquise.prix" >
+                  <input type="number" required class="form-control" name ="prix" [(ngModel)]="matiereAcquise.prix" >
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
@@ -39,7 +39,7 @@
                   <option *ngFor="let f of fournisseurs" [(value)]="f.designation" >{{f.designation}}</option>
               </select>
           </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!matiereAcquiseiForm.form.valid" class="btn btn-info mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
         </div>

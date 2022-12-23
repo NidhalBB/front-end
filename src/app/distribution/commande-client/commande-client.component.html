@@ -1,1 +1,85 @@
-<p>commande-client works!</p>
+<div class="page-header">
+    <h3 class="page-title">
+        Commandes client 
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card" id="main_place">
+        <div class="card-body">
+          <h4 class="card-title">Préparation Commande Client  </h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #bordereauxForm="ngForm">
+            <div class="form-group">
+                <label for="exampleInputMobile">Num Bordereaux</label>
+                  <input type="number" class="form-control" name ="num" [(ngModel)]="prepCommande.numB" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Num Commande</label>
+                <select class="form-control" name ="client" [(ngModel)]="prepCommande.numC">
+                    <option *ngFor="let cmd of commandeClients" [(value)]="cmd.numCommande" >{{cmd.numCommande}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelectGender">Designation  Client</label>
+                <select class="form-control" name ="client" [(ngModel)]="prepCommande.client">
+                    <option *ngFor="let client of clients" [(value)]="client.designation" >{{client.designation}}</option>
+                </select>
+            </div>
+           <div class="form-group">
+              <label for="exampleSelectGender">Produit</label>
+              <select class="form-control" name ="produit" [(ngModel)]="prepCommande.designationProduit">
+                  <option [ngValue]="null" disabled>List des Produit</option> 
+                  <option *ngFor="let produit of produits" [(value)]="produit.designation" >{{produit.designation}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Quantite Des Articles </label>
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="prepCommande.quantite" required/>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Prix Unitaire HT</label>
+                <div *ngFor="let produit of produits"  >
+                  <input type="number" class="form-control" name ="prix" required *ngIf="produit.designation == prepCommande.designationProduit " [(value)]="produit.prix"   disabled/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInput">Date </label>
+                <input type="date" class="form-control" name ="dated" [(ngModel)]="prepCommande.date" required>
+              </div> 
+              <div class="form-group">
+                <label for="exampleSelectGender">Opérateur </label>
+                <select class="form-control" name ="client" [(ngModel)]="prepCommande.operateur">
+                    <option *ngFor="let client of collaborateurs" [(value)]="client.prenom" >{{client.prenom}}</option>
+                </select>
+            </div>
+            <button type="submit" [disabled]="!bordereauxForm.form.valid" class="btn btn-info mr-2" >ADD</button>
+            <button type ="reset" class="btn btn-light">Cancel</button>
+          </form>
+           
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Bon de Commande client </h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Designation Clientr</th>
+                  <th>Produit</th>
+                  <th>Qunatitée </th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Upload</button>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

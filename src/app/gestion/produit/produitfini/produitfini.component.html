@@ -11,7 +11,7 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #produitfiniForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="produitFini.designation"  >
+              <input type="text" class="form-control" required name ="designation" [(ngModel)]="produitFini.designation"  >
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
@@ -27,13 +27,13 @@
             </div>
             <div class="form-group">
               <label for="exampleInputUsername1">Qunatitée</label>
-              <input type="number" class="form-control" name ="quantite" [(ngModel)]="produitFini.quantite"  >
+              <input type="number" required class="form-control" name ="quantite" [(ngModel)]="produitFini.quantite"  >
             </div>
             <div class="form-group">
               <label for="exampleInputUsername1">Prix</label>
               <input type="number" class="form-control" name ="prix" [(ngModel)]="produitFini.prix"  >
             </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!produitfiniForm.form.valid" class="btn btn-info mr-2">Submit</button>
           </form>
         </div>
       </div>

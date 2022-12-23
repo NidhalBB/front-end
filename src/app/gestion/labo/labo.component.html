@@ -15,17 +15,17 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Adresse</label>
-              <input type="email" class="form-control" name ="adresse" [(ngModel)]="labo.address"placeholder="Email">
+              <input type="email" class="form-control" required name ="adresse" [(ngModel)]="labo.address"placeholder="Email">
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Mobile</label>
-                  <input type="text" class="form-control" name ="tele" [(ngModel)]="labo.tele"  placeholder="Mobile number">
+                  <input type="text" class="form-control" required name ="tele" [(ngModel)]="labo.tele"  placeholder="Mobile number">
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix</label>
                   <input type="text" class="form-control" name ="prix" [(ngModel)]="labo.prix" placeholder="Mobile number">
             </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!laboForm.form.valid" class="btn btn-info mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
         </div>

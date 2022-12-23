@@ -30,11 +30,11 @@
           </div>
            <div class="form-group">
               <label for="exampleInputMobile">Autres           </label>
-              <input type="text" class="form-control" name ="autres" [(ngModel)]="chimique.autre" >
+              <input type="text" class="form-control" required name ="autres" [(ngModel)]="chimique.autre" >
           </div>
           <div class="form-group">
             <label for="exampleInputMobile">Quantité par unité           </label>
-            <input type="number" class="form-control" name ="quantite" [(ngModel)]="chimique.quantite" >
+            <input type="number" class="form-control" required name ="quantite" [(ngModel)]="chimique.quantite" >
         </div>
           </form>
           
@@ -62,7 +62,7 @@
             <form class="forms-sample" enctype="multipart/form-data"  #geoFonerrm="ngForm">
                 <div class="form-group">
                     <label for="exampleInputMobile">Equivalent de sable  </label>
-                      <input type="number" class="form-control" name ="sable" [(ngModel)]="chimique.sable" >
+                      <input type="number" class="form-control" required name ="sable" [(ngModel)]="chimique.sable" >
                 </div>
               <form class="forms-sample" enctype="multipart/form-data">
                 <div class="form-group">
@@ -72,8 +72,8 @@
                 <input type="file"  class="form-control" (change)="selectFile2($event)"/>
              </div>
                 </form>
-                <button class="btn btn-success"(click)="upload()" >
-                  Upload
+                <button class="btn btn-info"(click)="upload()" >
+                  Submit
                 </button>
             </form>
         </div>

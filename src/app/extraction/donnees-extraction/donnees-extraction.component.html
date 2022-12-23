@@ -11,25 +11,25 @@
         <form class="forms-sample" (ngSubmit)="onSubmit()" #donneeForm="ngForm">
           <div class="form-group">
             <label for="exampleInputUsername1">Substance à extracter</label>
-            <input type="text" class="form-control" name ="substance" [(ngModel)]="donnee.substance"  placeholder="Substance à extracter">
+            <input type="text" class="form-control" name ="substance" [(ngModel)]="donnee.substance" required placeholder="Substance à extracter">
           </div> 
           <div class="form-group">
               <label for="exampleInputMobile">Quantité maximale (tonnes métriques) </label>
-                <input type="number" class="form-control" name ="quantite" [(ngModel)]="donnee.quantite" placeholder="Quantité maximale">
+                <input type="number" class="form-control" name ="quantite" [(ngModel)]="donnee.quantite" required placeholder="Quantité maximale">
           </div>
           <div class="form-group">
             <label for="exampleInputUsername1">Méthode de prélèvement</label>
-            <input type="text" class="form-control" name ="methode" [(ngModel)]="donnee.methode"  placeholder="Méthode de prélèvement">
+            <input type="text" class="form-control" name ="methode" [(ngModel)]="donnee.methode" required placeholder="Méthode de prélèvement">
           </div>
           <div class="form-group">
             <label for="exampleInputMobile">Durée de prélèvement  </label>
-              <input type="number" class="form-control"[(ngModel)]="donnee.duree" name ="dure"  >
+              <input type="number" class="form-control"[(ngModel)]="donnee.duree" name ="dure"  required>
         </div>
         <div class="form-group">
           <label for="exampleInputMobile">Periode de prélèvement  </label>
-            <input type="number" class="form-control" [(ngModel)]="donnee.periode" name ="periode"  >
+            <input type="number" class="form-control" [(ngModel)]="donnee.periode" name ="periode"  required>
       </div>
-          <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+          <button type="submit" [disabled]="!donneeForm.form.valid" class="btn btn-info mr-2">Submit</button>
           <button type ="reset" class="btn btn-light">Cancel</button>
         </form>
       </div>

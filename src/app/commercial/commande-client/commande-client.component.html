@@ -36,15 +36,15 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Quantite Des Articles </label>
-                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="commandeClient.quantite_article" />
+                  <input type="number" class="form-control" name ="quantite" required [(ngModel)]="commandeClient.quantite_article" />
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix Unitaire HT</label>
-                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="commandeClient.prix" />
+                  <input type="number" class="form-control" name ="quantite" [(ngModel)]="commandeClient.prix" required />
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Montant  HT</label>
-                  <input type="number" class="form-control" name ="montantht"  [(value)] ="commandeClient.prix * commandeClient.quantite_article" disabled/>
+                  <input type="number" class="form-control" name ="montantht" required [(value)] ="commandeClient.prix * commandeClient.quantite_article" disabled/>
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">TVA</label>
@@ -55,7 +55,7 @@
                   <input type="number" class="form-control" name ="montant" [(value)] ="commandeClient.prix * commandeClient.quantite_article * commandeClient.tva + commandeClient.prix * commandeClient.quantite_article  " disabled/>
             </div>
            
-            <button type="submit" class="btn btn-gradient-primary mr-2" >ADD</button>
+            <button type="submit" [disabled]="!commandeclientForm.form.valid" class="btn btn-info mr-2" >ADD</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
            

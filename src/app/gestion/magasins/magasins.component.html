@@ -15,15 +15,15 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Hauteur</label>
-              <input type="number" class="form-control" name ="hauteur" [(ngModel)]="magasin.hauteur"placeholder="Email">
+              <input type="number" class="form-control" required name ="hauteur" [(ngModel)]="magasin.hauteur"placeholder="Email">
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Largeur</label>
-                  <input type="number" class="form-control" name ="largeur" [(ngModel)]="magasin.largeur"  placeholder="Mobile number">
+                  <input type="number" class="form-control" required name ="largeur" [(ngModel)]="magasin.largeur"  placeholder="Mobile number">
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Longueur</label>
-                  <input type="number" class="form-control" name ="longueur" [(ngModel)]="magasin.longueur" placeholder="Mobile number">
+                  <input type="number" class="form-control" required name ="longueur" [(ngModel)]="magasin.longueur" placeholder="Mobile number">
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
@@ -32,7 +32,7 @@
                     <option *ngFor="let famille of familleProduits" [(value)]="famille.id_famille" >{{famille.designation_famille}}</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!magasinForm.form.valid" class="btn btn-info mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
         </div>

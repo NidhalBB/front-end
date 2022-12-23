@@ -11,7 +11,7 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #produitsemifiniForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="produitSemiFini.designation"  placeholder="Username">
+              <input type="text" class="form-control" required name ="designation" [(ngModel)]="produitSemiFini.designation"  placeholder="Username">
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
@@ -25,7 +25,7 @@
                     <option *ngFor="let sousfamille of sousFamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!produitsemifiniForm.form.valid" class="btn btn-info mr-2">Submit</button>
           </form>
         </div>
       </div>

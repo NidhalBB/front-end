@@ -23,6 +23,12 @@ export class RhService {
   return this.http.get<Collaborateur[]>(`${this.baseUrl}`+'showCollaborateur');
 }
 
+public delete(id : string) {
+  return this.http.delete<Collaborateur>(`${this.baseUrl}`+`Collaborateur/${id}`);
+}
+public find(id : string) {
+  return this.http.get<Collaborateur>(`${this.baseUrl}`+`getcolab/${id}`);
+}
 
 public saveCompetance(competance :Competance) {
   console.log(competance);

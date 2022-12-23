@@ -20,6 +20,9 @@ export class EchantillonService {
     console.log(echantillon);
     return this.http.post<Echantillon>(`${this.baseUrl}`+'createechantillon',echantillon);
  }
+ public delete(id : string) {
+  return this.http.delete<Echantillon>(`${this.baseUrl}`+`deletechantillon/${id}`);
+}
   public findAll(): Observable<Echantillon[]> {
     return this.http.get<Echantillon[]>(`${this.baseUrl}`+'showAll');
   }

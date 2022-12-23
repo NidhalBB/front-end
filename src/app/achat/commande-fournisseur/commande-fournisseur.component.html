@@ -11,11 +11,11 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #boncommandeForm="ngForm">
             <div class="form-group">
               <label for="exampleInputMobile">Destinataire </label>
-                <input type="text" class="form-control" name ="destinataire" [(ngModel)]="boncommande.destinataire" >
+                <input type="text" class="form-control" required name ="destinataire" [(ngModel)]="boncommande.destinataire" >
           </div>
           <div class="form-group">
             <label for="exampleInputMobile">Matricule fiscale</label>
-              <input type="number" class="form-control" name ="matricule" [(ngModel)]="boncommande.matricule" >
+              <input type="number" class="form-control"  required name ="matricule" [(ngModel)]="boncommande.matricule" >
         </div>
         <div class="form-group">
               <label for="exampleInputMobile">Adresse </label>
@@ -29,8 +29,8 @@
                 <label for="exampleInputEmail1">Date de livraison  </label>
                 <input type="date" class="form-control" name ="dateL" [(ngModel)]="boncommande.dateL" >
               </div> 
-            <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdfFournisseur()">Submit</button>
-            
+            <button type="submit" [disabled]="!boncommandeForm.form.valid"  class="btn btn-info mr-2" (click)="generatePdfFournisseur()">Submit</button>
+
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
         </div>

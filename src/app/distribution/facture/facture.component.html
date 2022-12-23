@@ -1,1 +1,42 @@
-<p>facture works!</p>
+<div class="page-header">
+    <h3 class="page-title">
+        Commandes client 
+    </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card" id="main_place">
+        <div class="card-body">
+          <h4 class="card-title">Préparation Commande Client  </h4>
+          <form class="forms-sample" (ngSubmit)="onSubmit()" #factureForm="ngForm">
+            <div class="form-group">
+                <label for="exampleInputMobile">Num Facture </label>
+                  <input type="number" class="form-control" required name ="num" [(ngModel)]="facture.numF" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Num Commande</label>
+                <select class="form-control" name ="client" [(ngModel)]="facture.numC">
+                    <option *ngFor="let cmd of commandeClients" [(value)]="cmd.numCommande" >{{cmd.numCommande}}</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="exampleInputMobile">Matricule fiscale </label>
+                  <input type="number" class="form-control" required name ="matricule" [(ngModel)]="facture.matricule" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputMobile">Adresse  </label>
+                  <input type="text" class="form-control" required name ="adress" [(ngModel)]="facture.adress" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInput">Date </label>
+                <input type="date" class="form-control" name ="date" [(ngModel)]="facture.date" >
+              </div> 
+            <button type="submit" [disabled]="!factureForm.form.valid" class="btn btn-info mr-2" >ADD</button>
+            <button type="submit" class="btn btn-gradient-primary mr-2" (click)="generatePdf()">Upload</button>
+          </form>
+           
+        </div>
+      </div>
+    </div>
+</div>
