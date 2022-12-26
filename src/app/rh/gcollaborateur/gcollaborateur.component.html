@@ -1,42 +1,70 @@
-<div class="col-12 grid-margin stretch-card" id="main">
+<div class="row">
+  <div class="col-12 grid-margin">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Gestion des Collaborateurs</h4>
-     
-        <form class="form-inline"  (ngSubmit)="onSubmit()" #collaborateurForm="ngForm" >
-          <input type="number" class="form-control mb-2 mr-sm-2"  [(ngModel)]="collaborateur.num" name="num" size="5" placeholder="Numéro">
-          <input type="date" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.date" name ="date"  >
-          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.nom" name ="nom" size="6" placeholder="Nom">
-          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.prenom" size="10"  name = "prenom"placeholder="Prénom">
-          <select class="form-control mb-2 mr-sm-2" name ="Genre" [(ngModel)]="collaborateur.genre">
-            <option >Masculin</option>
-            <option >Feminin</option>
-          </select>
-          
-          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.cnss" name ="cnss" size="6" placeholder="CNSS">
-          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="collaborateur.lieu" size="10"name ="lieu" placeholder="Lieu">
-          <select class="form-control mb-2 mr-sm-2" name ="active" [(ngModel)]="collaborateur.active" >
-            <option >Oui</option>
-            <option >Non</option>
-          </select>
-          <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
+        <form class="form-sample" (ngSubmit)="onSubmit()" #collaborateurForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="collaborateur.nom" name ="nom" placeholder="Nom" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Prénom</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="collaborateur.prenom" name ="prenom" placeholder="Prénom"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Gender</label>
+                <div class="col-sm-9">
+                  <select class="form-control" name ="Genre" [(ngModel)]="collaborateur.genre">
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Date of Birth</label>
+                <div class="col-sm-9">
+                  <input type ="date" class="form-control" placeholder="dd/mm/yyyy"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Num Collaboateur</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" [(ngModel)]="collaborateur.num" name="num" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"> Num CNSS</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" [(ngModel)]="collaborateur.cnss" name ="cnss" required/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" style="position: absolute;
+          right: 36px;
+          top: 300px;" [disabled]="!collaborateurForm.form.valid" class="btn btn-info mb-2">Submit</button>
         </form>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 grid-margin stretch-card" id="operation1" style="display:none">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Gestion des Collaborateurs</h4>
-     
-        <table class="table">
-          
-          <tbody>
-            <tr >
-              <td>{{cola| json}}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
@@ -53,9 +81,7 @@
                   <th>Prénom </th>
                   <th>Genre</th>
                   <th>Date de Naissance</th>
-                  <th>Lieu de résidence </th>
                   <th>Matricule CNSS</th>
-                  <th>Active </th>
                 </tr>
               </thead>
               <tbody>
@@ -65,9 +91,7 @@
                   <td>{{collaborateur.prenom}}</td>
                   <td>{{collaborateur.genre}}</td>
                   <td>{{collaborateur.date}}</td>
-                  <td>{{collaborateur.lieu}}</td>
                   <td>{{collaborateur.cnss}}</td>
-                  <td>{{collaborateur.active}}</td>
                   <td><button type="button" (click)="go(collaborateur.id_collaborateur)" class="btn btn-warning">Edit</button></td>
                   <td><button (click)="onDelete(collaborateur.id_collaborateur)" type="button"  class="btn btn-danger" >Delete</button></td>
                 </tr>
@@ -77,4 +101,4 @@
         </div>
       </div>
   </div>
-  
+</div>

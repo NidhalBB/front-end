@@ -1,17 +1,35 @@
-
-<div class="col-12 grid-margin stretch-card">
+<div class="row">
+  <div class="col-12 grid-margin">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Gestion des Postes</h4>
-     
-        <form class="form-inline" (ngSubmit)="onSubmit()" #posteForm="ngForm">
-          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="poste.poste" name ="poste"  placeholder="Poste">
-          <input type="text" class="form-control mb-2 mr-sm-2"  [(ngModel)]="poste.description" name = "description"placeholder="Description">
-          <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
+        <form class="form-sample" (ngSubmit)="onSubmit()" #posteForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Poste</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="poste.poste" name ="poste"  placeholder="Poste" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="competance.description" name = "description"placeholder="Description"/>
+                </div>
+              </div>
+            </div>
+           </div>
+          <button type="submit" style="position: absolute;
+          right: 36px;
+          top: 130px;" [disabled]="!posteForm.form.valid" class="btn btn-info mb-2">Submit</button>
         </form>
       </div>
     </div>
   </div>
+</div>
   <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">

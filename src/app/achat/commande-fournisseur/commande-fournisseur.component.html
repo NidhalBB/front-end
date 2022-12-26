@@ -11,15 +11,15 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #boncommandeForm="ngForm">
             <div class="form-group">
               <label for="exampleInputMobile">Destinataire </label>
-                <input type="text" class="form-control" required name ="destinataire" [(ngModel)]="boncommande.destinataire" >
+                <input type="text" class="form-control" required name ="destinataire" [(ngModel)]="boncommande.destinataire" placeholder="Destinataire">
           </div>
           <div class="form-group">
             <label for="exampleInputMobile">Matricule fiscale</label>
-              <input type="number" class="form-control"  required name ="matricule" [(ngModel)]="boncommande.matricule" >
+              <input type="number" class="form-control"  required name ="matricule" [(ngModel)]="boncommande.matricule" placeholder="Matricule">
         </div>
         <div class="form-group">
               <label for="exampleInputMobile">Adresse </label>
-                <input type="text" class="form-control" name ="adresse" [(ngModel)]="boncommande.adresse" >
+                <input type="text" class="form-control" name ="adresse" [(ngModel)]="boncommande.adresse" placeholder="Adresse">
           </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Date de commande</label>

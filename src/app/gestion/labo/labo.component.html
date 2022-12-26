@@ -11,11 +11,11 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #laboForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="labo.designation"  placeholder="Username">
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="labo.designation"  placeholder="designation">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Adresse</label>
-              <input type="email" class="form-control" required name ="adresse" [(ngModel)]="labo.address"placeholder="Email">
+              <input type="email" class="form-control" required name ="adresse" [(ngModel)]="labo.address"placeholder="Adresse">
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Mobile</label>
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix</label>
-                  <input type="text" class="form-control" name ="prix" [(ngModel)]="labo.prix" placeholder="Mobile number">
+                  <input type="text" class="form-control" name ="prix" [(ngModel)]="labo.prix" placeholder="Prix">
             </div>
             <button type="submit" [disabled]="!laboForm.form.valid" class="btn btn-info mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>

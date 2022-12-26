@@ -25,7 +25,7 @@
     </li>
     <li class="nav-item" [ngClass]="{'active' : labo.isActive || magasins.isActive || famille.isActive || sousFamille.isActive}">
       <a class="nav-link" (click)="Gestion = !Gestion" [attr.aria-expanded]="Gestion" aria-controls="Gestion">
-        <span class="menu-title"> Données techniques        </span>
+        <span class="menu-title"> Données Techniques        </span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="Gestion" [ngbCollapse]="!Gestion">
@@ -70,16 +70,14 @@
                 </ul>
             </div>
             </li>
-            <li class="nav-item" [ngClass]="{'active' :bL.isActive || bR.isActive || fC.isActive  || pre.isActive }">
+            <li class="nav-item" [ngClass]="{'active' :fC.isActive  || pre.isActive }">
               <a class="nav-link" (click)="distribution  = !distribution" [attr.aria-expanded]="distribution" aria-controls="distribution">
                 <span class="menu-title"> Distribution </span>
                 <i class="menu-arrow"></i>
               </a>
               <div class="collapse" id="distribution" [ngbCollapse]="!distribution">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" routerLink="distribution/BonLivraison" routerLinkActive="active" #bL="routerLinkActive">Bon de livraison </a></li>
                   <li class="nav-item"> <a class="nav-link" routerLink="distribution/Facture" routerLinkActive="active" #fC="routerLinkActive">Facture client </a></li>
-                  <li class="nav-item"> <a class="nav-link" routerLink="distribution/BonReception" routerLinkActive="active" #bR="routerLinkActive">Bon de réception   </a></li>
                   <li class="nav-item"> <a class="nav-link" routerLink="distribution/CommandeClient" routerLinkActive="active" #pre="routerLinkActive">Préparation commande client </a></li> 
                 </ul>
               </div>
@@ -94,7 +92,7 @@
       </a>
       <div class="collapse" id="achat" [ngbCollapse]="!achat">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item" [ngClass]="{'active' :fournisseur.isActive || demandeAchat.isActive|| br.isActive }">
+          <li class="nav-item" [ngClass]="{'active' :fournisseur.isActive || demandeAchat.isActive}">
             <a class="nav-link" (click)="ach = !ach" [attr.aria-expanded]="ach" aria-controls="ach">
               <span class="menu-title"> Achat</span>
               <i class="menu-arrow"></i>
@@ -103,7 +101,6 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" routerLink="achat/fournisseur" routerLinkActive="active" #fournisseur="routerLinkActive">Fournisseur</a></li>
                 <li class="nav-item"> <a class="nav-link" routerLink="achat/demandeAchat" routerLinkActive="active" #demandeAchat="routerLinkActive">Demmande d'Achat</a></li> 
-                <li class="nav-item"> <a class="nav-link" routerLink="achat/BonReception" routerLinkActive="active" #br="routerLinkActive">Bon de reception</a></li> 
               </ul>
             </div>
           </li>
@@ -187,27 +184,26 @@
           </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : Gcollaborateur.isActive || Gpostes.isActive || Gcoordonne.isActive || Gcompetance.isActive }">
+    <li class="nav-item" [ngClass]="{'active' : Gcollaborateur.isActive || Gpostes.isActive  || Gcompetance.isActive }">
       <a class="nav-link" (click)="rh = !rh" [attr.aria-expanded]="rh" aria-controls="rh">
         <span class="menu-title"> Gestion du personnelles </span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="rh" [ngbCollapse]="!rh">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" routerLink="Gestionpersonnelles/Gcollaborateur" routerLinkActive="active" #Gcollaborateur="routerLinkActive">Gestion des collaborateurs</a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="Gestionpersonnelles/Gcollaborateur" routerLinkActive="active" #Gcollaborateur="routerLinkActive">Gestion des Collaborateurs</a></li>
           <li class="nav-item"> <a class="nav-link" routerLink="Gestionpersonnelles/Gpostes" routerLinkActive="active" #Gpostes="routerLinkActive">Gestion des Postes </a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="Gestionpersonnelles/Gcoordonne" routerLinkActive="active" #Gcoordonne="routerLinkActive">Gestion des coordonnées</a></li>
-          <li class="nav-item"> <a class="nav-link" routerLink="Gestionpersonnelles/Gcompetance" routerLinkActive="active" #Gcompetance="routerLinkActive">Gestion des compétences</a></li>  
+          <li class="nav-item"> <a class="nav-link" routerLink="Gestionpersonnelles/Gcompetance" routerLinkActive="active" #Gcompetance="routerLinkActive">Gestion des Compétences</a></li>  
         </ul>
       </div>
     </li>
-  <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">
+  <!-- <li class="nav-item" [ngClass]="{ 'active': forms.isActive }">
       <a class="nav-link" routerLink="forms/basic-elements" routerLinkActive #forms="routerLinkActive">
         <span class="menu-title">Form elements</span>
         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
       </a>
     </li>
-    <!--  <li class="nav-item" [ngClass]="{ 'active': tables.isActive }">
+     <li class="nav-item" [ngClass]="{ 'active': tables.isActive }">
       <a class="nav-link" routerLink="tables/basic-table" routerLinkActive #tables="routerLinkActive">
         <span class="menu-title">Tables</span>
         <i class="mdi mdi-table-large menu-icon"></i>

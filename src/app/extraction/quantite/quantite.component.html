@@ -11,25 +11,25 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #quantiteForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Nom de la mine</label>
-              <input type="text" class="form-control" name ="nom" [(ngModel)]="quantite.nom"  placeholder="Nom de la mine">
+              <input type="text" class="form-control" name ="nom" [(ngModel)]="quantite.nom"  placeholder="Nom de la mine" required>
             </div> 
             <div class="form-group">
                 <label for="exampleInputMobile">Substance Minérale </label>
-                  <input type="text" class="form-control" [(ngModel)]="quantite.substance" name ="substance"  placeholder="Substance minérale">
+                  <input type="text" class="form-control" [(ngModel)]="quantite.substance" name ="substance" required placeholder="Substance minérale">
             </div>
             <div class="form-group">
               <label for="exampleInputUsername1">Quantité vendue </label>
-              <input type="number" class="form-control" [(ngModel)]="quantite.quantite" name ="quantite" >
+              <input type="number" class="form-control" [(ngModel)]="quantite.quantite" required name ="quantite" placeholder="Quantitée">
             </div>
             <div class="form-group">
               <label for="exampleInputMobile">Valeur de production à la tête de puit   </label>
-                <input type="number" class="form-control"[(ngModel)]="quantite.valeur" name ="valeur"  >
+                <input type="number" class="form-control"[(ngModel)]="quantite.valeur" name ="valeur" placeholder="Valeur" >
           </div>
           <div class="form-group">
             <label for="exampleInputMobile">Droits versés </label>
-              <input type="text" class="form-control" [(ngModel)]="quantite.droit"name ="droit"  >
+              <input type="text" class="form-control" [(ngModel)]="quantite.droit"name ="droit" placeholder="Droits versés " >
         </div>
-            <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+            <button type="submit" [disabled]="!quantiteForm.form.valid" class="btn btn-gradient-primary mr-2">Submit</button>
             <button type ="reset" class="btn btn-light">Cancel</button>
           </form>
         </div>

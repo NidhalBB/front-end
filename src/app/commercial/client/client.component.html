@@ -11,7 +11,7 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #clientForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="client.designation"  placeholder="designation">
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="client.designation"  placeholder="Désignation">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">E-mail</label>
@@ -41,8 +41,8 @@
               <input type="text" class="form-control" name ="siege" [(ngModel)]="client.siege"  placeholder="siège">
             </div>
             <div class="form-group">
-              <label for="exampleInputUsername1">Scociété</label>
-              <input type="text" class="form-control" name ="societe" [(ngModel)]="client.societe"  required>
+              <label for="exampleInputUsername1">Société</label>
+              <input type="text" class="form-control" name ="societe" [(ngModel)]="client.societe"  required placeholder="Société">
             </div>
             <div class="form-group">
               <label for="exampleInputMobile">Code postal  </label>
@@ -50,11 +50,11 @@
           </div>
           <div class="form-group">
             <label for="exampleInputUsername1">Ville</label>
-            <input type="text" class="form-control" name ="ville" [(ngModel)]="client.ville" required >
+            <input type="text" class="form-control" name ="ville" [(ngModel)]="client.ville" required placeholder="Ville">
           </div>
           <div class="form-group">
               <label for="exampleInputUsername1">Pays</label>
-              <input type="text" class="form-control" name ="pays" [(ngModel)]="client.pays"  required>
+              <input type="text" class="form-control" name ="pays" [(ngModel)]="client.pays"  required placeholder="Pays">
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Téléphone Scociété</label>

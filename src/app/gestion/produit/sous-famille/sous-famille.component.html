@@ -11,7 +11,7 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #sousFamilleForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" [(ngModel)]="sousFamille.designation"  placeholder="Username">
+              <input type="text" class="form-control" name ="designation" [(ngModel)]="sousFamille.designation"  placeholder="designation">
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
@@ -20,7 +20,7 @@
                     <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
                 </select>
             </div>
-            <button type="submit"[disabled]="!soousFamillForm.form.valid" class="btn btn-info mr-2">Submit</button>
+            <button type="submit"[disabled]="!sousFamilleForm.form.valid" class="btn btn-info mr-2">Submit</button>
           </form>
         </div>
       </div>

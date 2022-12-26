@@ -1,18 +1,43 @@
-
-<div class="col-12 grid-margin stretch-card">
+<div class="row">
+  <div class="col-12 grid-margin">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Création Process
-        </h4>
-     
-        <form class="form-inline" (ngSubmit)="onSubmit()" #processForm="ngForm">
-          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="process.designation"  name="designation" placeholder="Désignation">
-          <select class="form-control mb-2 mr-sm-2" name ="operation" [(ngModel)]="process.operation">
-            <option *ngFor="let op of operations" [(value)]="op.designation" >{{op.designation}}</option>
-          </select>
-          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="process.num" name ="num" size="6" placeholder="enumerer">
-          
-          <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
+        <h4 class="card-title">Création Process</h4>
+        <form class="form-sample" (ngSubmit)="onSubmit()" #processForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Désignation</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="process.designation"  name="designation" placeholder="Désignation" required />
+                </div>
+              </div>
+            </div>
+             <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Opération</label>
+                <div class="col-sm-9">
+                  <select class="form-control" name ="operation" [(ngModel)]="process.operation">
+                    <option *ngFor="let op of operations" [(value)]="op.designation" >{{op.designation}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+           </div>
+           <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Numéro</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="process.num" name ="num" placeholder="eg : 1,2" required/>
+                </div>
+              </div>
+            </div>
+           </div>
+          <button type="submit" style="position: absolute;
+          right: 36px;
+          top: 130px;" [disabled]="!processForm.form.valid" class="btn btn-info mb-2">Submit</button>
         </form>
       </div>
     </div>
@@ -40,4 +65,4 @@
         </div>
       </div>
   </div>
-  
+</div> 

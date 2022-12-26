@@ -11,7 +11,7 @@
           <form class="forms-sample" (ngSubmit)="onSubmit()" #familleForm="ngForm">
             <div class="form-group">
               <label for="exampleInputUsername1">Désignation</label>
-              <input type="text" class="form-control" name ="designation" required [(ngModel)]="famille.designation_famille"  placeholder="Username">
+              <input type="text" class="form-control" name ="designation" required [(ngModel)]="famille.designation_famille" placeholder="designation">
             </div>
             <button type="submit" [disabled]="!familleForm.form.valid" class="btn btn-info mr-2">Submit</button>
           </form>

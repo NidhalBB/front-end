@@ -1,22 +1,55 @@
-
-<div class="col-12 grid-margin stretch-card">
+<div class="row">
+  <div class="col-12 grid-margin">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Gestion des Compétences </h4>
-     
-        <form class="form-inline" (ngSubmit)="onSubmit()" #competanceForm="ngForm">
-          <input type="number" class="form-control mb-2 mr-sm-2" [(ngModel)]="competance.matricule" name="matricule" placeholder="Matricule">
-          <select class="form-control mb-2 mr-sm-2" name ="collaborateur" [(ngModel)]="competance.collaborateur">
-            <option *ngFor="let col of collaborateurs" [(value)]="col.prenom" >{{col.prenom}}</option>
-          </select>
-          <input type="text" class="form-control mb-2 mr-sm-2"  name ="collaborateur" placeholder="Collaborateur"> 
-          <input type="text" class="form-control mb-2 mr-sm-2" [(ngModel)]="competance.description" name = "description"placeholder="Description">
-          <input type="text" class="form-control mb-2 mr-sm-2"  [(ngModel)]="competance.type" name = "type" placeholder="Type de compétence">
-          <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
+        <h4 class="card-title">Gestion des Compétences</h4>
+        <form class="form-sample" (ngSubmit)="onSubmit()" #competanceForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Matricule</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="competance.matricule" name="matricule" placeholder="Matricule" required />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Collaboateur</label>
+                <div class="col-sm-9">
+                  <select class="form-control" name ="collaborateur" [(ngModel)]="competance.collaborateur">
+                    <option *ngFor="let col of collaborateurs" [(value)]="col.prenom" >{{col.prenom}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+           </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" [(ngModel)]="competance.description" name = "description"placeholder="Description"/>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Type de compétence</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" [(ngModel)]="competance.type" name = "type" placeholder="Type de compétence" required />
+              </div>
+            </div>
+          </div>
+          </div>
+          <button type="submit" style="position: absolute;
+          right: 36px;
+          top: 200px;" [disabled]="!competanceForm.form.valid" class="btn btn-info mb-2">Submit</button>
         </form>
       </div>
     </div>
   </div>
+</div>
   <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
