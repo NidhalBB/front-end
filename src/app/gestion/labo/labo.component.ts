@@ -28,6 +28,18 @@ export class LaboComponent implements OnInit {
     });
     
   }
+  onDelete(id : string) {
+    this.gestionService.deleteLabo(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    },
+    error => {
+      alert("Error in delete");
+      console.log(error);
+    });
+    
+  }
   ngOnInit(): void {
     this.gestionService.findAll().subscribe(data => {
       this.labos = data;

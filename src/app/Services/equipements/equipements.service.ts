@@ -19,6 +19,9 @@ export class EquipementsService {
   public save(equipements: Equipement ) {
     return this.http.post<Equipement>(`${this.baseUrl}`+'addEquipements',equipements);
  }
+ public delete(id : string) {
+  return this.http.delete<Equipement>(`${this.baseUrl}`+`equipement/${id}`);
+}
  public find(id : string) {
   return this.http.get<Equipement>(`${this.baseUrl}`+`machines/${id}`);
 }
@@ -27,5 +30,8 @@ public findAllFamille(): Observable<FamillMachine[]> {
 }
 public saveFamille(famillMachine: FamillMachine ) {
   return this.http.post<FamillMachine>(`${this.baseUrl}`+'addFamilleMachine',famillMachine);
+}
+public deleteFam(id : string) {
+  return this.http.delete<FamillMachine>(`${this.baseUrl}`+`FamilleMachine/${id}`);
 }
 }

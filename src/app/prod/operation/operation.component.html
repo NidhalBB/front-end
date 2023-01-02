@@ -34,8 +34,8 @@
                   <div class="col-sm-4">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" [value]="3" [(ngModel)]="sh1" name="sh" type="radio" [checked]="isChecked">
-                        Manuel
+                        <input type="radio" class="form-check-input" value="Automatique"[(ngModel)]="operation.type" name="sh" type="radio" [checked]="!isChecked" >
+                        Automatique
                         <i class="input-helper"></i>
                       </label>
                     </div>
@@ -52,10 +52,12 @@
                   <div class="col-sm-5">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" value="Automatique"[(ngModel)]="operation.type" name="sh" type="radio" [checked]="!isChecked" >
-                        Automatique
+                        <input type="radio" class="form-check-input" [value]="3" [(ngModel)]="sh1" name="sh" type="radio" [checked]="isChecked">
+                        Manuel
                         <i class="input-helper"></i>
                       </label>
+                    
+                     
                     </div>
                   </div>
           </div>
@@ -72,7 +74,7 @@
           </select> </div>
           <div  *ngIf="sh == 0"><label>Temps Alloué </label><input class="form-control " [(ngModel)]="operation.temps" name="temps" type="number"  /> </div>
 <br/>
-          <button type="submit" class="btn btn-gradient-primary">Submit</button>
+          <button type="submit" class="btn btn-info">Submit</button>
         </form>
       </div>
     </div>

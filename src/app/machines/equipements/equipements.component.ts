@@ -6,7 +6,7 @@ import { FamillMachine } from '../famille-machine/famille-machine.component';
 export class Equipement {
   public id:string;
     public nom:string;
-    public famille:string;
+    public equipement:FamillMachine;
     public longueur:number;
     public largeur:number;
     public hauteur:number;
@@ -50,6 +50,15 @@ export class EquipementsComponent implements OnInit {
        this.ngOnInit();
     }
     );}
+    onDelete(id : string) {
+      this.equipementsService.delete(id).subscribe( data => {
+          
+        console.log(id);
+        
+      });
+      this.ngOnInit();
+    }
+
 add(){
     let row = document.createElement('div');  
       row.className = 'row';

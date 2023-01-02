@@ -3,7 +3,7 @@ import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class FamillProduit{
-  public id_famille:string; 
+  public id_Famille:string; 
     public designation_famille:string;
     public sousfamille: Array<SousFamille>;
 }
@@ -23,6 +23,18 @@ famille:FamillProduit;
         
       console.log(data);
       this.ngOnInit();
+    });
+    
+  }
+  onDelete(id : string) {
+    this.gestionService.deleteFamille(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    },
+    error => {
+      alert("Error in delete");
+      console.log(error);
     });
     
   }

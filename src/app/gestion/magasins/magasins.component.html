@@ -29,7 +29,7 @@
                 <label for="exampleSelectGender">Famille Produits</label>
                 <select class="form-control" name ="famille" [(ngModel)]="magasin.familleProduit">
                     <option [ngValue]="null" disabled>Famille Produits</option>
-                    <option *ngFor="let famille of familleProduits" [(value)]="famille.id_famille" >{{famille.designation_famille}}</option>
+                    <option *ngFor="let famille of familleProduits" [ngValue]="famille" >{{famille.designation_famille}}</option>
                 </select>
             </div>
             <button type="submit" [disabled]="!magasinForm.form.valid" class="btn btn-info mr-2">Submit</button>
@@ -57,7 +57,8 @@
                     <td>{{magasin.designation}}</td>
                     <td>{{magasin.hauteur}}</td>
                     <td>{{magasin.largeur}}</td>
-                    <td>{{magasin.longueur}}</td>
+                    <td><button (click)="onDelete(magasin.id_Magasins)" type="button"  class="btn btn-danger" >Delete</button></td>
+                   
                   </tr>
                 </tbody>
               </table>

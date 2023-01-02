@@ -50,7 +50,8 @@
                     <td>{{labo.designation}}</td>
                     <td>{{labo.address}}</td>
                     <td>{{labo.prix}}</td>
-                    <td>{{labo.tele}}</td>
+                    <td><button (click)="onDelete(labo.id_labo)" type="button"  class="btn btn-danger" >Delete</button></td>
+                
                   </tr>
                 </tbody>
               </table>

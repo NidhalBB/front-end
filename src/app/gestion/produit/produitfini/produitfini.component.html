@@ -15,19 +15,19 @@
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
-                <select class="form-control" name ="famille" [(ngModel)]="produitFini.famille">
-                    <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
+                <select class="form-control" name ="famille" [(ngModel)]="produitFini.produitOuvrage">
+                    <option *ngFor="let fam of famille" [ngValue]="fam" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Sous Famille</label>
-                <select class="form-control" name ="sousfamille" [(ngModel)]="produitFini.sousfamille">
-                    <option *ngFor="let sousfamille of sousfamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
+                <select class="form-control" name ="sousfamille" [(ngModel)]="produitFini.pOuvrage">
+                    <option *ngFor="let sousfamille of sousfamilles" [ngValue]="sousfamille" >{{sousfamille.designation}}</option>
                 </select>
             </div>
             <div class="form-group">
               <label for="exampleInputUsername1">Qunatitée</label>
-              <input type="number" required class="form-control" name ="quantite" [(ngModel)]="produitFini.quantite" placeholder="Qunatitée >
+              <input type="number" required class="form-control" name ="quantite" [(ngModel)]="produitFini.quantite" placeholder="Qunatitée" >
             </div>
             <div class="form-group">
               <label for="exampleInputUsername1">Prix</label>
@@ -54,8 +54,10 @@
                 <tbody>
                   <tr *ngFor="let produitFini of produitsFini">
                     <td>{{produitFini.designation}}</td>
-                    <td>{{produitFini.famille}}</td>
-                    <td>{{produitFini.sousfamille}}</td>
+                    <td>{{produitFini.produitOuvrage.designation_famille}}</td>
+                    <td>{{produitFini.pOuvrage.designation}}</td>
+                    <td><button (click)="onDelete(produitFini.id_Produit_Ouvrage)" type="button"  class="btn btn-danger" >Delete</button></td>
+                
                   </tr>
                 </tbody>
               </table>

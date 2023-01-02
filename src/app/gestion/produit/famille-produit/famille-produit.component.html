@@ -32,6 +32,8 @@
                 <tbody>
                   <tr *ngFor="let famille of familles">
                     <td>{{famille.designation_famille}}</td>
+                    <td><button (click)="onDelete(famille.id_Famille)" type="button"  class="btn btn-danger" >Delete</button></td>
+          
                   </tr>
                 </tbody>
               </table>

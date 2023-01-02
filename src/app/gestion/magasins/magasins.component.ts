@@ -3,7 +3,7 @@ import { GestionService } from 'src/app/Services/gestion/gestion.service';
 import { FamillProduit } from '../produit/famille-produit/famille-produit.component';
 
 export class Magasins{
-  public id:string;
+  public id_Magasins:string;
     public designation:string;
     public hauteur:number;
     public largeur:number;
@@ -30,7 +30,23 @@ export class MagasinsComponent implements OnInit {
         
       console.log(data);
       this.ngOnInit();
+    },
+    error => {
+      alert("Error Adding");
+      console.log(error);
     });
+  }
+  onDelete(id : string) {
+    this.gestionService.deleteMagasin(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    },
+    error => {
+      alert("Error in delete");
+      console.log(error);
+    });
+    
   }
   ngOnInit(): void {
     this.gestionService.findAllMagasins().subscribe(data => {

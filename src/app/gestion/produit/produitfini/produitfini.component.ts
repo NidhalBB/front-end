@@ -4,10 +4,10 @@ import { FamillProduit } from '../famille-produit/famille-produit.component';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class ProduitFini{
-  public id:string;
+  public id_Produit_Ouvrage:string;
   public designation : string;
-  public famille:string;
-  public sousfamille:string;
+  public produitOuvrage:FamillProduit;
+  public pOuvrage:SousFamille;
   public quantite :number;
   public prix : number;
 }
@@ -31,6 +31,18 @@ export class ProduitfiniComponent implements OnInit {
       console.log(data);
       this.ngOnInit();
     });
+  }
+  onDelete(id : string) {
+    this.gestionService.deleteFini(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    },
+    error => {
+      alert("Error in delete");
+      console.log(error);
+    });
+    
   }
   ngOnInit(): void {
     this.gestionService.findAllProduitFini().subscribe(data => {

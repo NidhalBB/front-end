@@ -25,13 +25,18 @@ export class GestionService {
  public findAll(): Observable<Labo[]> {
   return this.http.get<Labo[]>(`${this.baseUrl}`+'showAllLabo');
 }
-
+public deleteLabo(id : string) {
+  return this.http.delete<Labo>(`${this.baseUrl}`+`labo/${id}`);
+}
 public saveMagasins(magasins :Magasins ) {
   console.log(magasins);
   return this.http.post<Magasins>(`${this.baseUrl}`+'createMagasins',magasins);
 }
 public findAllMagasins(): Observable<Magasins[]> {
 return this.http.get<Magasins[]>(`${this.baseUrl}`+'showAllMagasins');
+}
+public deleteMagasin(id : string) {
+  return this.http.delete<Magasins>(`${this.baseUrl}`+`magasin/${id}`);
 }
 public saveFamille(famille :FamillProduit) {
   console.log(famille);
@@ -40,6 +45,9 @@ public saveFamille(famille :FamillProduit) {
 public findAllFamille(): Observable<FamillProduit[]> {
 return this.http.get<FamillProduit[]>(`${this.baseUrl}`+'showAllfamilleProduit');
 }
+public deleteFamille(id : string) {
+  return this.http.delete<FamillProduit>(`${this.baseUrl}`+`Famille/${id}`);
+}
 public saveSousFam(sousFamille :SousFamille) {
   console.log(sousFamille);
   return this.http.post<SousFamille>(`${this.baseUrl}`+'createSousfamille',sousFamille);
@@ -47,7 +55,9 @@ public saveSousFam(sousFamille :SousFamille) {
 public findAllSouFam(): Observable<SousFamille[]> {
 return this.http.get<SousFamille[]>(`${this.baseUrl}`+'showAllSousfamille');
 }
-
+public deleteSous(id : string) {
+  return this.http.delete<SousFamille>(`${this.baseUrl}`+`sousfamille/${id}`);
+}
 public saveProduitFini(produitfini :ProduitFini) {
   console.log(produitfini);
   return this.http.post<ProduitFini>(`${this.baseUrl}`+'createproduitOuvrage',produitfini);
@@ -55,7 +65,9 @@ public saveProduitFini(produitfini :ProduitFini) {
 public findAllProduitFini(): Observable<ProduitFini[]> {
 return this.http.get<ProduitFini[]>(`${this.baseUrl}`+'showAllproduitOuvrage');
 }
-
+public deleteFini(id : string) {
+  return this.http.delete<ProduitFini>(`${this.baseUrl}`+`produitOuvrage/${id}`);
+}
 public saveProduitSemi(produitSemi :ProduitSemiFini) {
   console.log(produitSemi);
   return this.http.post<ProduitSemiFini>(`${this.baseUrl}`+'createproduitSemiFini',produitSemi);
@@ -63,13 +75,18 @@ public saveProduitSemi(produitSemi :ProduitSemiFini) {
 public findAllProduitSemi(): Observable<ProduitSemiFini[]> {
 return this.http.get<ProduitSemiFini[]>(`${this.baseUrl}`+'showAllproduitSemiFini');
 }
-
+public deleteSemi(id : string) {
+  return this.http.delete<ProduitSemiFini>(`${this.baseUrl}`+`produitSemiFini/${id}`);
+}
 public saveMatiere(matiereAcquise :MatiereAcquise) {
   console.log(matiereAcquise);
   return this.http.post<MatiereAcquise>(`${this.baseUrl}`+'creatematiereAcquise',matiereAcquise);
 }
 public findAllMatiere(): Observable<MatiereAcquise[]> {
 return this.http.get<MatiereAcquise[]>(`${this.baseUrl}`+'showAllmatiereAcquise');
+}
+public deleteMatiere(id : string) {
+  return this.http.delete<MatiereAcquise>(`${this.baseUrl}`+`matiereAcquise/${id}`);
 }
 public saveProduit(produit :Produit) {
   console.log(produit);

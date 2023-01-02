@@ -25,6 +25,14 @@ export class FamilleMachineComponent implements OnInit {
       });
       
     }
+    onDelete(id : string) {
+      this.equipementsService.deleteFam(id).subscribe( data => {
+          
+        console.log(id);
+        this.ngOnInit();
+      });
+      
+    }
     ngOnInit(): void {
       this.equipementsService.findAllFamille().subscribe(data => {
         this.familles = data;

@@ -11,13 +11,13 @@
         <form class="forms-sample" (ngSubmit)="onSubmit()" #equipementForm="ngForm">
           <div class="form-group">
             <label for="exampleInputUsername1">Famille Machine</label>
-          <select class="form-control" name ="famille" [(ngModel)]="equipement.famille">
-              <option *ngFor="let fam of famille" [(value)]="fam.designation" >{{fam.designation}}</option>
+          <select class="form-control" required name ="famille" [(ngModel)]="equipement.equipement">
+              <option *ngFor="let fam of famille" [ngValue]="fam" >{{fam.designation}}</option>
           </select>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Désignation</label>
-            <input type="text" class="form-control" name ="nom" [(ngModel)]="equipement.nom" >
+            <input type="text" class="form-control" name ="nom" [(ngModel)]="equipement.nom" required>
           </div> 
           <div class="form-group">
               <label for="exampleInputMobile">Largeur en(mm) </label>
@@ -49,7 +49,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputMobile">Débit  </label>
-            <input type="number" class="form-control" ame = "debit" [(ngModel)]="equipement.debit" >  
+            <input type="number" class="form-control" name = "debit" [(ngModel)]="equipement.debit" >  
       </div>
       <div class="form-group">
             <label for="exampleInputMobile">Pression ( bars) </label>
@@ -67,7 +67,7 @@
             <label for="exampleInputMobile">Granulométrie </label>
               <input type="number" class="form-control" name = "granulometrie" [(ngModel)]="equipement.granulometrie" >  
         </div>
-          <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+          <button type="submit" [disabled]="!equipementForm.form.valid" class="btn btn-info mr-2">Submit</button>
           <button type ="reset" class="btn btn-light">Cancel</button>
         </form>
       </div>
@@ -83,13 +83,15 @@
                 <tr>
                   <th>Famille</th>
                   <th>Désignation</th>
+                  <th>Capacite</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let equipement of equipements">
-                  <td>{{equipement.famille}}</td>
+                  <td>{{equipement.equipement.designation}}</td>
                   <td>{{equipement.nom}}</td>
-                  <td><button class="btn btn-light">Détails</button></td>
+                  <td>{{equipement.capacite}}</td>
+                  <td><button (click)="onDelete(equipement.id)" type="button"  class="btn btn-danger" >Delete</button></td>
                 </tr>
               </tbody>
             </table>

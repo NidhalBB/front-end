@@ -143,7 +143,7 @@
          </ul>
       </div>
     </li>
-    <li class="nav-item" [ngClass]="{'active' : Securite.isActive ||Maintenance.isActive || Temporaire.isActive ||Spatial.isActive ||Cphysiques.isActive }">
+   <!-- <li class="nav-item" [ngClass]="{'active' : Securite.isActive ||Maintenance.isActive || Temporaire.isActive ||Spatial.isActive ||Cphysiques.isActive }">
       <a class="nav-link" (click)="indicateur = !indicateur" [attr.aria-expanded]="indicateur" aria-controls="indicateur">
         <span class="menu-title"> Les Indicateurs </span>
         <i class="menu-arrow"></i>
@@ -171,7 +171,7 @@
           <li class="nav-item"> <a class="nav-link" routerLink="GestionStock/EtatStock" routerLinkActive="active" #etat="routerLinkActive">Etat de Stock</a></li>
         </ul>
       </div>
-    </li>
+    </li>-->
     <li class="nav-item" [ngClass]="{'active' : equipement.isActive || groupe.isActive }">
       <a class="nav-link" (click)="machines = !machines" [attr.aria-expanded]="machines" aria-controls="machines">
         <span class="menu-title"> Les Machines </span>

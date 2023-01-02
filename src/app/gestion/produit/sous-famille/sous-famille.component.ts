@@ -5,7 +5,7 @@ import { FamillProduit } from '../famille-produit/famille-produit.component';
 export class SousFamille{
   public id_SousFamille:string;
   public designation:string;
-  public familleProduit	:string;
+  public sousFamille	:FamillProduit;
 }
 @Component({
   selector: 'app-sous-famille',
@@ -26,6 +26,18 @@ export class SousFamilleComponent implements OnInit {
         console.log(data);
         this.ngOnInit();
       });
+  }
+   onDelete(id : string) {
+    this.gestionService.deleteSous(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    },
+    error => {
+      alert("Error in delete");
+      console.log(error);
+    });
+    
   }
   ngOnInit(): void {
     this.gestionService.findAllSouFam().subscribe(data => {

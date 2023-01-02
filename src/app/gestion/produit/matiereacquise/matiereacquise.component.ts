@@ -6,13 +6,13 @@ import { FamillProduit } from '../famille-produit/famille-produit.component';
 import { SousFamille } from '../sous-famille/sous-famille.component';
 
 export class MatiereAcquise{
-  public id:string;
+  public id_Matiere:string;
   public designation:string;
   public prix:number;
   public quantite:number;
-  public fournisseur:string;
-  public famille:string;
-  public sousfamille:string;
+  public fournisseur:Fournisseur;
+  public matiereAcquise:FamillProduit;
+  public mAcquise:SousFamille;
 }
 @Component({
   selector: 'app-matiereacquise',
@@ -40,6 +40,18 @@ export class MatiereacquiseComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+   onDelete(id : string) {
+    this.gestionService.deleteMatiere(id).subscribe( data => {
+        
+      console.log(id);
+      this.ngOnInit();
+    },
+    error => {
+      alert("Error in delete");
+      console.log(error);
+    });
+    
   }
   ngOnInit(): void {
     this.gestionService.findAllMatiere().subscribe(data => {

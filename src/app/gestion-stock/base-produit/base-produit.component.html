@@ -18,7 +18,7 @@
                   <th >
                     Désignation Produit
                   </th>
-                  <th>
+                  <th *ngIf="stock.type == 'Sortie' || stock.type == 'Entree'">
                     Quantité
                   </th>
                   <th *ngIf="stock.produit == 'Produit Acquis' ">
@@ -49,7 +49,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="op">
                 <tr>
                   
                     <td>
@@ -81,7 +81,9 @@
                 </select>
                     </td>
                     <td>
-                      <input type="number" class="form-control" name ="quantite"  />
+                      <div *ngIf="stock.type == 'Sortie' || stock.type == 'Entree'">
+                        <input type="number" class="form-control" name ="quantite"  />
+                      </div>
                     </td>
                     <td *ngIf="stock.produit == 'Produit Acquis' ">
                       <div *ngFor="let produit of matieresAcquise"  >

@@ -19,24 +19,24 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputMobile">Prix</label>
-                  <input type="number" required class="form-control" name ="prix" [(ngModel)]="matiereAcquise.prix" placeholder="Prix>
+                  <input type="number" required class="form-control" name ="prix" [(ngModel)]="matiereAcquise.prix" placeholder="Prix">
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
-                <select class="form-control" name ="famille" [(ngModel)]="matiereAcquise.famille">
-                    <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
+                <select class="form-control" name ="famille" [(ngModel)]="matiereAcquise.matiereAcquise">
+                    <option *ngFor="let fam of famille" [ngValue]="fam" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Sous Famille</label>
-                <select class="form-control" name ="sousfamille" [(ngModel)]="matiereAcquise.sousfamille">
-                    <option *ngFor="let sousfamille of sousFamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
+                <select class="form-control" name ="sousfamille" [(ngModel)]="matiereAcquise.mAcquise">
+                    <option *ngFor="let sousfamille of sousFamilles" [ngValue]="sousfamille" >{{sousfamille.designation}}</option>
                 </select>
             </div>
             <div class="form-group">
               <label for="exampleSelectGender">Fournisseur</label>
               <select class="form-control" name ="fournisseur" [(ngModel)]="matiereAcquise.fournisseur">
-                  <option *ngFor="let f of fournisseurs" [(value)]="f.designation" >{{f.designation}}</option>
+                  <option *ngFor="let f of fournisseurs" [ngValue]="f" >{{f.designation}}</option>
               </select>
           </div>
             <button type="submit" [disabled]="!matiereAcquiseiForm.form.valid" class="btn btn-info mr-2">Submit</button>
@@ -63,6 +63,8 @@
                     <td>{{matiereAcquise.designation}}</td>
                     <td>{{matiereAcquise.quantite}}</td>
                     <td>{{matiereAcquise.prix}}</td>
+                    <td><button (click)="onDelete(matiereAcquise.id_Matiere)" type="button"  class="btn btn-danger" >Delete</button></td>
+                
                   </tr>
                 </tbody>
               </table>

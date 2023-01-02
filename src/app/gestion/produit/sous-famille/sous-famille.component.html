@@ -15,9 +15,9 @@
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
-                <select class="form-control" required name ="famille" [(ngModel)]="sousFamille.familleProduit	">
+                <select class="form-control" required name ="famille" [(ngModel)]="sousFamille.sousFamille	">
                     <option [ngValue]="null" disabled>Famille Produits</option>
-                    <option *ngFor="let fam of famille" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
+                    <option *ngFor="let fam of famille" [ngValue]="fam" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <button type="submit"[disabled]="!sousFamilleForm.form.valid" class="btn btn-info mr-2">Submit</button>
@@ -40,8 +40,9 @@
                 <tbody>
                   <tr *ngFor="let sousFamille of sousFamilles">
                     <td>{{sousFamille.designation}}</td>
-                    <td>{{sousFamille.familleProduit}}</td>
-
+                    <td>{{sousFamille.sousFamille.designation_famille}}</td>
+                    <td><button (click)="onDelete(sousFamille.id_SousFamille)" type="button"  class="btn btn-danger" >Delete</button></td>
+                
                   </tr>
                 </tbody>
               </table>

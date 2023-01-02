@@ -15,14 +15,14 @@
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Famille Produits</label>
-                <select class="form-control" name ="famille" [(ngModel)]="produitSemiFini.famille">
-                    <option *ngFor="let fam of familles" [(value)]="fam.designation_famille" >{{fam.designation_famille}}</option>
+                <select class="form-control" name ="famille" [(ngModel)]="produitSemiFini.produitSemiFini">
+                    <option *ngFor="let fam of familles" [ngValue]="fam" >{{fam.designation_famille}}</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="exampleSelectGender">Sous Famille</label>
-                <select class="form-control" name ="sousfamille" [(ngModel)]="produitSemiFini.souFamille">
-                    <option *ngFor="let sousfamille of sousFamilles" [(value)]="sousfamille.designation" >{{sousfamille.designation}}</option>
+                <select class="form-control" name ="sousfamille" [(ngModel)]="produitSemiFini.pSemiFini">
+                    <option *ngFor="let sousfamille of sousFamilles" [ngValue]="sousfamille" >{{sousfamille.designation}}</option>
                 </select>
             </div>
             <button type="submit" [disabled]="!produitsemifiniForm.form.valid" class="btn btn-info mr-2">Submit</button>
@@ -46,8 +46,10 @@
                 <tbody>
                   <tr *ngFor="let produitSemiFini of produitsSemiFini">
                     <td>{{produitSemiFini.designation}}</td>
-                    <td>{{produitSemiFini.famille}}</td>
-                    <td>{{produitSemiFini.sousfamille}}</td>
+                    <td>{{produitSemiFini.produitSemiFini.designation_famille}}</td>
+                    <td>{{produitSemiFini.pSemiFini.designation}}</td>
+                    <td><button (click)="onDelete(produitSemiFini.id_Produit_Semi_Fini)" type="button"  class="btn btn-danger" >Delete</button></td>
+        
                   </tr>
                 </tbody>
               </table>

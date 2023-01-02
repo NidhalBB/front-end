@@ -32,14 +32,17 @@ export class BaseProduitComponent implements OnInit {
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    cell1.innerHTML = `<select name ="produit" {{stock.type}}><option  >Entree</option> <option >Sortie</option> </select>`;
+    cell1.innerHTML = `<select name ="produit" {{stock.type}} (change)="test()"><option  >Entree</option> <option >Sortie</option> </select>`;
     if(this.stock.type == 'Sortie'){
       
       cell2.innerHTML = '<select name ="produit" ><option >List des Produit</option> </select>';
     }else{
-      console.log(this.stock.type);
+      
       cell2.innerHTML ='<select name ="produit" [(ngModel)]="stock.produit"><option >test</option> <option >test2</option> <option >yup</option> </select>';
     }
+  }
+  test(){
+    console.log(this.stock.type);
   }
   ngOnInit(): void {
     this.gestionService.findAllProduitSemi().subscribe(data => {
